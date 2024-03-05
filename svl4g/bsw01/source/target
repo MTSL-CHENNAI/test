@@ -1,0 +1,156 @@
+########################################################################################################################
+#
+#                                 target
+#
+########################################################################################################################
+#
+#                 Copyright (C) 2010 - 2015 by KNORR-BREMSE,
+#               Systeme fuer Schienenfahrzeuge GmbH, Muenchen
+#
+# Project: IBC
+# Date:    2023-10-10
+# Author:  C. Brancolini
+#
+########################################################################################################################
+#
+# LAD CPU04 specific Service Layer
+#
+########################################################################################################################
+#
+# History:
+# Date        Author            Changes
+# 2019-04-02  A. Mauro          Initial Version
+# 2019-05-10  R. Dongre         Added paths for cpu_mwl includes, rearranged objects alphabetically
+# 2019-05-17  K. Gade           Added paths for can_sdi configuration
+# 2019-05-28  A. Mauro          Added ios_cpu04.o
+# 2019-07-08  R. Dongre         Added LINT configurations
+# 2019-07-12  V. Ingulkar       Inclusion of BSW3G ECAL(ecal01) lib, updated inlcude paths as per renamed folder
+# 2019-09-13  R. Dongre         Adapted path for GenCA_FWK
+# 2020-01-27  A. Mauro          Added -D__MM_PROCESSOR=kb_PPC for LINT check
+# 2020-02-12  A. Mauro          Removed cfglib.o
+# 2020-03-06  A. Mauro          Removed cfg_diag_dem_sdi.o, cfg_diag_sdi.o, sdi_diag.o
+# 2020-04-01  A. Mauro          Removed ios_cpu04.o and irq_cmdqueue.o
+# 2021-01-13  A.Gatare          Removed cfg_bcm_sdi.o, cfg_fim_sdi.o, cfg_mon_sdi.o,cfg_can_sdi.o,cfg_os_sdi.o,
+#                               mon_sdi_cmd_hndlr.o, monmeasd.o, mongnrl.o.(Mon files are added in GenCA)
+# 2021-06-11  A. Mauro          Added ios_adp_lad_mpc.o and mon_adp_lad_mpc.o: to be removed with CA 7.0!
+# 2021-07-06  A. Mauro          Added ios_cpu04
+# 2021-30-09  S. Belsare        Updated path for IBC FWK 
+# 2021-07-06  A. Mauro          Removed mon_adp_lad_mpc.o, ios_adp_lad_mpc not removed to solve of BC0025-541 board related
+#                               Added mon_measd_lad_mpc.o to solve BC0025-540 board related
+# 2021-11-12  N. Jadhav         Temporary added mon_adp_lad_mpc.o with fix for BC0025-540.
+# 2021-12-15  N. Jadhav         Removed mon_adp_lad_mpc.o and ios_adp_lad_mpc.o with adaptation on CA 07.01.
+# 2022-03-24  S. Belsare        Updated FWK path
+# 2023-09-11  A. Mauro          Added mon_sdi_binio.o, mon_sdi_fin.o, mon_sdi_fout.o, 
+#                               mon_sdi_psdio.o, mon_sdi_pwm.o, ComSerialAl.o.
+#                               Removed bcm_sdi_cmd_hndlr2.o
+# 2023-10-10  C. Brancolini     Updated for Lint Plus 2.0
+########################################################################################################################
+
+PROZESSOR   = PPC
+
+TYP         = LIB_TYP
+
+NAME        = lad_cpu04_svl
+
+COMPILER    = 5.9.3.0
+
+FORMAT      = ELF
+MACRO_ASM   = -DSW_TYPE_SVL
+MACRO_C     = -DNDEBUG -D__MM_PROCESSOR=kb_PPC
+STACKTEST   = ON
+XLINT       = 1
+
+LINTVERSION = Plus2.0
+GLOBAL_LINTRULE_ROOT = \\mucs0002\Bahn1\Esra_PD\System\SW\Tools\lint\config-new\lint_optg
+LINTRULE = \\mucs0002\Bahn1\Esra_PD\System\SW\Tools\lint\config-new\lint_opt\mpc55xx\lint_opt_mpc55xx\std_pclp.lnt
+
+# use local includes for development
+GENRL_COMM   = ..\..\..\..\GenMPC55xx\GenMPC55xxCCA\Genrl\common.int
+CA_COMM      = ..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\common.int
+CA_HAL       = ..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\hal
+CA_SVL       = ..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\svl4g
+
+GENCA_FWK    =  ..\..\..\..\GenMPC55xx\GenCA_FWK\code
+MPC_CCA_COMM = ..\..\..\..\GenMPC55xx\GenMPC55xxCCA\common.int
+MPC_CCA_HAL  = ..\..\..\..\GenMPC55xx\GenMPC55xxCCA\hal
+MPC_CCA_SVL  = ..\..\..\..\GenMPC55xx\GenMPC55xxCCA\svl4g
+
+MPC_COMM     = ..\..\..\..\GenMPC55xx\common.int
+MPC_CPU04_HAL = ..\..\..\hal
+MPC_CPU04_SVL = ..\..\..\svl4g
+
+CPU_EXE      = ..\..\..\..\eLAD0x\exe
+CPU_HAL      = ..\..\..\hal
+CPU_SVL      = ..\..\..\svl4g
+FWK          = ..\..\..\..\FWK
+COFWK       = ..\..\..\..\CoFwk
+
+CPU_EXE_SVL = ..\..\..\..\eLAD0x\svl4g
+CPU_EXE_HAL = ..\..\..\..\eLAD0x\hal
+CPU_EXE_MWL = ..\..\..\..\eLAD0x\mwl
+CPU04_MWL = ..\..\..\..\LAD_CPU04\mwl
+
+INCLUDES=     ..\include;                                   \
+              $(MPC_CPU04_SVL)\bsw01.int\include            \
+#------------ define common includes                        \
+              $(MPC_CCA_COMM)\include;                      \
+              $(CA_COMM)\include;                           \
+              $(MPC_COMM)\include;                          \
+              $(GENRL_COMM)\include;                        \
+#------------ define sciopta includes;                      \
+              $(MPC_CCA_SVL)\xos01.Int\Include;             \
+              $(MPC_CCA_SVL)\xos01.Int\Include\SCIOPTA\PPC; \
+#------------ define firmware includes                      \
+              $(MPC_CCA_HAL)\mcal01.int\include;            \
+              $(CPU_EXE)\Fwr_ESRAEvol.int\include;          \
+#------------ define library includes                       \
+              $(CPU_EXE_SVL)\bsw01.int\include;             \
+              $(CA_SVL)\bsw01.int\include;                  \
+              $(CPU_EXE_MWL)\mwl01.int\include;             \
+              $(CPU04_MWL)\mwl01.int\include;                \
+              $(MPC_CCA_SVL)\bsw01.int\include;             \
+              $(CA_SVL)\bsw01\include;                      \
+              $(MPC_CCA_SVL)\bsw01\include;                 \
+              $(GENCA_FWK)\mwl\mwl01\include;               \
+#------------ define firmware includes                      \
+              $(CPU_EXE_HAL)\ecal01.int\include;            \
+              $(CA_HAL)\ecal01.int\include;                 \
+              $(MPC_CCA_HAL)\ecal02.int\include;            \
+              $(MPC_CCA_HAL)\ecal01.int\include;            \
+              $(MPC_CPU04_HAL)\ecal01\include;              \
+              $(MPC_CPU04_HAL)\ecal01.int\include;          \
+              $(CPU_HAL)\ecal01.int\include;                \
+#------------ define IBC framework includes                 \
+              $(FWK)\deployment\lad                      \
+              $(FWK)\deployment\lad\Impl                 \
+#------------ define IBC common includes                    \
+              $(COFWK)\Deployment;                          \
+#----Note: In release V48 app_com_tables is in application
+#----------Hence this needs to be added for IO handles
+              $(CPU_EXE)\App_ESRAEvol\include     \
+
+# Path to jumptable
+SRCPATH     = $(CPU_EXE)\Fwr_ESRAEvol.int\source;
+
+OBJS = \
+              @bcm_bs.o                                     \
+              @cfg_bcm.o                                    \
+              @cfg_can.o                                    \
+              @cfg_ccc_rom_segtabsvl.o                      \
+              @cfg_nvm.o                                    \
+              @cfg_sdi.o                                    \
+              @ComSerialAl.o                                \
+              @c_mon.o                                      \
+              @cfg_mon.o                                    \
+              @mon_sdi_binio.o                              \
+              @mon_sdi_fin.o                                \
+              @mon_sdi_fout.o                               \
+              @mon_sdi_psdio.o                              \
+              @mon_sdi_pwm.o                                \
+              @functabexe.o                                 \
+              @identexesvl.o                                \
+              @ios_filt.o                                   \
+              @ios_cpu04.o                                  \
+              @irq_jobqueue.o                               \
+              @resethook.o                                  
+## End #################################################################################################################
