@@ -1,0 +1,1139 @@
+                                  1 	#$$eb
+                                  2 	#$$sz 0		- Size opt info
+                                  3 	#$$ss 0		- XO option
+                                  4 	#$$fp 0		- Floating point mode
+                                  5 	#$$m2		- PowerPC mnemonics
+                                  6 	#$$pPPC	- PowerPC instructions
+                                  7 	#$$oPPC5554	 - Optimized for PowerPC PPC5554
+                                  8 	#$$ko 1
+                                  9 		.file		"c_nvm.c"
+                                 10 	#$$dg 1
+                                 11 	# -X user configurable options:
+                                 12 	#$$x X7=1 X8=1 X10=1 X11=1 X12=1 X15=2 X16=20 X18=4
+                                 13 	#$$x X19=10 X20=21093 X23=1 X27=1048576 X32=2 X33=3328 X36=1 X39=5554
+                                 14 	#$$x X46=1 X48=1 X55=7 X56=1 X57=2 X74=255 X78=4 X83=3
+                                 15 	#$$x X84=-2 X86=3 X91=1 X93=4 X115=32767 X119=44 X146=6 X147=3
+                                 16 	#$$x X153=2 X154=12582977 X175=65535 X179=1 X180=20 X191=1 X422=10000000 X423=6000000
+                                 17 	#$$x X424=300000 X428=1 X446=1 X450=1 X459=64
+                                 18 		.section	.PPC.EMB.apuinfo,,@note
+  00000000 01  0000 0008         19 		.4byte		8
+  00000004 01  0000 0008         20 		.4byte		0+4+4
+  00000008 01  0000 0002         21 		.4byte		2
+  0000000c 01  4150 5569 6e66    22 		.byte		"APUinfo"
+  00000012 01  6f                   	
+  00000013 01  00                23 		.byte		0
+                                 24 		.align		2
+  00000014 01  0100 0001         25 		.4byte		0x01000001
+  00000018 01  0040 0001         26 		.4byte		0x00400001
+                                 27 		.text
+                                 28 		.section	.debug_line,,n
+                                 29 	.L8:
+                                 30 		.text
+                                 31 	#$$ld
+                                 32 	.L4:
+  00000000 00                    33 		.0byte		.L2
+  00000000 02  0000 0218 0002    34 		.d2_line_start	.debug_line
+  00000006 02  0000 0013 0401       	
+  0000000c 02  ff04 0d00 0101       	
+  00000012 02  0101 0000 0001       	
+  00000018 02  0000 0100 00         	
+                                 35 		.text
+                                 36 	
+                                 37 	# Allocations for module
+                                 38 		.text
+  00000000 00                    39 		.0byte		.L151
+                                 40 		.text
+                                 41 		.type		u8NVM_DeviceIDForFwk,@object
+                                 42 		.size		u8NVM_DeviceIDForFwk,1
+                                 43 		.align		0
+                                 44 		.globl		u8NVM_DeviceIDForFwk
+                                 45 	u8NVM_DeviceIDForFwk:
+  00000000 00  01                46 		.byte		1
+                                 47 		.text
+                                 48 		.type		u32NVM_FlashErasePattern,@object
+                                 49 		.size		u32NVM_FlashErasePattern,4
+                                 50 		.align		2
+                                 51 		.globl		u32NVM_FlashErasePattern
+                                 52 	u32NVM_FlashErasePattern:
+  00000004 00  ffff ffff         53 		.long		-1
+                                 54 		.text
+                                 55 		.type		u8NVM_DeviceIDForUser,@object
+                                 56 		.size		u8NVM_DeviceIDForUser,1
+                                 57 		.align		0
+                                 58 		.globl		u8NVM_DeviceIDForUser
+                                 59 	u8NVM_DeviceIDForUser:
+  00000008 00  02                60 		.byte		2
+                                 61 		.text
+                                 62 		.type		u8MAMO_MyPoffUsrArea,@object
+                                 63 		.size		u8MAMO_MyPoffUsrArea,1
+                                 64 		.align		0
+                                 65 		.globl		u8MAMO_MyPoffUsrArea
+                                 66 	u8MAMO_MyPoffUsrArea:
+  00000009 00  01                67 		.byte		1
+                                 68 		.text
+                                 69 		.type		u8RTC_MyPoffUsrArea,@object
+                                 70 		.size		u8RTC_MyPoffUsrArea,1
+                                 71 		.align		0
+                                 72 		.globl		u8RTC_MyPoffUsrArea
+                                 73 	u8RTC_MyPoffUsrArea:
+  0000000a 00  02                74 		.byte		2
+                                 75 		.text
+                                 76 		.type		u8DSM_MyPoffUsrArea,@object
+                                 77 		.size		u8DSM_MyPoffUsrArea,1
+                                 78 		.align		0
+                                 79 		.globl		u8DSM_MyPoffUsrArea
+                                 80 	u8DSM_MyPoffUsrArea:
+  0000000b 00  00                81 		.byte		0
+                                 82 		.text
+                                 83 		.type		u8DFM_MyPoffUsrArea,@object
+                                 84 		.size		u8DFM_MyPoffUsrArea,1
+                                 85 		.align		0
+                                 86 		.globl		u8DFM_MyPoffUsrArea
+                                 87 	u8DFM_MyPoffUsrArea:
+  0000000c 00  03                88 		.byte		3
+                                 89 		.text
+                                 90 		.type		u8DFM_NonPoffFwkArea,@object
+                                 91 		.size		u8DFM_NonPoffFwkArea,1
+                                 92 		.align		0
+                                 93 		.globl		u8DFM_NonPoffFwkArea
+                                 94 	u8DFM_NonPoffFwkArea:
+  0000000d 00  02                95 		.byte		2
+                                 96 		.text
+                                 97 		.type		u8DABA_NonPoffFwkArea,@object
+                                 98 		.size		u8DABA_NonPoffFwkArea,1
+                                 99 		.align		0
+                                100 		.globl		u8DABA_NonPoffFwkArea
+                                101 	u8DABA_NonPoffFwkArea:
+  0000000e 00  01               102 		.byte		1
+                                103 		.text
+                                104 		.type		u8LADC_NonPoffUsrArea,@object
+                                105 		.size		u8LADC_NonPoffUsrArea,1
+                                106 		.align		0
+                                107 		.globl		u8LADC_NonPoffUsrArea
+                                108 	u8LADC_NonPoffUsrArea:
+  0000000f 00  00               109 		.byte		0
+                                110 		.text
+                                111 		.type		u8LADC_NonPoffUsrAreaOffset,@object
+                                112 		.size		u8LADC_NonPoffUsrAreaOffset,1
+                                113 		.align		0
+                                114 		.globl		u8LADC_NonPoffUsrAreaOffset
+                                115 	u8LADC_NonPoffUsrAreaOffset:
+  00000010 00  00               116 		.byte		0
+                                117 		.text
+                                118 		.type		u8DRC_MyPoffUsrArea,@object
+                                119 		.size		u8DRC_MyPoffUsrArea,1
+                                120 		.align		0
+                                121 		.globl		u8DRC_MyPoffUsrArea
+                                122 	u8DRC_MyPoffUsrArea:
+  00000011 00  04               123 		.byte		4
+                                124 		.text
+                                125 		.type		u8NVM_USR_CfgNumOfDevices,@object
+                                126 		.size		u8NVM_USR_CfgNumOfDevices,1
+                                127 		.align		0
+                                128 		.globl		u8NVM_USR_CfgNumOfDevices
+                                129 	u8NVM_USR_CfgNumOfDevices:
+  00000012 00  03               130 		.byte		3
+                                131 		.text
+                                132 		.type		pc_C_CDO_NVM_APP_CFG_BSW_ROM,@object
+                                133 		.size		pc_C_CDO_NVM_APP_CFG_BSW_ROM,4
+                                134 		.align		2
+                                135 		.globl		pc_C_CDO_NVM_APP_CFG_BSW_ROM
+                                136 	pc_C_CDO_NVM_APP_CFG_BSW_ROM:
+  00000014 00  0000 0000        137 		.long		cNVM_USR_CfgTable
+                                138 		.text
+                                139 		.align		2
+                                140 	#	Begin local data area
+                                141 	#	LDA + 0
+                                142 		.type		acNVM_USR_Device_2,@object
+                                143 		.size		acNVM_USR_Device_2,24
+                                144 		.align		2
+                                145 		.globl		acNVM_USR_Device_2
+                                146 	acNVM_USR_Device_2:
+  00000018 00  00               147 		.byte		0
+  00000019 00  00               148 		.byte		0
+  0000001a 00  00               149 		.byte		0
+  0000001b 00  00               150 		.byte		0
+  0000001c 00  0000 0000        151 		.long		0
+  00000020 00  0000 4000        152 		.long		16384
+  00000024 00  01               153 		.byte		1
+  00000025 00  00               154 		.byte		0
+  00000026 00  00               155 		.byte		0
+  00000027 00  00               156 		.byte		0
+  00000028 00  0000 4000        157 		.long		16384
+  0000002c 00  0000 8000        158 		.long		32768
+                                159 		.text
+                                160 	#	LDA + 24
+                                161 		.type		acNVM_USR_Device_1,@object
+                                162 		.size		acNVM_USR_Device_1,48
+                                163 		.align		2
+                                164 		.globl		acNVM_USR_Device_1
+                                165 	acNVM_USR_Device_1:
+  00000030 00  00               166 		.byte		0
+  00000031 00  00               167 		.byte		0
+  00000032 00  00               168 		.byte		0
+  00000033 00  00               169 		.byte		0
+  00000034 00  0000 0000        170 		.long		0
+  00000038 00  0000 0020        171 		.long		32
+  0000003c 00  01               172 		.byte		1
+  0000003d 00  00               173 		.byte		0
+  0000003e 00  00               174 		.byte		0
+  0000003f 00  00               175 		.byte		0
+  00000040 00  0000 0020        176 		.long		32
+  00000044 00  0000 0200        177 		.long		512
+  00000048 00  02               178 		.byte		2
+  00000049 00  00               179 		.byte		0
+  0000004a 00  00               180 		.byte		0
+  0000004b 00  00               181 		.byte		0
+  0000004c 00  0000 0220        182 		.long		544
+  00000050 00  0000 a080        183 		.long		41088
+  00000054 00  03               184 		.byte		3
+  00000055 00  00               185 		.byte		0
+  00000056 00  00               186 		.byte		0
+  00000057 00  00               187 		.byte		0
+  00000058 00  0000 a2a0        188 		.long		41632
+  0000005c 00  0000 00c0        189 		.long		192
+                                190 		.text
+                                191 	#	LDA + 72
+                                192 		.type		acNVM_USR_Device_0,@object
+                                193 		.size		acNVM_USR_Device_0,60
+                                194 		.align		2
+                                195 		.globl		acNVM_USR_Device_0
+                                196 	acNVM_USR_Device_0:
+  00000060 00  00               197 		.byte		0
+  00000061 00  00               198 		.byte		0
+  00000062 00  00               199 		.byte		0
+  00000063 00  00               200 		.byte		0
+  00000064 00  0000 0000        201 		.long		0
+  00000068 00  0000 0400        202 		.long		1024
+  0000006c 00  01               203 		.byte		1
+  0000006d 00  00               204 		.byte		0
+  0000006e 00  00               205 		.byte		0
+  0000006f 00  00               206 		.byte		0
+  00000070 00  0000 0400        207 		.long		1024
+  00000074 00  0000 003c        208 		.long		60
+  00000078 00  02               209 		.byte		2
+  00000079 00  00               210 		.byte		0
+  0000007a 00  00               211 		.byte		0
+  0000007b 00  00               212 		.byte		0
+  0000007c 00  0000 043c        213 		.long		1084
+  00000080 00  0000 0008        214 		.long		8
+  00000084 00  03               215 		.byte		3
+  00000085 00  00               216 		.byte		0
+  00000086 00  00               217 		.byte		0
+  00000087 00  00               218 		.byte		0
+  00000088 00  0000 0444        219 		.long		1092
+  0000008c 00  0000 0154        220 		.long		340
+  00000090 00  04               221 		.byte		4
+  00000091 00  00               222 		.byte		0
+  00000092 00  00               223 		.byte		0
+  00000093 00  00               224 		.byte		0
+  00000094 00  0000 0598        225 		.long		1432
+  00000098 00  0000 0020        226 		.long		32
+                                227 		.text
+                                228 	#	LDA + 132
+                                229 		.type		cNVM_USR_CfgTable,@object
+                                230 		.size		cNVM_USR_CfgTable,44
+                                231 		.align		2
+                                232 		.globl		cNVM_USR_CfgTable
+                                233 	cNVM_USR_CfgTable:
+  0000009c 00  34c0             234 		.short		13504
+  0000009e 00  0001             235 		.short		1
+  000000a0 00  0003             236 		.short		3
+  000000a2 00  000c             237 		.short		12
+  000000a4 00  00               238 		.byte		0
+                                239 		.space		3
+  000000a8 00  0000 0000        240 		.long		acNVM_USR_Device_0
+  000000ac 00  05               241 		.byte		5
+  000000ad 00  01               242 		.byte		1
+                                243 		.space		2
+  000000b0 00  01               244 		.byte		1
+                                245 		.space		3
+  000000b4 00  0000 0000        246 		.long		acNVM_USR_Device_1
+  000000b8 00  04               247 		.byte		4
+  000000b9 00  01               248 		.byte		1
+                                249 		.space		2
+  000000bc 00  02               250 		.byte		2
+                                251 		.space		3
+  000000c0 00  0000 0000        252 		.long		acNVM_USR_Device_2
+  000000c4 00  02               253 		.byte		2
+  000000c5 00  01               254 		.byte		1
+                                255 		.space		2
+                                256 		.text
+                                257 	#$$ld
+                                258 	.L5:
+  0000001d 02  0018 032e 2e5c   259 	.L178:	.d2filenum "..\\source\\c_nvm.c"
+  00000023 02  5c73 6f75 7263       	
+  00000029 02  655c 5c63 5f6e       	
+  0000002f 02  766d 2e63 0000       	
+  00000035 02  0000                 	
+  00000037 02  003a 032e 2e5c   260 	.L176:	.d2filenum "..\\..\\..\\..\\FWK\\deployment\\lad\\FwkAlDrcNvMem.h"
+  0000003d 02  5c2e 2e5c 5c2e       	
+  00000043 02  2e5c 5c2e 2e5c       	
+  00000049 02  5c46 574b 5c5c       	
+  0000004f 02  6465 706c 6f79       	
+  00000055 02  6d65                 	
+  00000073 02  002d 032e 2e5c   261 	.L173:	.d2filenum "..\\..\\mwl01.int\\include\\ladc_flash.h"
+  00000079 02  5c2e 2e5c 5c6d       	
+  0000007f 02  776c 3031 2e69       	
+  00000085 02  6e74 5c5c 696e       	
+  0000008b 02  636c 7564 655c       	
+  00000091 02  5c6c                 	
+  000000a2 02  003c 032e 2e5c   262 	.L171:	.d2filenum "..\\..\\..\\..\\FWK\\deployment\\lad\\FwkAlDataBackup.h"
+  000000a8 02  5c2e 2e5c 5c2e       	
+  000000ae 02  2e5c 5c2e 2e5c       	
+  000000b4 02  5c46 574b 5c5c       	
+  000000ba 02  6465 706c 6f79       	
+  000000c0 02  6d65                 	
+  000000e0 02  003a 032e 2e5c   263 	.L168:	.d2filenum "..\\..\\..\\..\\FWK\\deployment\\lad\\FwkAlDFMNvMem.h"
+  000000e6 02  5c2e 2e5c 5c2e       	
+  000000ec 02  2e5c 5c2e 2e5c       	
+  000000f2 02  5c46 574b 5c5c       	
+  000000f8 02  6465 706c 6f79       	
+  000000fe 02  6d65                 	
+  0000011c 02  003a 032e 2e5c   264 	.L166:	.d2filenum "..\\..\\..\\..\\FWK\\deployment\\lad\\FwkAlDsmNvMem.h"
+  00000122 02  5c2e 2e5c 5c2e       	
+  00000128 02  2e5c 5c2e 2e5c       	
+  0000012e 02  5c46 574b 5c5c       	
+  00000134 02  6465 706c 6f79       	
+  0000013a 02  6d65                 	
+  00000158 02  003a 032e 2e5c   265 	.L164:	.d2filenum "..\\..\\..\\..\\FWK\\deployment\\lad\\FwkAlRtcNvMem.h"
+  0000015e 02  5c2e 2e5c 5c2e       	
+  00000164 02  2e5c 5c2e 2e5c       	
+  0000016a 02  5c46 574b 5c5c       	
+  00000170 02  6465 706c 6f79       	
+  00000176 02  6d65                 	
+  00000194 02  003b 032e 2e5c   266 	.L162:	.d2filenum "..\\..\\..\\..\\FWK\\deployment\\lad\\FwkAlMamoNvMem.h"
+  0000019a 02  5c2e 2e5c 5c2e       	
+  000001a0 02  2e5c 5c2e 2e5c       	
+  000001a6 02  5c46 574b 5c5c       	
+  000001ac 02  6465 706c 6f79       	
+  000001b2 02  6d65                 	
+  000001d1 02  003f 032e 2e5c   267 	.L152:	.d2filenum "..\\..\\..\\..\\eLAD0x\\svl4g\\bsw01.int\\include\\c_nvm.h"
+  000001d7 02  5c2e 2e5c 5c2e       	
+  000001dd 02  2e5c 5c2e 2e5c       	
+  000001e3 02  5c65 4c41 4430       	
+  000001e9 02  785c 5c73 766c       	
+  000001ef 02  3467                 	
+  00000212 02  0005 0200 0000   268 		.d2_line_end
+  00000218 02  0000 0101            	
+                                269 	
+                                270 	
+                                271 		.section	.debug_abbrev,,n
+                                272 	.L9:
+                                273 		.section	.debug_abbrev,,n
+  00000000 03  01               274 		.uleb128	1
+  00000001 03  11               275 		.uleb128	17
+  00000002 03  01               276 		.byte		0x1
+  00000003 03  01               277 		.uleb128	1
+  00000004 03  13               278 		.uleb128	19
+  00000005 03  03               279 		.uleb128	3
+  00000006 03  08               280 		.uleb128	8
+  00000007 03  25               281 		.uleb128	37
+  00000008 03  08               282 		.uleb128	8
+  00000009 03  1b               283 		.uleb128	27
+  0000000a 03  08               284 		.uleb128	8
+  0000000b 03  13               285 		.uleb128	19
+  0000000c 03  0f               286 		.uleb128	15
+  0000000d 03  11               287 		.uleb128	17
+  0000000e 03  01               288 		.uleb128	1
+  0000000f 03  12               289 		.uleb128	18
+  00000010 03  01               290 		.uleb128	1
+  00000011 03  10               291 		.uleb128	16
+  00000012 03  06               292 		.uleb128	6
+  00000013 03  00               293 		.uleb128	0
+  00000014 03  00               294 		.uleb128	0
+                                295 		.section	.debug_abbrev,,n
+  00000015 03  02               296 		.uleb128	2
+  00000016 03  34               297 		.uleb128	52
+  00000017 03  00               298 		.byte		0x0
+  00000018 03  3f               299 		.uleb128	63
+  00000019 03  0c               300 		.uleb128	12
+  0000001a 03  3a               301 		.uleb128	58
+  0000001b 03  06               302 		.uleb128	6
+  0000001c 03  3b               303 		.uleb128	59
+  0000001d 03  0f               304 		.uleb128	15
+  0000001e 03  03               305 		.uleb128	3
+  0000001f 03  08               306 		.uleb128	8
+  00000020 03  49               307 		.uleb128	73
+  00000021 03  10               308 		.uleb128	16
+  00000022 03  02               309 		.uleb128	2
+  00000023 03  09               310 		.uleb128	9
+  00000024 03  00               311 		.uleb128	0
+  00000025 03  00               312 		.uleb128	0
+                                313 		.section	.debug_abbrev,,n
+  00000026 03  03               314 		.uleb128	3
+  00000027 03  13               315 		.uleb128	19
+  00000028 03  01               316 		.byte		0x1
+  00000029 03  01               317 		.uleb128	1
+  0000002a 03  13               318 		.uleb128	19
+  0000002b 03  0b               319 		.uleb128	11
+  0000002c 03  0f               320 		.uleb128	15
+  0000002d 03  00               321 		.uleb128	0
+  0000002e 03  00               322 		.uleb128	0
+                                323 		.section	.debug_abbrev,,n
+  0000002f 03  04               324 		.uleb128	4
+  00000030 03  0d               325 		.uleb128	13
+  00000031 03  00               326 		.byte		0x0
+  00000032 03  03               327 		.uleb128	3
+  00000033 03  08               328 		.uleb128	8
+  00000034 03  49               329 		.uleb128	73
+  00000035 03  10               330 		.uleb128	16
+  00000036 03  38               331 		.uleb128	56
+  00000037 03  09               332 		.uleb128	9
+  00000038 03  00               333 		.uleb128	0
+  00000039 03  00               334 		.uleb128	0
+                                335 		.section	.debug_abbrev,,n
+  0000003a 03  05               336 		.uleb128	5
+  0000003b 03  24               337 		.uleb128	36
+  0000003c 03  00               338 		.byte		0x0
+  0000003d 03  03               339 		.uleb128	3
+  0000003e 03  08               340 		.uleb128	8
+  0000003f 03  3e               341 		.uleb128	62
+  00000040 03  0b               342 		.uleb128	11
+  00000041 03  0b               343 		.uleb128	11
+  00000042 03  0b               344 		.uleb128	11
+  00000043 03  00               345 		.uleb128	0
+  00000044 03  00               346 		.uleb128	0
+                                347 		.section	.debug_abbrev,,n
+  00000045 03  06               348 		.uleb128	6
+  00000046 03  16               349 		.uleb128	22
+  00000047 03  00               350 		.byte		0x0
+  00000048 03  03               351 		.uleb128	3
+  00000049 03  08               352 		.uleb128	8
+  0000004a 03  49               353 		.uleb128	73
+  0000004b 03  10               354 		.uleb128	16
+  0000004c 03  00               355 		.uleb128	0
+  0000004d 03  00               356 		.uleb128	0
+                                357 		.section	.debug_abbrev,,n
+  0000004e 03  07               358 		.uleb128	7
+  0000004f 03  26               359 		.uleb128	38
+  00000050 03  00               360 		.byte		0x0
+  00000051 03  49               361 		.uleb128	73
+  00000052 03  10               362 		.uleb128	16
+  00000053 03  00               363 		.uleb128	0
+  00000054 03  00               364 		.uleb128	0
+                                365 		.section	.debug_abbrev,,n
+  00000055 03  08               366 		.uleb128	8
+  00000056 03  24               367 		.uleb128	36
+  00000057 03  00               368 		.byte		0x0
+  00000058 03  03               369 		.uleb128	3
+  00000059 03  08               370 		.uleb128	8
+  0000005a 03  0b               371 		.uleb128	11
+  0000005b 03  0b               372 		.uleb128	11
+  0000005c 03  00               373 		.uleb128	0
+  0000005d 03  00               374 		.uleb128	0
+                                375 		.section	.debug_abbrev,,n
+  0000005e 03  09               376 		.uleb128	9
+  0000005f 03  0f               377 		.uleb128	15
+  00000060 03  00               378 		.byte		0x0
+  00000061 03  49               379 		.uleb128	73
+  00000062 03  10               380 		.uleb128	16
+  00000063 03  00               381 		.uleb128	0
+  00000064 03  00               382 		.uleb128	0
+                                383 		.section	.debug_abbrev,,n
+  00000065 03  0a               384 		.uleb128	10
+  00000066 03  01               385 		.uleb128	1
+  00000067 03  01               386 		.byte		0x1
+  00000068 03  01               387 		.uleb128	1
+  00000069 03  13               388 		.uleb128	19
+  0000006a 03  49               389 		.uleb128	73
+  0000006b 03  10               390 		.uleb128	16
+  0000006c 03  00               391 		.uleb128	0
+  0000006d 03  00               392 		.uleb128	0
+                                393 		.section	.debug_abbrev,,n
+  0000006e 03  0b               394 		.uleb128	11
+  0000006f 03  21               395 		.uleb128	33
+  00000070 03  00               396 		.byte		0x0
+  00000071 03  2f               397 		.uleb128	47
+  00000072 03  0f               398 		.uleb128	15
+  00000073 03  00               399 		.uleb128	0
+  00000074 03  00               400 		.uleb128	0
+                                401 		.section	.debug_abbrev,,n
+  00000075 03  00               402 		.sleb128	0
+                                403 	
+                                404 	
+                                405 		.section	.debug_info,,n
+                                406 	.L2:
+  00000000 04  0000 0609        407 		.4byte		.L3-.L1
+                                408 	.L1:
+  00000004 04  0002             409 		.2byte		0x2
+  00000006 04  0000 0000        410 		.4byte		.L9
+  0000000a 04  04               411 		.byte		0x4
+                                412 		.section	.debug_info,,n
+  0000000b 04  01               413 		.sleb128	1
+  0000000c 04  0000 060c        414 		.4byte		.L7-.L2
+  00000010 04  2e2e 5c73 6f75   415 		.byte		"..\\source\\c_nvm.c"
+  00000016 04  7263 655c 635f       	
+  0000001c 04  6e76 6d2e 63         	
+  00000021 04  00               416 		.byte		0
+  00000022 04  4469 6162 2044   417 		.byte		"Diab Data, Inc:dcc Rel 5.9.3.0:PPC5554"
+  00000028 04  6174 612c 2049       	
+  0000002e 04  6e63 3a64 6363       	
+  00000034 04  2052 656c 2035       	
+  0000003a 04  2e39 2e33 2e30       	
+  00000040 04  3a50                 	
+  00000048 04  00               418 		.byte		0
+  00000049 04  433a 5c44 6973   419 		.byte		"C:\\Disco_D\\Progetti\\LADS\\LAD01\\SW\\LAD01_CA_CCA_Integration\\f
+  0000004f 04  636f 5f44 5c50       	offo.development_21042023\\SRC\\LAD_CPU04\\mwl\\mwl01\\source"
+  00000055 04  726f 6765 7474       	
+  0000005b 04  695c 4c41 4453       	
+  00000061 04  5c4c 4144 3031       	
+  00000067 04  5c53                 	
+  000000bd 04  00               420 		.byte		0
+  000000be 04  01               421 		.uleb128	1
+  000000bf 04  0000 0000        422 		.4byte		.L4
+  000000c3 04  0000 0000        423 		.4byte		.L5
+  000000c7 04  0000 0000        424 		.4byte		.L8
+                                425 		.section	.debug_info,,n
+                                426 	.L151:
+  000000cb 04  02               427 		.sleb128	2
+  000000cc 04  01               428 		.byte		0x1
+  000000cd 04  0000 0009        429 		.4byte		.L152
+  000000d1 04  29               430 		.uleb128	41
+  000000d2 04  7538 4e56 4d5f   431 		.byte		"u8NVM_DeviceIDForFwk"
+  000000d8 04  4465 7669 6365       	
+  000000de 04  4944 466f 7246       	
+  000000e4 04  776b                 	
+  000000e6 04  00               432 		.byte		0
+  000000e7 04  0000 0000        433 		.4byte		.L153
+  000000eb 04  05               434 		.sleb128	5
+  000000ec 04  03               435 		.byte		0x3
+  000000ed 04  0000 0000        436 		.4byte		u8NVM_DeviceIDForFwk
+                                437 		.section	.debug_info,,n
+                                438 		.section	.debug_info,,n
+                                439 	.L156:
+  000000f1 04  02               440 		.sleb128	2
+  000000f2 04  01               441 		.byte		0x1
+  000000f3 04  0000 0009        442 		.4byte		.L152
+  000000f7 04  2c               443 		.uleb128	44
+  000000f8 04  7533 324e 564d   444 		.byte		"u32NVM_FlashErasePattern"
+  000000fe 04  5f46 6c61 7368       	
+  00000104 04  4572 6173 6550       	
+  0000010a 04  6174 7465 726e       	
+  00000110 04  00               445 		.byte		0
+  00000111 04  0000 0000        446 		.4byte		.L157
+  00000115 04  05               447 		.sleb128	5
+  00000116 04  03               448 		.byte		0x3
+  00000117 04  0000 0000        449 		.4byte		u32NVM_FlashErasePattern
+                                450 		.section	.debug_info,,n
+                                451 	.L160:
+  0000011b 04  02               452 		.sleb128	2
+  0000011c 04  01               453 		.byte		0x1
+  0000011d 04  0000 0009        454 		.4byte		.L152
+  00000121 04  2f               455 		.uleb128	47
+  00000122 04  7538 4e56 4d5f   456 		.byte		"u8NVM_DeviceIDForUser"
+  00000128 04  4465 7669 6365       	
+  0000012e 04  4944 466f 7255       	
+  00000134 04  7365 72              	
+  00000137 04  00               457 		.byte		0
+  00000138 04  0000 0000        458 		.4byte		.L153
+  0000013c 04  05               459 		.sleb128	5
+  0000013d 04  03               460 		.byte		0x3
+  0000013e 04  0000 0000        461 		.4byte		u8NVM_DeviceIDForUser
+                                462 		.section	.debug_info,,n
+                                463 	.L161:
+  00000142 04  02               464 		.sleb128	2
+  00000143 04  01               465 		.byte		0x1
+  00000144 04  0000 0008        466 		.4byte		.L162
+  00000148 04  31               467 		.uleb128	49
+  00000149 04  7538 4d41 4d4f   468 		.byte		"u8MAMO_MyPoffUsrArea"
+  0000014f 04  5f4d 7950 6f66       	
+  00000155 04  6655 7372 4172       	
+  0000015b 04  6561                 	
+  0000015d 04  00               469 		.byte		0
+  0000015e 04  0000 0000        470 		.4byte		.L153
+  00000162 04  05               471 		.sleb128	5
+  00000163 04  03               472 		.byte		0x3
+  00000164 04  0000 0000        473 		.4byte		u8MAMO_MyPoffUsrArea
+                                474 		.section	.debug_info,,n
+                                475 	.L163:
+  00000168 04  02               476 		.sleb128	2
+  00000169 04  01               477 		.byte		0x1
+  0000016a 04  0000 0007        478 		.4byte		.L164
+  0000016e 04  31               479 		.uleb128	49
+  0000016f 04  7538 5254 435f   480 		.byte		"u8RTC_MyPoffUsrArea"
+  00000175 04  4d79 506f 6666       	
+  0000017b 04  5573 7241 7265       	
+  00000181 04  61                   	
+  00000182 04  00               481 		.byte		0
+  00000183 04  0000 0000        482 		.4byte		.L153
+  00000187 04  05               483 		.sleb128	5
+  00000188 04  03               484 		.byte		0x3
+  00000189 04  0000 0000        485 		.4byte		u8RTC_MyPoffUsrArea
+                                486 		.section	.debug_info,,n
+                                487 	.L165:
+  0000018d 04  02               488 		.sleb128	2
+  0000018e 04  01               489 		.byte		0x1
+  0000018f 04  0000 0006        490 		.4byte		.L166
+  00000193 04  31               491 		.uleb128	49
+  00000194 04  7538 4453 4d5f   492 		.byte		"u8DSM_MyPoffUsrArea"
+  0000019a 04  4d79 506f 6666       	
+  000001a0 04  5573 7241 7265       	
+  000001a6 04  61                   	
+  000001a7 04  00               493 		.byte		0
+  000001a8 04  0000 0000        494 		.4byte		.L153
+  000001ac 04  05               495 		.sleb128	5
+  000001ad 04  03               496 		.byte		0x3
+  000001ae 04  0000 0000        497 		.4byte		u8DSM_MyPoffUsrArea
+                                498 		.section	.debug_info,,n
+                                499 	.L167:
+  000001b2 04  02               500 		.sleb128	2
+  000001b3 04  01               501 		.byte		0x1
+  000001b4 04  0000 0005        502 		.4byte		.L168
+  000001b8 04  36               503 		.uleb128	54
+  000001b9 04  7538 4446 4d5f   504 		.byte		"u8DFM_MyPoffUsrArea"
+  000001bf 04  4d79 506f 6666       	
+  000001c5 04  5573 7241 7265       	
+  000001cb 04  61                   	
+  000001cc 04  00               505 		.byte		0
+  000001cd 04  0000 0000        506 		.4byte		.L153
+  000001d1 04  05               507 		.sleb128	5
+  000001d2 04  03               508 		.byte		0x3
+  000001d3 04  0000 0000        509 		.4byte		u8DFM_MyPoffUsrArea
+                                510 		.section	.debug_info,,n
+                                511 	.L169:
+  000001d7 04  02               512 		.sleb128	2
+  000001d8 04  01               513 		.byte		0x1
+  000001d9 04  0000 0005        514 		.4byte		.L168
+  000001dd 04  3f               515 		.uleb128	63
+  000001de 04  7538 4446 4d5f   516 		.byte		"u8DFM_NonPoffFwkArea"
+  000001e4 04  4e6f 6e50 6f66       	
+  000001ea 04  6646 776b 4172       	
+  000001f0 04  6561                 	
+  000001f2 04  00               517 		.byte		0
+  000001f3 04  0000 0000        518 		.4byte		.L153
+  000001f7 04  05               519 		.sleb128	5
+  000001f8 04  03               520 		.byte		0x3
+  000001f9 04  0000 0000        521 		.4byte		u8DFM_NonPoffFwkArea
+                                522 		.section	.debug_info,,n
+                                523 	.L170:
+  000001fd 04  02               524 		.sleb128	2
+  000001fe 04  01               525 		.byte		0x1
+  000001ff 04  0000 0004        526 		.4byte		.L171
+  00000203 04  27               527 		.uleb128	39
+  00000204 04  7538 4441 4241   528 		.byte		"u8DABA_NonPoffFwkArea"
+  0000020a 04  5f4e 6f6e 506f       	
+  00000210 04  6666 4677 6b41       	
+  00000216 04  7265 61              	
+  00000219 04  00               529 		.byte		0
+  0000021a 04  0000 0000        530 		.4byte		.L153
+  0000021e 04  05               531 		.sleb128	5
+  0000021f 04  03               532 		.byte		0x3
+  00000220 04  0000 0000        533 		.4byte		u8DABA_NonPoffFwkArea
+                                534 		.section	.debug_info,,n
+                                535 	.L172:
+  00000224 04  02               536 		.sleb128	2
+  00000225 04  01               537 		.byte		0x1
+  00000226 04  0000 0003        538 		.4byte		.L173
+  0000022a 04  3b               539 		.uleb128	59
+  0000022b 04  7538 4c41 4443   540 		.byte		"u8LADC_NonPoffUsrArea"
+  00000231 04  5f4e 6f6e 506f       	
+  00000237 04  6666 5573 7241       	
+  0000023d 04  7265 61              	
+  00000240 04  00               541 		.byte		0
+  00000241 04  0000 0000        542 		.4byte		.L153
+  00000245 04  05               543 		.sleb128	5
+  00000246 04  03               544 		.byte		0x3
+  00000247 04  0000 0000        545 		.4byte		u8LADC_NonPoffUsrArea
+                                546 		.section	.debug_info,,n
+                                547 	.L174:
+  0000024b 04  02               548 		.sleb128	2
+  0000024c 04  01               549 		.byte		0x1
+  0000024d 04  0000 0003        550 		.4byte		.L173
+  00000251 04  3c               551 		.uleb128	60
+  00000252 04  7538 4c41 4443   552 		.byte		"u8LADC_NonPoffUsrAreaOffset"
+  00000258 04  5f4e 6f6e 506f       	
+  0000025e 04  6666 5573 7241       	
+  00000264 04  7265 614f 6666       	
+  0000026a 04  7365 74              	
+  0000026d 04  00               553 		.byte		0
+  0000026e 04  0000 0000        554 		.4byte		.L153
+  00000272 04  05               555 		.sleb128	5
+  00000273 04  03               556 		.byte		0x3
+  00000274 04  0000 0000        557 		.4byte		u8LADC_NonPoffUsrAreaOffset
+                                558 		.section	.debug_info,,n
+                                559 	.L175:
+  00000278 04  02               560 		.sleb128	2
+  00000279 04  01               561 		.byte		0x1
+  0000027a 04  0000 0002        562 		.4byte		.L176
+  0000027e 04  33               563 		.uleb128	51
+  0000027f 04  7538 4452 435f   564 		.byte		"u8DRC_MyPoffUsrArea"
+  00000285 04  4d79 506f 6666       	
+  0000028b 04  5573 7241 7265       	
+  00000291 04  61                   	
+  00000292 04  00               565 		.byte		0
+  00000293 04  0000 0000        566 		.4byte		.L153
+  00000297 04  05               567 		.sleb128	5
+  00000298 04  03               568 		.byte		0x3
+  00000299 04  0000 0000        569 		.4byte		u8DRC_MyPoffUsrArea
+                                570 		.section	.debug_info,,n
+                                571 	.L177:
+  0000029d 04  02               572 		.sleb128	2
+  0000029e 04  01               573 		.byte		0x1
+  0000029f 04  0000 0001        574 		.4byte		.L178
+  000002a3 04  f001             575 		.uleb128	240
+  000002a5 04  7538 4e56 4d5f   576 		.byte		"u8NVM_USR_CfgNumOfDevices"
+  000002ab 04  5553 525f 4366       	
+  000002b1 04  674e 756d 4f66       	
+  000002b7 04  4465 7669 6365       	
+  000002bd 04  73                   	
+  000002be 04  00               577 		.byte		0
+  000002bf 04  0000 0000        578 		.4byte		.L153
+  000002c3 04  05               579 		.sleb128	5
+  000002c4 04  03               580 		.byte		0x3
+  000002c5 04  0000 0000        581 		.4byte		u8NVM_USR_CfgNumOfDevices
+                                582 		.section	.debug_info,,n
+                                583 	.L179:
+  000002c9 04  02               584 		.sleb128	2
+  000002ca 04  01               585 		.byte		0x1
+  000002cb 04  0000 0001        586 		.4byte		.L178
+  000002cf 04  f301             587 		.uleb128	243
+  000002d1 04  7063 5f43 5f43   588 		.byte		"pc_C_CDO_NVM_APP_CFG_BSW_ROM"
+  000002d7 04  444f 5f4e 564d       	
+  000002dd 04  5f41 5050 5f43       	
+  000002e3 04  4647 5f42 5357       	
+  000002e9 04  5f52 4f4d            	
+  000002ed 04  00               589 		.byte		0
+  000002ee 04  0000 0000        590 		.4byte		.L180
+  000002f2 04  05               591 		.sleb128	5
+  000002f3 04  03               592 		.byte		0x3
+  000002f4 04  0000 0000        593 		.4byte		pc_C_CDO_NVM_APP_CFG_BSW_ROM
+                                594 		.section	.debug_info,,n
+                                595 	.L184:
+  000002f8 04  02               596 		.sleb128	2
+  000002f9 04  01               597 		.byte		0x1
+  000002fa 04  0000 0001        598 		.4byte		.L178
+  000002fe 04  cc01             599 		.uleb128	204
+  00000300 04  6163 4e56 4d5f   600 		.byte		"acNVM_USR_Device_2"
+  00000306 04  5553 525f 4465       	
+  0000030c 04  7669 6365 5f32       	
+  00000312 04  00               601 		.byte		0
+  00000313 04  0000 0000        602 		.4byte		.L185
+  00000317 04  05               603 		.sleb128	5
+  00000318 04  03               604 		.byte		0x3
+  00000319 04  0000 0000        605 		.4byte		acNVM_USR_Device_2
+                                606 		.section	.debug_info,,n
+                                607 	.L191:
+  0000031d 04  02               608 		.sleb128	2
+  0000031e 04  01               609 		.byte		0x1
+  0000031f 04  0000 0001        610 		.4byte		.L178
+  00000323 04  c201             611 		.uleb128	194
+  00000325 04  6163 4e56 4d5f   612 		.byte		"acNVM_USR_Device_1"
+  0000032b 04  5553 525f 4465       	
+  00000331 04  7669 6365 5f31       	
+  00000337 04  00               613 		.byte		0
+  00000338 04  0000 0000        614 		.4byte		.L192
+  0000033c 04  05               615 		.sleb128	5
+  0000033d 04  03               616 		.byte		0x3
+  0000033e 04  0000 0000        617 		.4byte		acNVM_USR_Device_1
+                                618 		.section	.debug_info,,n
+                                619 	.L195:
+  00000342 04  02               620 		.sleb128	2
+  00000343 04  01               621 		.byte		0x1
+  00000344 04  0000 0001        622 		.4byte		.L178
+  00000348 04  b701             623 		.uleb128	183
+  0000034a 04  6163 4e56 4d5f   624 		.byte		"acNVM_USR_Device_0"
+  00000350 04  5553 525f 4465       	
+  00000356 04  7669 6365 5f30       	
+  0000035c 04  00               625 		.byte		0
+  0000035d 04  0000 0000        626 		.4byte		.L196
+  00000361 04  05               627 		.sleb128	5
+  00000362 04  03               628 		.byte		0x3
+  00000363 04  0000 0000        629 		.4byte		acNVM_USR_Device_0
+                                630 		.section	.debug_info,,n
+                                631 	.L199:
+  00000367 04  02               632 		.sleb128	2
+  00000368 04  01               633 		.byte		0x1
+  00000369 04  0000 0001        634 		.4byte		.L178
+  0000036d 04  d501             635 		.uleb128	213
+  0000036f 04  634e 564d 5f55   636 		.byte		"cNVM_USR_CfgTable"
+  00000375 04  5352 5f43 6667       	
+  0000037b 04  5461 626c 65         	
+  00000380 04  00               637 		.byte		0
+  00000381 04  0000 0000        638 		.4byte		.L200
+  00000385 04  05               639 		.sleb128	5
+  00000386 04  03               640 		.byte		0x3
+  00000387 04  0000 0000        641 		.4byte		cNVM_USR_CfgTable
+                                642 		.section	.debug_info,,n
+                                643 	.L202:
+  0000038b 04  03               644 		.sleb128	3
+  0000038c 04  0000 03b3        645 		.4byte		.L203-.L2
+  00000390 04  2c               646 		.uleb128	44
+                                647 		.section	.debug_info,,n
+                                648 	.L149:
+  00000391 04  04               649 		.sleb128	4
+  00000392 04  6348 6561 6465   650 		.byte		"cHeader"
+  00000398 04  72                   	
+  00000399 04  00               651 		.byte		0
+  0000039a 04  0000 0000        652 		.4byte		.L204
+  0000039e 04  02               653 		.sleb128	2
+  0000039f 04  23               654 		.byte		0x23
+  000003a0 04  00               655 		.uleb128	0
+                                656 	.L150:
+  000003a1 04  04               657 		.sleb128	4
+  000003a2 04  6345 6c65 6d65   658 		.byte		"cElement"
+  000003a8 04  6e74                 	
+  000003aa 04  00               659 		.byte		0
+  000003ab 04  0000 0000        660 		.4byte		.L206
+  000003af 04  02               661 		.sleb128	2
+  000003b0 04  23               662 		.byte		0x23
+  000003b1 04  08               663 		.uleb128	8
+  000003b2 04  00               664 		.sleb128	0
+                                665 	.L203:
+                                666 	.L209:
+  000003b3 04  03               667 		.sleb128	3
+  000003b4 04  0000 040e        668 		.4byte		.L210-.L2
+  000003b8 04  0c               669 		.uleb128	12
+                                670 	.L50:
+  000003b9 04  04               671 		.sleb128	4
+  000003ba 04  7538 4e76 6d49   672 		.byte		"u8NvmID"
+  000003c0 04  44                   	
+  000003c1 04  00               673 		.byte		0
+  000003c2 04  0000 0000        674 		.4byte		.L154
+  000003c6 04  02               675 		.sleb128	2
+  000003c7 04  23               676 		.byte		0x23
+  000003c8 04  00               677 		.uleb128	0
+                                678 	.L51:
+  000003c9 04  04               679 		.sleb128	4
+  000003ca 04  7063 4465 7669   680 		.byte		"pcDeviceArea"
+  000003d0 04  6365 4172 6561       	
+  000003d6 04  00               681 		.byte		0
+  000003d7 04  0000 0000        682 		.4byte		.L211
+  000003db 04  02               683 		.sleb128	2
+  000003dc 04  23               684 		.byte		0x23
+  000003dd 04  04               685 		.uleb128	4
+                                686 	.L52:
+  000003de 04  04               687 		.sleb128	4
+  000003df 04  7538 4170 7041   688 		.byte		"u8AppAreaCount"
+  000003e5 04  7265 6143 6f75       	
+  000003eb 04  6e74                 	
+  000003ed 04  00               689 		.byte		0
+  000003ee 04  0000 0000        690 		.4byte		.L154
+  000003f2 04  02               691 		.sleb128	2
+  000003f3 04  23               692 		.byte		0x23
+  000003f4 04  08               693 		.uleb128	8
+                                694 	.L53:
+  000003f5 04  04               695 		.sleb128	4
+  000003f6 04  7538 4170 7043   696 		.byte		"u8AppCfgVersion"
+  000003fc 04  6667 5665 7273       	
+  00000402 04  696f 6e              	
+  00000405 04  00               697 		.byte		0
+  00000406 04  0000 0000        698 		.4byte		.L154
+  0000040a 04  02               699 		.sleb128	2
+  0000040b 04  23               700 		.byte		0x23
+  0000040c 04  09               701 		.uleb128	9
+  0000040d 04  00               702 		.sleb128	0
+                                703 	.L210:
+                                704 	.L190:
+  0000040e 04  03               705 		.sleb128	3
+  0000040f 04  0000 0486        706 		.4byte		.L212-.L2
+  00000413 04  0c               707 		.uleb128	12
+                                708 	.L44:
+  00000414 04  04               709 		.sleb128	4
+  00000415 04  7538 4170 7041   710 		.byte		"u8AppAreaID"
+  0000041b 04  7265 6149 44         	
+  00000420 04  00               711 		.byte		0
+  00000421 04  0000 0000        712 		.4byte		.L154
+  00000425 04  02               713 		.sleb128	2
+  00000426 04  23               714 		.byte		0x23
+  00000427 04  00               715 		.uleb128	0
+                                716 	.L45:
+  00000428 04  04               717 		.sleb128	4
+  00000429 04  7538 5265 7331   718 		.byte		"u8Res1"
+  0000042f 04  00               719 		.byte		0
+  00000430 04  0000 0000        720 		.4byte		.L154
+  00000434 04  02               721 		.sleb128	2
+  00000435 04  23               722 		.byte		0x23
+  00000436 04  01               723 		.uleb128	1
+                                724 	.L46:
+  00000437 04  04               725 		.sleb128	4
+  00000438 04  7538 5265 7332   726 		.byte		"u8Res2"
+  0000043e 04  00               727 		.byte		0
+  0000043f 04  0000 0000        728 		.4byte		.L154
+  00000443 04  02               729 		.sleb128	2
+  00000444 04  23               730 		.byte		0x23
+  00000445 04  02               731 		.uleb128	2
+                                732 	.L47:
+  00000446 04  04               733 		.sleb128	4
+  00000447 04  7538 5265 7333   734 		.byte		"u8Res3"
+  0000044d 04  00               735 		.byte		0
+  0000044e 04  0000 0000        736 		.4byte		.L154
+  00000452 04  02               737 		.sleb128	2
+  00000453 04  23               738 		.byte		0x23
+  00000454 04  03               739 		.uleb128	3
+                                740 	.L48:
+  00000455 04  04               741 		.sleb128	4
+  00000456 04  7533 3241 7070   742 		.byte		"u32AppAreaOffset"
+  0000045c 04  4172 6561 4f66       	
+  00000462 04  6673 6574            	
+  00000466 04  00               743 		.byte		0
+  00000467 04  0000 0000        744 		.4byte		.L158
+  0000046b 04  02               745 		.sleb128	2
+  0000046c 04  23               746 		.byte		0x23
+  0000046d 04  04               747 		.uleb128	4
+                                748 	.L49:
+  0000046e 04  04               749 		.sleb128	4
+  0000046f 04  7533 3241 7070   750 		.byte		"u32AppAreaSize"
+  00000475 04  4172 6561 5369       	
+  0000047b 04  7a65                 	
+  0000047d 04  00               751 		.byte		0
+  0000047e 04  0000 0000        752 		.4byte		.L158
+  00000482 04  02               753 		.sleb128	2
+  00000483 04  23               754 		.byte		0x23
+  00000484 04  08               755 		.uleb128	8
+  00000485 04  00               756 		.sleb128	0
+                                757 	.L212:
+                                758 	.L205:
+  00000486 04  03               759 		.sleb128	3
+  00000487 04  0000 04e6        760 		.4byte		.L213-.L2
+  0000048b 04  08               761 		.uleb128	8
+                                762 	.L34:
+  0000048c 04  04               763 		.sleb128	4
+  0000048d 04  7531 3654 7970   764 		.byte		"u16TypeOfCdoTable"
+  00000493 04  654f 6643 646f       	
+  00000499 04  5461 626c 65         	
+  0000049e 04  00               765 		.byte		0
+  0000049f 04  0000 0000        766 		.4byte		.L214
+  000004a3 04  02               767 		.sleb128	2
+  000004a4 04  23               768 		.byte		0x23
+  000004a5 04  00               769 		.uleb128	0
+                                770 	.L35:
+  000004a6 04  04               771 		.sleb128	4
+  000004a7 04  7531 3645 6c65   772 		.byte		"u16Element"
+  000004ad 04  6d65 6e74            	
+  000004b1 04  00               773 		.byte		0
+  000004b2 04  0000 0000        774 		.4byte		.L214
+  000004b6 04  02               775 		.sleb128	2
+  000004b7 04  23               776 		.byte		0x23
+  000004b8 04  02               777 		.uleb128	2
+                                778 	.L36:
+  000004b9 04  04               779 		.sleb128	4
+  000004ba 04  7531 364e 756d   780 		.byte		"u16NumberOfCdo"
+  000004c0 04  6265 724f 6643       	
+  000004c6 04  646f                 	
+  000004c8 04  00               781 		.byte		0
+  000004c9 04  0000 0000        782 		.4byte		.L214
+  000004cd 04  02               783 		.sleb128	2
+  000004ce 04  23               784 		.byte		0x23
+  000004cf 04  04               785 		.uleb128	4
+                                786 	.L37:
+  000004d0 04  04               787 		.sleb128	4
+  000004d1 04  7531 3653 697a   788 		.byte		"u16SizeOfCdo"
+  000004d7 04  654f 6643 646f       	
+  000004dd 04  00               789 		.byte		0
+  000004de 04  0000 0000        790 		.4byte		.L214
+  000004e2 04  02               791 		.sleb128	2
+  000004e3 04  23               792 		.byte		0x23
+  000004e4 04  06               793 		.uleb128	6
+  000004e5 04  00               794 		.sleb128	0
+                                795 	.L213:
+                                796 		.section	.debug_info,,n
+                                797 	.L155:
+  000004e6 04  05               798 		.sleb128	5
+  000004e7 04  756e 7369 676e   799 		.byte		"unsigned char"
+  000004ed 04  6564 2063 6861       	
+  000004f3 04  72                   	
+  000004f4 04  00               800 		.byte		0
+  000004f5 04  08               801 		.byte		0x8
+  000004f6 04  01               802 		.byte		0x1
+                                803 		.section	.debug_info,,n
+                                804 	.L154:
+  000004f7 04  06               805 		.sleb128	6
+  000004f8 04  5538             806 		.byte		"U8"
+  000004fa 04  00               807 		.byte		0
+  000004fb 04  0000 0000        808 		.4byte		.L155
+                                809 		.section	.debug_info,,n
+                                810 	.L153:
+  000004ff 04  07               811 		.sleb128	7
+  00000500 04  0000 0000        812 		.4byte		.L154
+                                813 	.L159:
+  00000504 04  05               814 		.sleb128	5
+  00000505 04  756e 7369 676e   815 		.byte		"unsigned long"
+  0000050b 04  6564 206c 6f6e       	
+  00000511 04  67                   	
+  00000512 04  00               816 		.byte		0
+  00000513 04  07               817 		.byte		0x7
+  00000514 04  04               818 		.byte		0x4
+                                819 	.L158:
+  00000515 04  06               820 		.sleb128	6
+  00000516 04  5533 32          821 		.byte		"U32"
+  00000519 04  00               822 		.byte		0
+  0000051a 04  0000 0000        823 		.4byte		.L159
+                                824 	.L157:
+  0000051e 04  07               825 		.sleb128	7
+  0000051f 04  0000 0000        826 		.4byte		.L158
+                                827 		.section	.debug_info,,n
+                                828 	.L183:
+  00000523 04  08               829 		.sleb128	8
+  00000524 04  766f 6964        830 		.byte		"void"
+  00000528 04  00               831 		.byte		0
+  00000529 04  00               832 		.byte		0x0
+                                833 	.L182:
+  0000052a 04  07               834 		.sleb128	7
+  0000052b 04  0000 0000        835 		.4byte		.L183
+                                836 		.section	.debug_info,,n
+                                837 	.L181:
+  0000052f 04  09               838 		.sleb128	9
+  00000530 04  0000 0000        839 		.4byte		.L182
+                                840 	.L180:
+  00000534 04  07               841 		.sleb128	7
+  00000535 04  0000 0000        842 		.4byte		.L181
+                                843 	.L189:
+  00000539 04  06               844 		.sleb128	6
+  0000053a 04  435f 4e56 4d5f   845 		.byte		"C_NVM_USR_DEVICE_AREAS"
+  00000540 04  5553 525f 4445       	
+  00000546 04  5649 4345 5f41       	
+  0000054c 04  5245 4153            	
+  00000550 04  00               846 		.byte		0
+  00000551 04  0000 0000        847 		.4byte		.L190
+                                848 	.L188:
+  00000555 04  07               849 		.sleb128	7
+  00000556 04  0000 0000        850 		.4byte		.L189
+                                851 		.section	.debug_info,,n
+                                852 	.L186:
+  0000055a 04  0a               853 		.sleb128	10
+  0000055b 04  0000 0566        854 		.4byte		.L187-.L2
+  0000055f 04  0000 0000        855 		.4byte		.L188
+                                856 		.section	.debug_info,,n
+  00000563 04  0b               857 		.sleb128	11
+  00000564 04  01               858 		.uleb128	1
+  00000565 04  00               859 		.sleb128	0
+                                860 	.L187:
+                                861 	.L185:
+  00000566 04  07               862 		.sleb128	7
+  00000567 04  0000 0000        863 		.4byte		.L186
+                                864 	.L193:
+  0000056b 04  0a               865 		.sleb128	10
+  0000056c 04  0000 0577        866 		.4byte		.L194-.L2
+  00000570 04  0000 0000        867 		.4byte		.L188
+  00000574 04  0b               868 		.sleb128	11
+  00000575 04  03               869 		.uleb128	3
+  00000576 04  00               870 		.sleb128	0
+                                871 	.L194:
+                                872 	.L192:
+  00000577 04  07               873 		.sleb128	7
+  00000578 04  0000 0000        874 		.4byte		.L193
+                                875 	.L197:
+  0000057c 04  0a               876 		.sleb128	10
+  0000057d 04  0000 0588        877 		.4byte		.L198-.L2
+  00000581 04  0000 0000        878 		.4byte		.L188
+  00000585 04  0b               879 		.sleb128	11
+  00000586 04  04               880 		.uleb128	4
+  00000587 04  00               881 		.sleb128	0
+                                882 	.L198:
+                                883 	.L196:
+  00000588 04  07               884 		.sleb128	7
+  00000589 04  0000 0000        885 		.4byte		.L197
+                                886 	.L201:
+  0000058d 04  06               887 		.sleb128	6
+  0000058e 04  435f 4344 4f5f   888 		.byte		"C_CDO_NVM_APP_CFG_APP_TABLE"
+  00000594 04  4e56 4d5f 4150       	
+  0000059a 04  505f 4346 475f       	
+  000005a0 04  4150 505f 5441       	
+  000005a6 04  424c 45              	
+  000005a9 04  00               889 		.byte		0
+  000005aa 04  0000 0000        890 		.4byte		.L202
+                                891 	.L200:
+  000005ae 04  07               892 		.sleb128	7
+  000005af 04  0000 0000        893 		.4byte		.L201
+                                894 	.L204:
+  000005b3 04  06               895 		.sleb128	6
+  000005b4 04  4344 4f5f 5441   896 		.byte		"CDO_TABLE_HEADER"
+  000005ba 04  424c 455f 4845       	
+  000005c0 04  4144 4552            	
+  000005c4 04  00               897 		.byte		0
+  000005c5 04  0000 0000        898 		.4byte		.L205
+                                899 	.L208:
+  000005c9 04  06               900 		.sleb128	6
+  000005ca 04  435f 4344 4f5f   901 		.byte		"C_CDO_NVM_APP_CFG"
+  000005d0 04  4e56 4d5f 4150       	
+  000005d6 04  505f 4346 47         	
+  000005db 04  00               902 		.byte		0
+  000005dc 04  0000 0000        903 		.4byte		.L209
+                                904 	.L206:
+  000005e0 04  0a               905 		.sleb128	10
+  000005e1 04  0000 05ec        906 		.4byte		.L207-.L2
+  000005e5 04  0000 0000        907 		.4byte		.L208
+  000005e9 04  0b               908 		.sleb128	11
+  000005ea 04  02               909 		.uleb128	2
+  000005eb 04  00               910 		.sleb128	0
+                                911 	.L207:
+                                912 	.L211:
+  000005ec 04  09               913 		.sleb128	9
+  000005ed 04  0000 0000        914 		.4byte		.L188
+                                915 	.L215:
+  000005f1 04  05               916 		.sleb128	5
+  000005f2 04  756e 7369 676e   917 		.byte		"unsigned short"
+  000005f8 04  6564 2073 686f       	
+  000005fe 04  7274                 	
+  00000600 04  00               918 		.byte		0
+  00000601 04  07               919 		.byte		0x7
+  00000602 04  02               920 		.byte		0x2
+                                921 	.L214:
+  00000603 04  06               922 		.sleb128	6
+  00000604 04  5531 36          923 		.byte		"U16"
+  00000607 04  00               924 		.byte		0
+  00000608 04  0000 0000        925 		.4byte		.L215
+                                926 	.L7:
+  0000060c 04  00               927 		.sleb128	0
+                                928 	.L3:
+                                929 		.wrcm.doc
+                                930 		.wrcm.elem
+                                931 		.wrcm.nelem "tools"
+                                932 		.wrcm.nelem "llopt"
+                                933 		.wrcm.nelem "version"
+                                934 		.wrcm.nstr "string", "5.9.3.0"
+                                935 		.wrcm.nint32 "number", 5930
+                                936 		.wrcm.nstr "path", "C:\KBApps\KB_SYS\Compiler\Windriver\diab\5.9.3.0\WIN32\bin\llopt
+                                    	.exe"
+                                937 		.wrcm.nstr "label", "DIAB_5_9_3_0-FCS_20130829_231006"
+                                938 		.wrcm.end
+                                939 		.wrcm.end
+                                940 		.wrcm.nelem "ctoa"
+                                941 		.wrcm.nelem "version"
+                                942 		.wrcm.nstr "string", "5.9.3.0"
+                                943 		.wrcm.nint32 "number", 5930
+                                944 		.wrcm.nstr "path", "C:\KBApps\KB_SYS\Compiler\Windriver\diab\5.9.3.0\WIN32\lib\ctoa.
+                                    	exe"
+                                945 		.wrcm.nstr "label", "DIAB_5_9_3_0-FCS_20130829_231006"
+                                946 		.wrcm.end
+                                947 		.wrcm.nstr "options", "-Xmake-opt-key=..\reloc\c_nvm.o -Xsingle-fp -Xuser-specified-
+                                    	proc=PPC5554 -Xintc-eoir -XPPC5554 -Xintrinsic-mask=0xc00041 -Xstsw-slow -Xconventions-eabi 
+                                    	-Xsmall-data=0 -Xsmall-const=0 -Xsoft-float -Xcoloring -Xkeywords=0xff0000 -Xapu-efpu-v1 -Xe
+                                    	fpu-spfsfv -Xtarget-family=2 -Xlicense-proxy-use -Xlicense-proxy-path=C:\KBApps\KB_SYS\Compi
+                                    	ler\WINDRI~1\diab\593~1.0\WIN32\lib -Xkeywords=0x4 -Xbss-common-off -Xlint=1 -Xstack-probe -
+                                    	Xshow-configuration=1 -Xpass-source -Xmake-opt-key=..\reloc\c_nvm.o -MC:\KBApps\KB_SYS\Compi
+                                    	ler\WINDRI~1\diab\593~1.0\PPC\PPC.cd -ZC:\KBApps\KB_SYS\Compiler\WINDRI~1\diab\593~1.0\WIN32
+                                    	\lib\cderror.cat -Xsingle-fp -Xuser-specified-proc=PPC5554 -Xintc-eoir -XPPC5554 -Xintrinsic
+                                    	-mask=0xc00041 -Xstsw-slow -Xconventions-eabi -Xsmall-data=0 -Xsmall-const=0 -Xsoft-float -X
+                                    	coloring -Xkeywords=0xff0000 -Xapu-efpu-v1 -Xefpu-spfsfv -Xtarget-family=2 -Xlicense-proxy-u
+                                    	se -Xlicense-proxy-path=C:\KBApps\KB_SYS\Compiler\WINDRI~1\diab\593~1.0\WIN32\lib -g3 -Xkeyw
+                                    	ords=0x4 -Xbss-common-off -Xlint=1 -Xstack-probe -Xshow-configuration=1 -Xpass-source -YC:\K
+                                    	BApps\KB_SYS\Compiler\WINDRI~1\diab\593~1.0\include\cpp/std:C:\KBApps\KB_SYS\Compiler\WINDRI
+                                    	~1\diab\593~1.0\include\cpp:C:\KBApps\KB_SYS\Compiler\WINDRI~1\diab\593~1.0\include\simple:C
+                                    	:\KBApps\KB_SYS\Compiler\WINDRI~1\diab\593~1.0\include -D__softfp -D__EVEC__=81402 -D__softf
+                                    	p_abi -D__SPE__=1 -D__EABI__ -D__BIG_ENDIAN__ -D__NO_SDATA__ -D__ppc -D_SUPPORTS_BUILTIN_PRE
+                                    	FETCH -D__CONFIGURE_EMBEDDED=0 -D__CONFIGURE_EXCEPTIONS=1 -D_DIAB_TOOL -D_SUPPORTS_BUILTIN_E
+                                    	XPECT -D__MM_PROCESSOR=kb_PPC -DNDEBUG -I..\include -I..\..\mwl01.int\include -I..\..\..\..\
+                                    	eLAD0x\hal\ecal01.int\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\common.int\includ
+                                    	e -I..\..\..\..\GenMPC55xx\GenCA_FWK\code\mwl\mwl01.int\include -I..\..\..\..\GenMPC55xx\Gen
+                                    	MPC55xxCCA\common.int\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\Genrl\common.int\includ
+                                    	e -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\hal\mcal01\Include -I..\..\..\..\GenMPC55xx\GenMPC5
+                                    	5xxCCA\hal\mcal01.int\Include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\svl4g\xos01.int\include
+                                    	 -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\svl4g\xos01.int\include\sciopta -I..\..\..\..\GenMPC
+                                    	55xx\GenMPC55xxCCA\GenCA\svl4g\bsw01\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\sv
+                                    	l4g\bsw01.int\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\hal\ecal01.int\include -I
+                                    	..\..\..\..\GenMPC55xx\GenMPC55xxCCA\svl4g\bsw01\include -I..\..\..\..\GenMPC55xx\GenMPC55xx
+                                    	CCA\svl4g\bsw01.int\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\hal\ecal01.int\include -I
+                                    	..\..\..\..\eLAD0x\svl4g\bsw01.int\include -I..\..\..\..\eLAD0x\mwl\mwl01.int\include -I..\.
+                                    	.\..\..\LAD_CPU04\svl4g\bsw01.int\include -I..\..\..\..\FWK\deployment\lad -I..\..\..\..\FWK
+                                    	\deployment\lad\impl -I..\..\..\..\CoFwk\Deployment -IC:\KBApps\KB_SYS\Compiler\Windriver\di
+                                    	ab\5.9.3.0\include"
+                                948 		.wrcm.end
+                                949 		.wrcm.end
+                                950 		.wrcm.nelem "file"
+                                951 		.wrcm.nstr "input", "..\source\c_nvm.c"
+                                952 		.wrcm.end
+                                953 		.wrcm.end
+  00000000 05                   954 		.wrcm.end
+

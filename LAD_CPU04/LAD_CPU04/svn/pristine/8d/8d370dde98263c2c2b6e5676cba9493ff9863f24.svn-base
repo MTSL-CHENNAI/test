@@ -1,0 +1,203 @@
+#-Mak-Version 1.40
+#-Dependencies for Project CPU04_MWL
+#-SRCPATH=$(SRCPATH)
+#-INCLUDES=$(CPU_EXE)\Fwr_ESRAEvol.int\source;..\include;..\..\mwl01.int\include;..\..\..\..\eLAD0x\hal\ecal01.int\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\common.int\include;..\..\..\..\GenMPC55xx\GenCA_FWK\code\mwl\mwl01.int\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\common.int\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\Genrl\common.int\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\hal\mcal01\Include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\hal\mcal01.int\Include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\svl4g\xos01.int\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\svl4g\xos01.int\include\sciopta;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\svl4g\bsw01\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\svl4g\bsw01.int\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\hal\ecal01.int\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\svl4g\bsw01\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\svl4g\bsw01.int\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\hal\ecal01.int\include;..\..\..\..\eLAD0x\svl4g\bsw01.int\include;..\..\..\..\eLAD0x\mwl\mwl01.int\include;..\..\..\..\LAD_CPU04\svl4g\bsw01.int\include;..\..\..\..\FWK\deployment\lad;..\..\..\..\FWK\deployment\lad\impl;..\..\..\..\CoFwk\Deployment;
+..\source\diagdsmnvmem.c: 				\
+	{$(_INCLUDES)}fwkaldsmnvmem.h    	\
+	{$(_INCLUDES)}bcm_common.h    	\
+	{$(_INCLUDES)}cbk_def.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}swident.h    	\
+	{$(_INCLUDES)}bcm_s.h    	\
+	{$(_INCLUDES)}bcm_pwr_s.h    	\
+	{$(_INCLUDES)}bcm_defs_s.h    	\
+	{$(_INCLUDES)}bcm_defs.h    	\
+	{$(_INCLUDES)}kb_ret.h    	\
+	{$(_INCLUDES)}bcm_wd_s.h    	\
+	{$(_INCLUDES)}bcm_led_s.h    	\
+	{$(_INCLUDES)}bcm_rsm_s.h    	\
+	{$(_INCLUDES)}bcm_init_s.h    	\
+	{$(_INCLUDES)}bcm_cycl_s.h    	\
+	{$(_INCLUDES)}bcm_lmtd_s.h    	\
+	{$(_INCLUDES)}bcm_strt_s.h    	\
+	{$(_INCLUDES)}bcm_strt.h    	\
+	{$(_INCLUDES)}bcm_rst_s.h    	\
+	{$(_INCLUDES)}bcm_rst.h    	\
+	{$(_INCLUDES)}bcm_comp_s.h    	\
+	{$(_INCLUDES)}bcm_uart_s.h    	\
+	{$(_INCLUDES)}diagdsmtypes.h    	\
+	{$(_INCLUDES)}coerrno.h    	\
+	{$(_INCLUDES)}impl/coerrno_.h    	\
+	{$(_INCLUDES)}coplatform.h    	\
+	{$(_INCLUDES)}diagdsmalnvmem.h    	\
+	{$(_INCLUDES)}cfg_dsm.h    	\
+	{$(_INCLUDES)}sse_crc.h    	\
+	{$(_INCLUDES)}bcm.h    	\
+	{$(_INCLUDES)}bcm_temp.h    	\
+	{$(_INCLUDES)}bcm_pwr.h    	\
+	{$(_INCLUDES)}bcm_onn.h    	\
+	{$(_INCLUDES)}bcm_swinf.h    	\
+	{$(_INCLUDES)}bcm_hwinf.h    	\
+	{$(_INCLUDES)}bcm_id.h    	\
+	{$(_INCLUDES)}bcm_owm.h    	\
+	{$(_INCLUDES)}bcm_inv.h    	\
+	{$(_INCLUDES)}bcm_como.h    	\
+	{$(_INCLUDES)}bcm_uart.h    	\
+	{$(_INCLUDES)}bcm_tim.h    	\
+	{$(_INCLUDES)}bcm_nrml.h    	\
+	{$(_INCLUDES)}nvm.h    	\
+	{$(_INCLUDES)}nvm_common.h    	\
+	#---------------
+..\source\diagdfmal.c: 				\
+	{$(_INCLUDES)}os.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}kb_ret.h    	\
+	{$(_INCLUDES)}os_util.h    	\
+	{$(_INCLUDES)}os_al.h    	\
+	{$(_INCLUDES)}os_app.h    	\
+	{$(_INCLUDES)}coerrno.h    	\
+	{$(_INCLUDES)}impl/coerrno_.h    	\
+	{$(_INCLUDES)}coplatform.h    	\
+	{$(_INCLUDES)}cocheck.h    	\
+	{$(_INCLUDES)}impl/cocheck_.h    	\
+	{$(_INCLUDES)}cotype.h    	\
+	{$(_INCLUDES)}std_defs.h    	\
+	{$(_INCLUDES)}cocheckmacros.h    	\
+	{$(_INCLUDES)}impl/cocheckmacros_.h    	\
+	{$(_INCLUDES)}codefs.h    	\
+	{$(_INCLUDES)}coerror.h    	\
+	{$(_INCLUDES)}impl/coerror_.h    	\
+	{$(_INCLUDES)}comisc.h    	\
+	{$(_INCLUDES)}impl/comisc_.h    	\
+	{$(_INCLUDES)}cosvdata.h    	\
+	{$(_INCLUDES)}diagdfm.h    	\
+	{$(_INCLUDES)}diagdemtypes.h    	\
+	{$(_INCLUDES)}diagdsmtypes.h    	\
+	{$(_INCLUDES)}rtctypes.h    	\
+	{$(_INCLUDES)}rtcdefs.h    	\
+	{$(_INCLUDES)}diagdfmal.h    	\
+	{$(_INCLUDES)}fwkaldfmnvmem.h    	\
+	{$(_INCLUDES)}bcm_common.h    	\
+	{$(_INCLUDES)}cbk_def.h    	\
+	{$(_INCLUDES)}swident.h    	\
+	{$(_INCLUDES)}nvm_common.h    	\
+	{$(_INCLUDES)}nvm.h    	\
+	#---------------
+
+..\source\diagdsmconfig.c: 				\
+	{$(_INCLUDES)}diagdsmconfigimpl.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}diagdsmimpl.h    	\
+	{$(_INCLUDES)}diagdsmtypes.h    	\
+	{$(_INCLUDES)}diagdemtypes.h    	\
+	{$(_INCLUDES)}diagdsmfunctional.h    	\
+	{$(_INCLUDES)}diagdsmfunctionalbasic.h    	\
+	{$(_INCLUDES)}./impl/diagdsmfunctional_impl.h    	\
+	{$(_INCLUDES)}diagdsmfunctionalcommand.h    	\
+	{$(_INCLUDES)}diagdsmfunctionalretrieval.h    	\
+	{$(_INCLUDES)}diagdsmfunctional_impl.h    	\
+	{$(_INCLUDES)}ibcdebug.h    	\
+	{$(_INCLUDES)}ibcdebugoff.h    	\
+	{$(_INCLUDES)}ibcdebugcfg.h    	\
+	{$(_INCLUDES)}ibcdebugimpl.h    	\
+	{$(_INCLUDES)}os_util.h    	\
+	{$(_INCLUDES)}os.h    	\
+	{$(_INCLUDES)}kb_ret.h    	\
+	{$(_INCLUDES)}os_app.h    	\
+	{$(_INCLUDES)}os_al.h    	\
+	{$(_INCLUDES)}cfg_dsm.h    	\
+	#---------------
+..\source\c_nvm.c: 				\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}ct_nvm.h    	\
+	{$(_INCLUDES)}cd_nvm.h    	\
+	{$(_INCLUDES)}cdo.h    	\
+	{$(_INCLUDES)}cbk_def.h    	\
+	{$(_INCLUDES)}c_nvm.h    	\
+	{$(_INCLUDES)}nvm_common.h    	\
+	{$(_INCLUDES)}fwkalmamonvmem.h    	\
+	{$(_INCLUDES)}bcm_common.h    	\
+	{$(_INCLUDES)}swident.h    	\
+	{$(_INCLUDES)}fwkalrtcnvmem.h    	\
+	{$(_INCLUDES)}fwkaldsmnvmem.h    	\
+	{$(_INCLUDES)}fwkaldfmnvmem.h    	\
+	{$(_INCLUDES)}fwkaldatabackup.h    	\
+	{$(_INCLUDES)}mamoal.h    	\
+	{$(_INCLUDES)}ladc_flash.h    	\
+	{$(_INCLUDES)}fwkaldrcnvmem.h    	\
+	{$(_INCLUDES)}nvm_i.h    	\
+	{$(_INCLUDES)}nvm_s.h    	\
+	{$(_INCLUDES)}nvm.h    	\
+	{$(_INCLUDES)}os.h    	\
+	{$(_INCLUDES)}kb_ret.h    	\
+	{$(_INCLUDES)}os_util.h    	\
+	{$(_INCLUDES)}os_al.h    	\
+	{$(_INCLUDES)}os_app.h    	\
+	#---------------
+..\source\diaggdshconfig.c: 				\
+	{$(_INCLUDES)}diaggdshconfig.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}diagdsmtypes.h    	\
+	{$(_INCLUDES)}diagdsabswlad.h    	\
+	#---------------
+..\source\rtccconfig.c: 				\
+	{$(_INCLUDES)}impl/rtccconfigimpl.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	#---------------
+..\source\fwkctrlconfig.c: 				\
+	{$(_INCLUDES)}fwkctrlconfig.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}os_s.h    	\
+	{$(_INCLUDES)}os.h    	\
+	{$(_INCLUDES)}kb_ret.h    	\
+	{$(_INCLUDES)}os_util.h    	\
+	{$(_INCLUDES)}os_al.h    	\
+	{$(_INCLUDES)}os_app.h    	\
+	{$(_INCLUDES)}os_alext.h    	\
+	#---------------
+..\source\nwmmrconfig.c: 				\
+	{$(_INCLUDES)}nwmmrconfigimpl.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}nwmmrstate.h    	\
+	#---------------
+..\source\cfg_sdi_fwk.c: 				\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}cbk_def.h    	\
+	{$(_INCLUDES)}sdi_i.h    	\
+	{$(_INCLUDES)}sdi.h    	\
+	{$(_INCLUDES)}sdi_tasks_s.h    	\
+	{$(_INCLUDES)}diag_sdi_cmd_hndlr_s.h    	\
+	{$(_INCLUDES)}diag_dem_sdi_cmd_hndlr_s.h    	\
+	{$(_INCLUDES)}aod_sdi_cmd_hndlr_s.h    	\
+	{$(_INCLUDES)}peek_sdi_cmd_hndlr_s.h    	\
+	#---------------
+..\source\cfg_aod_sdi.c: 				\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}ibcsysdefs.h    	\
+	{$(_INCLUDES)}aod_sdi_cmd_hndlr_i.h    	\
+	{$(_INCLUDES)}sdi.h    	\
+	{$(_INCLUDES)}aod_sdi_cmd_hndlr_s.h    	\
+	{$(_INCLUDES)}sdi_tasks_s.h    	\
+	#---------------
+..\source\cfg_peek_sdi.c: 				\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}ibcsysdefs.h    	\
+	{$(_INCLUDES)}peek_sdi_cmd_hndlr_i.h    	\
+	{$(_INCLUDES)}sdi.h    	\
+	{$(_INCLUDES)}peek_sdi_cmd_hndlr_s.h    	\
+	{$(_INCLUDES)}sdi_tasks_s.h    	\
+	#---------------
+..\source\fwkcmmconfig.c: 				\
+	{$(_INCLUDES)}impl/fwkcmmconfig.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}fwkcmmimpl.h    	\
+	#---------------
+..\source\mdr_supported_roles.c: 				\
+	{$(_INCLUDES)}dvrmgral.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}ibcdvrutil.h    	\
+	#---------------
+..\source\drcaldeviddetconfig.c: 				\
+	{$(_INCLUDES)}drcaldeviddetconfigimpl.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	#---------------

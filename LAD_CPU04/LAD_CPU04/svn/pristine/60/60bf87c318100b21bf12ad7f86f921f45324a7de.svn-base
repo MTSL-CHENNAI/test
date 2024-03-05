@@ -1,0 +1,1740 @@
+                                  1 	#$$eb
+                                  2 	#$$sz 0		- Size opt info
+                                  3 	#$$ss 0		- XO option
+                                  4 	#$$fp 0		- Floating point mode
+                                  5 	#$$m2		- PowerPC mnemonics
+                                  6 	#$$pPPC	- PowerPC instructions
+                                  7 	#$$oPPC5554	 - Optimized for PowerPC PPC5554
+                                  8 	#$$ko 1
+                                  9 		.file		"diagdfmal.c"
+                                 10 	#$$dg 1
+                                 11 	# -X user configurable options:
+                                 12 	#$$x X7=1 X8=1 X10=1 X11=1 X12=1 X15=2 X16=20 X18=4
+                                 13 	#$$x X19=10 X20=21093 X23=1 X27=1048576 X32=2 X33=3328 X36=1 X39=5554
+                                 14 	#$$x X46=1 X48=1 X55=7 X56=1 X57=2 X74=255 X78=4 X83=3
+                                 15 	#$$x X84=-2 X86=3 X91=1 X93=4 X115=32767 X119=44 X146=6 X147=3
+                                 16 	#$$x X153=2 X154=12582977 X175=65535 X179=1 X180=20 X191=1 X422=10000000 X423=6000000
+                                 17 	#$$x X424=300000 X428=1 X446=1 X450=1 X459=64
+                                 18 		.section	.PPC.EMB.apuinfo,,@note
+  00000000 01  0000 0008         19 		.4byte		8
+  00000004 01  0000 0008         20 		.4byte		0+4+4
+  00000008 01  0000 0002         21 		.4byte		2
+  0000000c 01  4150 5569 6e66    22 		.byte		"APUinfo"
+  00000012 01  6f                   	
+  00000013 01  00                23 		.byte		0
+                                 24 		.align		2
+  00000014 01  0100 0001         25 		.4byte		0x01000001
+  00000018 01  0040 0001         26 		.4byte		0x00400001
+                                 27 		.text
+                                 28 		.section	.debug_line,,n
+                                 29 	.L8:
+                                 30 		.text
+                                 31 	#$$ld
+                                 32 	.L4:
+  00000000 00                    33 		.0byte		.L2
+  00000000 02  0000 02d4 0002    34 		.d2_line_start	.debug_line
+  00000006 02  0000 0013 0401       	
+  0000000c 02  ff04 0d00 0101       	
+  00000012 02  0101 0000 0001       	
+  00000018 02  0000 0100 00         	
+                                 35 		.text
+                                 36 	# static inline U16 u16DfmAlCheckValidParamSize( U16 u16Size )
+                                 37 	# {
+                                 38 		.align		2
+                                 39 		.text
+  0000001d 02  001c 032e 2e5c    40 		.d2file		"..\\source\\diagdfmal.c"
+  00000023 02  5c73 6f75 7263       	
+  00000029 02  655c 5c64 6961       	
+  0000002f 02  6764 666d 616c       	
+  00000035 02  2e63 0000 0000       	
+  0000003b 02  0401                 	
+  0000003d 02  0005 0200 0000    41 	        .d2line         84
+  00000043 02  0003 d300 0e         	
+                                 42 	#$$ld
+                                 43 	.L463:
+                                 44 	
+                                 45 	#$$bf	u16DfmAlCheckValidParamSize,interprocedural,nostackparams
+                                 46 	
+                                 47 	# Regs written: r0,r1,r3,r4,r5,cr0,xer
+  00000000 04  0000 0018 0000    48 		.d2_cfa_start	__cie
+  00000006 04  0000 0000 0000       	
+  0000000c 04  0000 002c            	
+                                 49 	u16DfmAlCheckValidParamSize:
+                                 50 	.Llo1:
+  00000000 00  7c08 02a6         51 		mfspr		r0,lr
+  00000004 00  9421 fff0         52 		stwu		r1,-16(r1)		
+  00000010 04  420e 10           53 		.d2_cfa_def_cfa_offset	16
+  00000008 00  9001 0014         54 		stw		r0,20(r1)
+  00000013 04  4111 6c7f         55 		.d2_cfa_offset    108,-1
+  00000048 02  0005 0200 0000    56 		.d2prologue_end
+  0000004e 02  000a                 	
+                                 57 	# 
+                                 58 	#     U16 u16RetVal;
+                                 59 	#     // Check if received size is 32 bit aligned or not*/
+                                 60 	#     if( ( u16Size % WORD_LEN ) == NUM_ZERO )
+                                 61 	#     {
+                                 62 	#         // If Yes, return same size*/
+                                 63 	#         u16RetVal = u16Size;
+                                 64 	#     }
+                                 65 	#     else
+                                 66 	#     {
+                                 67 	#         // If not, make it 32 bit align*/
+                                 68 	#         u16RetVal = ( U16 )( u16Size + ( WORD_LEN - ( u16Size % WORD_LEN ) ) );
+  00000050 02  0005 0200 0000    69 		.d2line		96
+  00000056 02  0003 0c0e            	
+  0000000c 00  5464 07be         70 		rlwinm		r4,r3,0,30,31
+  00000010 00  20a4 0004         71 		subfic		r5,r4,4
+  0000005a 02  0005 0200 0000    72 		.d2line		88
+  00000060 02  0003 780e            	
+  00000014 00  2804 0000         73 		cmpli		0,0,r4,0
+  00000018 00  7c83 2a14         74 		add		r4,r3,r5		# u16RetVal=r4 u16Size=r3
+                                 75 	.Llo3:
+  0000001c 00  7c63 209e         76 		isel		r3,r3,r4,2		# u16RetVal=r3 u16Size=r3 u16RetVal=r4
+                                 77 	#     }
+                                 78 	# 
+                                 79 	#     return( u16RetVal );
+  00000064 02  0005 0200 0000    80 		.d2line		99
+  0000006a 02  0003 0b0e            	
+                                 81 	.Llo2:
+  00000020 00  5463 043e         82 		rlwinm		r3,r3,0,16,31		# u16RetVal=r3
+                                 83 	# 
+                                 84 	# }
+  0000006e 02  0005 0200 0000    85 		.d2epilogue_begin
+  00000074 02  000b 01              	
+  00000024 00  3821 0010         86 		addi		r1,r1,16		
+  00000017 04  470e 00           87 		.d2_cfa_def_cfa_offset	0
+  00000077 02  0005 0200 0000    88 		.d2line		101
+  0000007d 02  0010                 	
+  00000028 00  4e80 0020         89 		blr
+                                 90 	.Llo4:
+                                 91 	#$$ef
+                                 92 		.d2_cfa_end 2
+                                 93 		.text
+                                 94 	#$$ld
+                                 95 	.L464:
+                                 96 		.type		u16DfmAlCheckValidParamSize,@function
+                                 97 		.size		u16DfmAlCheckValidParamSize,.-u16DfmAlCheckValidParamSize
+                                 98 	# Number of nodes = 23
+                                 99 	
+                                100 	# Allocations for u16DfmAlCheckValidParamSize
+                                101 	#	?a4		u16Size
+                                102 	#	?a5		u16RetVal
+                                103 	# S16 s16DiagDfmAl_ReadData( U16 u16Offset, U32* pu32Data, U16 u16Length,
+                                104 	#                            E_DIAG_DFM_NVMEM_DATA_TYPE eDataType,
+                                105 	#                            E_DIAG_DFM_NVMEM_XFER_MODE eNVMemMode )
+                                106 	# {
+                                107 		.align		2
+                                108 		.text
+  0000007f 02  0005 0200 0000   109 	        .d2line         108
+  00000085 02  0003 070e            	
+                                110 	#$$ld
+                                111 	.L474:
+                                112 	
+                                113 	#$$bf	s16DiagDfmAl_ReadData,interprocedural,rasave,nostackparams
+                                114 		.globl		s16DiagDfmAl_ReadData
+  0000001c 04  0000 0018 0000   115 		.d2_cfa_start	__cie
+  00000022 04  0000 0000 0000       	
+  00000028 04  0000 0128            	
+                                116 	s16DiagDfmAl_ReadData:
+  0000002c 00  3d60 0000        117 		addis		r11,0,__RTC_SP_LIMIT@ha
+  00000030 00  3981 fef0        118 		addi		r12,r1,-272
+  00000034 00  816b 0000        119 		lwz		r11,__RTC_SP_LIMIT@l(r11)
+  00000038 00  7c0c 5840        120 		cmpl		0,0,r12,r11
+  0000003c 00  40a0 0010        121 		bc		5,0,.L498
+  00000040 00  7d68 02a6        122 		mfspr		r11,8
+  00000044 00  4800 0001        123 		bl		__sp_grow_s
+                                124 	.Llo11:
+  00000048 00  7d68 03a6        125 		mtspr		lr,r11
+                                126 	.L498:
+  0000004c 00  7c08 02a6        127 		mfspr		r0,lr
+  00000050 00  9421 fff0        128 		stwu		r1,-16(r1)		
+  0000002c 04  4a0e 10          129 		.d2_cfa_def_cfa_offset	16
+  00000054 00  9001 0014        130 		stw		r0,20(r1)
+  0000002f 04  4111 6c7f        131 		.d2_cfa_offset    108,-1
+  00000058 00  7c69 1b78        132 		mr		r9,r3		# u16Offset=r9
+  00000089 02  0005 0200 0000   133 		.d2line		117
+  0000008f 02  0003 090e            	
+                                134 	.Llo5:
+  0000005c 00  7c88 2379        135 		mr.		r8,r4		# pu32Data=?a5
+  00000060 00  7ca3 2b78        136 		mr		r3,r5		# u16Length=r3
+  00000093 02  0005 0200 0000   137 		.d2prologue_end
+  00000099 02  000a                 	
+                                138 	#     // Note:
+                                139 	#     // Exception is made for code complexity max number of nested loops, 6 > 5
+                                140 	#     // Separating code will reduce understandability and readability.
+                                141 	#     S16 s16AggregatedError = KB_RET_OK;
+                                142 	#     U16 u16TempLen; // 32 bit aligned length */
+                                143 	#     E_NVM_OPERATION_STATUS eStatus = eNVM_STATUS_OPERATION_INIT;    // local variable for 
+                                    	operation status
+  0000009b 02  0005 0200 0000   144 		.d2line		114
+  000000a1 02  0003 7d0e            	
+  00000064 00  3800 0000        145 		diab.li		r0,0
+  00000068 00  9001 0008        146 		stw		r0,8(r1)
+                                147 	# 
+                                148 	#     // Check for valid pointer */
+                                149 	#     if( pu32Data == NULL )
+  0000006c 00  4082 000c        150 		bc		4,2,.L423	# ne cr0
+                                151 	#     {
+                                152 	#         s16AggregatedError = KB_RET_ERR_INST_PTR;
+  000000a5 02  0005 0200 0000   153 		.d2line		119
+  000000ab 02  0003 050e            	
+  00000070 00  3860 fffe        154 		diab.li		r3,-2		# s16AggregatedError=r3
+                                155 	.Llo12:
+  00000074 00  4800 00cc        156 		b		.L424
+                                157 	.L423:
+                                158 	#     }
+                                159 	#     else
+                                160 	#     {
+                                161 	#         // Size of FRAM transfer should be 32 bit aligned */
+                                162 	#         u16TempLen = u16DfmAlCheckValidParamSize( u16Length );
+  000000af 02  0005 0200 0000   163 		.d2line		124
+  000000b5 02  0003 050e            	
+                                164 	.Llo13:
+  00000078 00  4bff ff89        165 		bl		u16DfmAlCheckValidParamSize
+  000000b9 02  0005 0200 0000   166 		.d2line		150
+  000000bf 02  0003 1a0e            	
+  0000007c 00  2e87 0000        167 		cmpi		5,0,r7,0		# eNVMemMode=r7
+                                168 	# 
+                                169 	#         // Check which data we are reading - Markers or Event*/
+                                170 	#         if( eDataType ==  eDFM_NVMEM_MARKER_DATA )
+  00000080 00  7c60 1b78        171 		mr		r0,r3		# u16TempLen=r0
+  000000c3 02  0005 0200 0000   172 		.d2line		127
+  000000c9 02  0003 690e            	
+                                173 	.Llo24:
+  00000084 00  2c06 0000        174 		cmpi		0,0,r6,0		# eDataType=r6
+  00000088 00  4082 0034        175 		bc		4,2,.L421	# ne cr0
+                                176 	#         {
+                                177 	#             // Marker data is available in POFF-FRAM */
+                                178 	#             // Read Marker Data*/
+                                179 	#             s16AggregatedError = s16NVM_ReadData (NVM_DEVICE_ID0,  // Device ID for access
+                                    	ing NVM POFF
+  000000cd 02  0005 0200 0000   180 		.d2line		131
+  000000d3 02  0003 040e            	
+                                181 	.Llo6:
+  0000008c 00  3c80 0000        182 		addis		r4,0,u8DFM_MyPoffUsrArea@ha
+  00000090 00  3860 0000        183 		diab.li		r3,0
+  00000094 00  8884 0000        184 		lbz		r4,u8DFM_MyPoffUsrArea@l(r4)
+  00000098 00  38c1 0008        185 		addi		r6,r1,8
+  0000009c 00  5409 043e        186 		rlwinm		r9,r0,0,16,31		# u16TempLen=r0
+  000000a0 00  38a0 0000        187 		diab.li		r5,0
+  000000a4 00  38e0 0000        188 		diab.li		r7,0
+  000000a8 00  4800 0001        189 		bl		s16NVM_ReadData
+                                190 	#                                                   u8DFM_MyPoffUsrArea,
+                                191 	#                                                   eNVM_BLOCKING_MODE,
+                                192 	#                                                   &eStatus,
+                                193 	#                                                   0,
+                                194 	#                                                   (U8*) pu32Data,
+                                195 	#                                                   (U32) u16TempLen);
+                                196 	# 
+                                197 	#             if( s16AggregatedError != KB_RET_OK )
+  000000d7 02  0005 0200 0000   198 		.d2line		139
+  000000dd 02  0003 080e            	
+                                199 	.Llo14:
+  000000ac 00  7c60 0735        200 		extsh.		r0,r3		# s16AggregatedError=?a9
+  000000b0 00  4182 0090        201 		bc		12,2,.L424	# eq cr0
+                                202 	#             {
+                                203 	#                 s16AggregatedError = KB_RET_ERR_INTERNAL;
+  000000e1 02  0005 0200 0000   204 		.d2line		141
+  000000e7 02  0010                 	
+  000000b4 00  3860 fff8        205 		diab.li		r3,-8		# s16AggregatedError=r3
+  000000b8 00  4800 0088        206 		b		.L424
+                                207 	.L421:
+                                208 	#             }
+                                209 	# 
+                                210 	#         }
+                                211 	#         else
+                                212 	#         {
+                                213 	#             // Event data is available in NonPOFF-FRAM */
+                                214 	#             // Read Event Data*/
+                                215 	#             // Check for mode to read an event */
+                                216 	#             if( eNVMemMode == eDFM_NVMEM_BLOCK_MODE )
+  000000e9 02  0005 0200 0000   217 		.d2line		150
+  000000ef 02  0003 090e            	
+                                218 	.Llo7:
+  000000bc 00  4096 0028        219 		bc		4,22,.L417	# ne cr5
+                                220 	#             {
+                                221 	#                 // Read event data in blocking mode */
+                                222 	#                 // As FRAM queues are not UP before initialization, this mode should be us
+                                    	ed during initialization only */
+                                223 	#                 // For the data which need to be written or Read during initialization */
+                                224 	#                 s16AggregatedError = s16NVM_ReadData (NVM_DEVICE_ID1,  // Device ID for ac
+                                    	cessing non poff NVM
+  000000f3 02  0005 0200 0000   225 		.d2line		155
+  000000f9 02  0003 050e            	
+  000000c0 00  3c60 0000        226 		addis		r3,0,u8DFM_NonPoffFwkArea@ha
+  000000c4 00  5527 043e        227 		rlwinm		r7,r9,0,16,31		# u16Offset=r9
+  000000c8 00  8883 0000        228 		lbz		r4,u8DFM_NonPoffFwkArea@l(r3)
+  000000cc 00  38c1 0008        229 		addi		r6,r1,8
+  000000d0 00  38a0 0000        230 		diab.li		r5,0
+  000000d4 00  5409 043e        231 		rlwinm		r9,r0,0,16,31		# u16TempLen=r0
+                                232 	.Llo8:
+  000000d8 00  3860 0001        233 		diab.li		r3,1
+  000000dc 00  4800 0001        234 		bl		s16NVM_ReadData
+                                235 	.Llo15:
+  000000e0 00  4800 004c        236 		b		.L418
+                                237 	.L417:
+                                238 	#                                                       DFM_NVM_FWK_AREA_ID,
+                                239 	#                                                       eNVM_BLOCKING_MODE,
+                                240 	#                                                       &eStatus,
+                                241 	#                                                       u16Offset,
+                                242 	#                                                       (U8*) pu32Data,
+                                243 	#                                                       (U32) u16TempLen);
+                                244 	#             }
+                                245 	#             else
+                                246 	#             {
+                                247 	#                 // In queued mode the read request is entered into a free slot in the queu
+                                    	e. From there
+                                248 	#                 // the NVM cyclic operation eventually retrieves and executes it. Dependin
+                                    	g on the size
+                                249 	#                 // of the data it may need several passes to finish the request.
+                                250 	#                 // The result of the operation is written to eStatus.
+                                251 	#                 // s16DiagDfmAl_ReadData() waits for the result and only exits after recei
+                                    	ving it.
+                                252 	#                 // As the function finishes in a single pass the eStatus may be local. Thi
+                                    	s also allows
+                                253 	#                 // having multiple instances of the function.
+                                254 	#                 // There may be multiple read or write requests waiting in the NVM queue a
+                                    	t one time.
+                                255 	#                 // NVM handles them one after the other.
+                                256 	#                 eStatus = eNVM_STATUS_OPERATION_BUSY;
+  000000fd 02  0005 0200 0000   257 		.d2line		174
+  00000103 02  0003 130e            	
+                                258 	.Llo9:
+  000000e4 00  3860 0001        259 		diab.li		r3,1
+  00000107 02  0005 0200 0000   260 		.d2line		177
+  0000010d 02  0003 030e            	
+  000000e8 00  3c80 0000        261 		addis		r4,0,u8DFM_NonPoffFwkArea@ha
+                                262 	# 
+                                263 	#                 // Read DFM data from NV memory - NonPOFF- FRAM */
+                                264 	#                 s16AggregatedError = s16NVM_ReadData (NVM_DEVICE_ID1,  // Device ID for ac
+                                    	cessing non poff NVM
+  000000ec 00  9061 0008        265 		stw		r3,8(r1)
+  000000f0 00  5527 043e        266 		rlwinm		r7,r9,0,16,31		# u16Offset=r9
+  000000f4 00  8884 0000        267 		lbz		r4,u8DFM_NonPoffFwkArea@l(r4)
+  000000f8 00  38c1 0008        268 		addi		r6,r1,8
+  000000fc 00  38a0 0001        269 		diab.li		r5,1
+  00000100 00  5409 043e        270 		rlwinm		r9,r0,0,16,31		# u16TempLen=r0
+                                271 	.Llo10:
+  00000104 00  4800 0001        272 		bl		s16NVM_ReadData
+                                273 	#                                                       DFM_NVM_FWK_AREA_ID,
+                                274 	#                                                       eNVM_QUEUE_MODE,
+                                275 	#                                                       &eStatus,
+                                276 	#                                                       u16Offset,
+                                277 	#                                                       (U8*) pu32Data,
+                                278 	#                                                       (U32) u16TempLen);
+                                279 	# 
+                                280 	#                 if( s16AggregatedError == KB_RET_OK )
+  00000111 02  0005 0200 0000   281 		.d2line		185
+  00000117 02  0003 080e            	
+                                282 	.Llo16:
+  00000108 00  7c60 0735        283 		extsh.		r0,r3		# s16AggregatedError=?a9
+  0000010c 00  4082 0020        284 		bc		4,2,.L418	# ne cr0
+                                285 	.L413:
+                                286 	#                 {
+                                287 	# 
+                                288 	#                     while( eStatus == eNVM_STATUS_OPERATION_BUSY );
+  0000011b 02  0005 0200 0000   289 		.d2line		188
+  00000121 02  0003 030e            	
+  00000110 00  8001 0008        290 		lwz		r0,8(r1)
+  00000114 00  2c00 0001        291 		cmpi		0,0,r0,1
+  00000118 00  4182 fff8        292 		bc		12,2,.L413	# eq cr0
+                                293 	#                     if( eStatus == eNVM_STATUS_OPERATION_DONE )
+  00000125 02  0005 0200 0000   294 		.d2line		189
+  0000012b 02  000f                 	
+                                295 	.Llo17:
+  0000011c 00  8001 0008        296 		lwz		r0,8(r1)
+  00000120 00  2c00 0002        297 		cmpi		0,0,r0,2
+  00000124 00  4182 0010        298 		bc		12,2,.L425	# eq cr0
+                                299 	#                     {
+                                300 	#                         s16AggregatedError = KB_RET_OK;
+                                301 	#                     }
+                                302 	#                     else
+                                303 	#                     {
+                                304 	#                         s16AggregatedError = KB_RET_ERR_CONFIG;
+  0000012d 02  0005 0200 0000   305 		.d2line		195
+  00000133 02  0003 060e            	
+  00000128 00  3860 fc18        306 		diab.li		r3,-1000		# s16AggregatedError=r3
+                                307 	.L418:
+                                308 	#                     }
+                                309 	#                 }
+                                310 	# 
+                                311 	#             }
+                                312 	# 
+                                313 	#             if( s16AggregatedError == KB_RET_OK )
+  00000137 02  0005 0200 0000   314 		.d2line		201
+  0000013d 02  0003 060e            	
+                                315 	.Llo18:
+  0000012c 00  7c60 0735        316 		extsh.		r0,r3		# s16AggregatedError=?a9
+  00000130 00  4082 000c        317 		bc		4,2,.L419	# ne cr0
+                                318 	.L425:
+                                319 	#             {
+                                320 	#                 s16AggregatedError = KB_RET_OK;
+  00000141 02  0005 0200 0000   321 		.d2line		203
+  00000147 02  0010                 	
+                                322 	.Llo19:
+  00000134 00  3860 0000        323 		diab.li		r3,0		# s16AggregatedError=r3
+                                324 	.Llo20:
+  00000138 00  4800 0008        325 		b		.L424
+                                326 	.L419:
+                                327 	#             }
+                                328 	#             else
+                                329 	#             {
+                                330 	#                 s16AggregatedError = KB_RET_ERR_INTERNAL;
+  00000149 02  0005 0200 0000   331 		.d2line		207
+  0000014f 02  0003 040e            	
+                                332 	.Llo21:
+  0000013c 00  3860 fff8        333 		diab.li		r3,-8		# s16AggregatedError=r3
+                                334 	.L424:
+                                335 	#             }
+                                336 	# 
+                                337 	#         }
+                                338 	#     }
+                                339 	#     return ( s16AggregatedError );
+  00000153 02  0005 0200 0000   340 		.d2line		212
+  00000159 02  0003 050e            	
+                                341 	.Llo22:
+  00000140 00  7c63 0734        342 		extsh		r3,r3		# s16AggregatedError=r3
+                                343 	# 
+                                344 	# }
+  0000015d 02  0005 0200 0000   345 		.d2epilogue_begin
+  00000163 02  000b 01              	
+  00000166 02  0005 0200 0000   346 		.d2line		214
+  0000016c 02  0010                 	
+                                347 	.Llo23:
+  00000144 00  8001 0014        348 		lwz		r0,20(r1)
+  00000148 00  7c08 03a6        349 		mtspr		lr,r0
+  0000014c 00  3821 0010        350 		addi		r1,r1,16		
+  00000033 04  023e 0e00        351 		.d2_cfa_def_cfa_offset	0
+  00000150 00  4e80 0020        352 		blr
+                                353 	#$$ef
+                                354 		.d2_cfa_end 2
+                                355 		.text
+                                356 	#$$ld
+                                357 	.L475:
+                                358 		.type		s16DiagDfmAl_ReadData,@function
+                                359 		.size		s16DiagDfmAl_ReadData,.-s16DiagDfmAl_ReadData
+                                360 	# Number of nodes = 133
+                                361 	
+                                362 	# Allocations for s16DiagDfmAl_ReadData
+                                363 	#	?a4		u16Offset
+                                364 	#	?a5		pu32Data
+                                365 	#	?a6		u16Length
+                                366 	#	?a7		eDataType
+                                367 	#	?a8		eNVMemMode
+                                368 	#	?a9		s16AggregatedError
+                                369 	#	?a10		u16TempLen
+                                370 	#	SP,8		eStatus
+                                371 	# S16 s16DiagDfmAl_WriteData( U16 u16Offset, U32* pu32Data, U16 u16Length,
+                                372 	#                             E_DIAG_DFM_NVMEM_DATA_TYPE eDataType,
+                                373 	#                             E_DIAG_DFM_NVMEM_XFER_MODE eNVMemMode )
+                                374 	# {
+                                375 		.align		2
+                                376 		.text
+  0000016e 02  0005 0200 0000   377 	        .d2line         220
+  00000174 02  0003 060e            	
+                                378 	#$$ld
+                                379 	.L501:
+                                380 	
+                                381 	#$$bf	s16DiagDfmAl_WriteData,interprocedural,rasave,nostackparams
+                                382 		.globl		s16DiagDfmAl_WriteData
+  00000038 04  0000 0018 0000   383 		.d2_cfa_start	__cie
+  0000003e 04  0000 0000 0000       	
+  00000044 04  0000 0128            	
+                                384 	s16DiagDfmAl_WriteData:
+  00000154 00  3d60 0000        385 		addis		r11,0,__RTC_SP_LIMIT@ha
+  00000158 00  3981 fef0        386 		addi		r12,r1,-272
+  0000015c 00  816b 0000        387 		lwz		r11,__RTC_SP_LIMIT@l(r11)
+  00000160 00  7c0c 5840        388 		cmpl		0,0,r12,r11
+  00000164 00  40a0 0010        389 		bc		5,0,.L514
+  00000168 00  7d68 02a6        390 		mfspr		r11,8
+  0000016c 00  4800 0001        391 		bl		__sp_grow_s
+                                392 	.Llo31:
+  00000170 00  7d68 03a6        393 		mtspr		lr,r11
+                                394 	.L514:
+  00000174 00  7c08 02a6        395 		mfspr		r0,lr
+  00000178 00  9421 fff0        396 		stwu		r1,-16(r1)		
+  00000048 04  4a0e 10          397 		.d2_cfa_def_cfa_offset	16
+  0000017c 00  9001 0014        398 		stw		r0,20(r1)
+  0000004b 04  4111 6c7f        399 		.d2_cfa_offset    108,-1
+  00000180 00  7c69 1b78        400 		mr		r9,r3		# u16Offset=r9
+  00000178 02  0005 0200 0000   401 		.d2line		230
+  0000017e 02  0003 0a0e            	
+                                402 	.Llo25:
+  00000184 00  7c88 2379        403 		mr.		r8,r4		# pu32Data=?a5
+  00000188 00  7ca3 2b78        404 		mr		r3,r5		# u16Length=r3
+  00000182 02  0005 0200 0000   405 		.d2prologue_end
+  00000188 02  000a                 	
+                                406 	#     // Note:
+                                407 	#     // Exception is made for code complexity max number of nested loops, 6 > 5
+                                408 	#     // Separating code will reduce understandability and readability.
+                                409 	#     S16 s16AggregatedError = KB_RET_OK;
+                                410 	#     // 32 bit aligned length `*/
+                                411 	#     U16 u16TempLen = NUM_ZERO;
+                                412 	#     E_NVM_OPERATION_STATUS eStatus = eNVM_STATUS_OPERATION_INIT;    // local variable for 
+                                    	operation status
+  0000018a 02  0005 0200 0000   413 		.d2line		227
+  00000190 02  0003 7d0e            	
+  0000018c 00  3800 0000        414 		diab.li		r0,0
+  00000190 00  9001 0008        415 		stw		r0,8(r1)
+                                416 	# 
+                                417 	#     // Check for valid pointer */
+                                418 	#     if( pu32Data == NULL )
+  00000194 00  4082 000c        419 		bc		4,2,.L447	# ne cr0
+                                420 	#     {
+                                421 	#         s16AggregatedError = KB_RET_ERR_INST_PTR;
+  00000194 02  0005 0200 0000   422 		.d2line		232
+  0000019a 02  0003 050e            	
+  00000198 00  3860 fffe        423 		diab.li		r3,-2		# s16AggregatedError=r3
+                                424 	.Llo32:
+  0000019c 00  4800 00cc        425 		b		.L448
+                                426 	.L447:
+                                427 	#     }
+                                428 	#     else
+                                429 	#     {
+                                430 	#         // Size of FRAM transfer should be 32 bit aligned */
+                                431 	#         u16TempLen = u16DfmAlCheckValidParamSize( u16Length );
+  0000019e 02  0005 0200 0000   432 		.d2line		237
+  000001a4 02  0003 050e            	
+                                433 	.Llo33:
+  000001a0 00  4bff fe61        434 		bl		u16DfmAlCheckValidParamSize
+  000001a8 02  0005 0200 0000   435 		.d2line		261
+  000001ae 02  0003 180e            	
+  000001a4 00  2e87 0000        436 		cmpi		5,0,r7,0		# eNVMemMode=r7
+                                437 	#         // Check which data we are storing - Markers or Event*/
+                                438 	#         if( eDataType ==  eDFM_NVMEM_MARKER_DATA )
+  000001a8 00  7c60 1b78        439 		mr		r0,r3		# u16TempLen=r0
+  000001b2 02  0005 0200 0000   440 		.d2line		239
+  000001b8 02  0003 6a0e            	
+                                441 	.Llo42:
+  000001ac 00  2c06 0000        442 		cmpi		0,0,r6,0		# eDataType=r6
+  000001b0 00  4082 0034        443 		bc		4,2,.L445	# ne cr0
+                                444 	#         {
+                                445 	#             // Marker data is available in POFF-FRAM */
+                                446 	#             // Store Marker Data*/
+                                447 	#             s16AggregatedError = s16NVM_WriteData (NVM_DEVICE_ID0,  // Device ID for acces
+                                    	sing NVM POFF
+  000001bc 02  0005 0200 0000   448 		.d2line		243
+  000001c2 02  0003 040e            	
+                                449 	.Llo26:
+  000001b4 00  3c80 0000        450 		addis		r4,0,u8DFM_MyPoffUsrArea@ha
+  000001b8 00  3860 0000        451 		diab.li		r3,0
+  000001bc 00  8884 0000        452 		lbz		r4,u8DFM_MyPoffUsrArea@l(r4)
+  000001c0 00  38c1 0008        453 		addi		r6,r1,8
+  000001c4 00  5409 043e        454 		rlwinm		r9,r0,0,16,31		# u16TempLen=r0
+  000001c8 00  38a0 0000        455 		diab.li		r5,0
+  000001cc 00  38e0 0000        456 		diab.li		r7,0
+  000001d0 00  4800 0001        457 		bl		s16NVM_WriteData
+                                458 	#                                                    DFM_POFF_USR_AREA_ID,
+                                459 	#                                                    eNVM_BLOCKING_MODE,
+                                460 	#                                                    &eStatus,
+                                461 	#                                                    0,
+                                462 	#                                                    (U8*)(void*)pu32Data,
+                                463 	#                                                    (U32) u16TempLen);
+                                464 	#             if( s16AggregatedError != KB_RET_OK )
+  000001c6 02  0005 0200 0000   465 		.d2line		250
+  000001cc 02  0003 070e            	
+                                466 	.Llo34:
+  000001d4 00  7c60 0735        467 		extsh.		r0,r3		# s16AggregatedError=?a9
+  000001d8 00  4182 0090        468 		bc		12,2,.L448	# eq cr0
+                                469 	#             {
+                                470 	#                 s16AggregatedError = KB_RET_ERR_INTERNAL;
+  000001d0 02  0005 0200 0000   471 		.d2line		252
+  000001d6 02  0010                 	
+  000001dc 00  3860 fff8        472 		diab.li		r3,-8		# s16AggregatedError=r3
+  000001e0 00  4800 0088        473 		b		.L448
+                                474 	.L445:
+                                475 	#             }
+                                476 	# 
+                                477 	#         }
+                                478 	#         else
+                                479 	#         {
+                                480 	#             // Event data is available in NonPOFF-FRAM */
+                                481 	#             // Store Event Data*/
+                                482 	#             // Check for mode to store an event */
+                                483 	#             if( eNVMemMode == eDFM_NVMEM_BLOCK_MODE )
+  000001d8 02  0005 0200 0000   484 		.d2line		261
+  000001de 02  0003 090e            	
+                                485 	.Llo27:
+  000001e4 00  4096 0028        486 		bc		4,22,.L442	# ne cr5
+                                487 	#             {
+                                488 	#                 // Store event data in blocking mode */
+                                489 	#                 // As FRAM queues are not UP before initialization, this mode should be us
+                                    	ed during initialization only */
+                                490 	#                 // For the data which need to be written or Read during initialization */
+                                491 	#                 s16AggregatedError = s16NVM_WriteData (NVM_DEVICE_ID1,  // Device ID for a
+                                    	ccessing NVM FRAM
+  000001e2 02  0005 0200 0000   492 		.d2line		266
+  000001e8 02  0003 050e            	
+  000001e8 00  3c60 0000        493 		addis		r3,0,u8DFM_NonPoffFwkArea@ha
+  000001ec 00  5527 043e        494 		rlwinm		r7,r9,0,16,31		# u16Offset=r9
+  000001f0 00  8883 0000        495 		lbz		r4,u8DFM_NonPoffFwkArea@l(r3)
+  000001f4 00  38c1 0008        496 		addi		r6,r1,8
+  000001f8 00  38a0 0000        497 		diab.li		r5,0
+  000001fc 00  5409 043e        498 		rlwinm		r9,r0,0,16,31		# u16TempLen=r0
+                                499 	.Llo28:
+  00000200 00  3860 0001        500 		diab.li		r3,1
+  00000204 00  4800 0001        501 		bl		s16NVM_WriteData
+                                502 	.Llo35:
+  00000208 00  4800 0054        503 		b		.L443
+                                504 	.L442:
+                                505 	#                                                        DFM_NVM_FWK_AREA_ID,
+                                506 	#                                                        eNVM_BLOCKING_MODE,
+                                507 	#                                                        &eStatus,
+                                508 	#                                                        u16Offset,
+                                509 	#                                                        (U8*)(void*)pu32Data,
+                                510 	#                                                        (U32) u16TempLen);
+                                511 	#             }
+                                512 	#             else
+                                513 	#             {
+                                514 	#                 // In queued mode the write request is entered into a free slot in the que
+                                    	ue. From there
+                                515 	#                 // the NVM cyclic operation eventually retrieves and executes it. Dependin
+                                    	g on the size
+                                516 	#                 // of the data it may need several passes to finish the request.
+                                517 	#                 // The result of the operation is written to eStatus.
+                                518 	#                 // s16DiagDfmAl_WriteData() waits for the result and only exits after rece
+                                    	iving it.
+                                519 	#                 // As the function finishes in a single pass the eStatus may be local. Thi
+                                    	s also allows
+                                520 	#                 // having multiple instances of the function.
+                                521 	#                 // There may be multiple read or write requests waiting in the NVM queue a
+                                    	t one time.
+                                522 	#                 // NVM handles them one after the other.
+                                523 	#                 eStatus = eNVM_STATUS_OPERATION_BUSY;
+  000001ec 02  0005 0200 0000   524 		.d2line		285
+  000001f2 02  0003 130e            	
+                                525 	.Llo29:
+  0000020c 00  3860 0001        526 		diab.li		r3,1
+  000001f6 02  0005 0200 0000   527 		.d2line		287
+  000001fc 02  0010                 	
+  00000210 00  3c80 0000        528 		addis		r4,0,u8DFM_NonPoffFwkArea@ha
+                                529 	#                 // Write DFM data into NV memory - NonPOFF- FRAM */
+                                530 	#                 s16AggregatedError = s16NVM_WriteData (NVM_DEVICE_ID1,  // Device ID for a
+                                    	ccessing NVM FRAM
+  00000214 00  9061 0008        531 		stw		r3,8(r1)
+  00000218 00  5527 043e        532 		rlwinm		r7,r9,0,16,31		# u16Offset=r9
+  0000021c 00  8884 0000        533 		lbz		r4,u8DFM_NonPoffFwkArea@l(r4)
+  00000220 00  38c1 0008        534 		addi		r6,r1,8
+  00000224 00  38a0 0001        535 		diab.li		r5,1
+  00000228 00  5409 043e        536 		rlwinm		r9,r0,0,16,31		# u16TempLen=r0
+                                537 	.Llo30:
+  0000022c 00  4800 0001        538 		bl		s16NVM_WriteData
+                                539 	#                                                        DFM_NVM_FWK_AREA_ID,
+                                540 	#                                                        eNVM_QUEUE_MODE,
+                                541 	#                                                        &eStatus,
+                                542 	#                                                        u16Offset,
+                                543 	#                                                        (U8*)(void*)pu32Data,
+                                544 	#                                                        (U32) u16TempLen);
+                                545 	# 
+                                546 	#                 if( s16AggregatedError == KB_RET_OK )
+  000001fe 02  0005 0200 0000   547 		.d2line		295
+  00000204 02  0003 080e            	
+                                548 	.Llo36:
+  00000230 00  7c60 0735        549 		extsh.		r0,r3		# s16AggregatedError=?a9
+  00000234 00  4082 0028        550 		bc		4,2,.L443	# ne cr0
+                                551 	.L438:
+                                552 	#                 {
+                                553 	#                     // wait for the result of the queued request
+                                554 	#                     while( eStatus == eNVM_STATUS_OPERATION_BUSY );
+  00000208 02  0005 0200 0000   555 		.d2line		298
+  0000020e 02  0003 030e            	
+  00000238 00  8001 0008        556 		lwz		r0,8(r1)
+  0000023c 00  2c00 0001        557 		cmpi		0,0,r0,1
+  00000240 00  4182 fff8        558 		bc		12,2,.L438	# eq cr0
+                                559 	#                     if( eStatus == eNVM_STATUS_OPERATION_DONE )
+  00000212 02  0005 0200 0000   560 		.d2line		299
+  00000218 02  000f                 	
+                                561 	.Llo37:
+  00000244 00  8001 0008        562 		lwz		r0,8(r1)
+  00000248 00  2c00 0002        563 		cmpi		0,0,r0,2
+  0000024c 00  4082 000c        564 		bc		4,2,.L439	# ne cr0
+                                565 	#                     {
+                                566 	#                         s16AggregatedError = KB_RET_OK;
+  0000021a 02  0005 0200 0000   567 		.d2line		301
+  00000220 02  0010                 	
+  00000250 00  3860 0000        568 		diab.li		r3,0		# s16AggregatedError=r3
+                                569 	.Llo38:
+  00000254 00  4800 0014        570 		b		.L448
+                                571 	.L439:
+                                572 	#                     }
+                                573 	#                     else
+                                574 	#                     {
+                                575 	#                         s16AggregatedError = KB_RET_ERR_CONFIG;
+  00000222 02  0005 0200 0000   576 		.d2line		305
+  00000228 02  0003 040e            	
+                                577 	.Llo39:
+  00000258 00  3860 fc18        578 		diab.li		r3,-1000		# s16AggregatedError=r3
+                                579 	.L443:
+                                580 	#                     }
+                                581 	#                 }
+                                582 	# 
+                                583 	#             }
+                                584 	# 
+                                585 	#             if( s16AggregatedError != KB_RET_OK )
+  0000022c 02  0005 0200 0000   586 		.d2line		311
+  00000232 02  0003 060e            	
+                                587 	.Llo40:
+  0000025c 00  7c60 0735        588 		extsh.		r0,r3		# s16AggregatedError=?a9
+  00000260 00  3800 fff8        589 		diab.li		r0,-8
+  00000264 00  7c63 009e        590 		isel		r3,r3,r0,2		# s16AggregatedError=r3 s16AggregatedError=r
+  00000268 00                       	3
+                                591 	.L448:
+                                592 	#             {
+                                593 	#                 s16AggregatedError = KB_RET_ERR_INTERNAL;
+                                594 	#             }
+                                595 	# 
+                                596 	#         }
+                                597 	#     }
+                                598 	# 
+                                599 	#     return ( s16AggregatedError );
+  00000236 02  0005 0200 0000   600 		.d2line		319
+  0000023c 02  0003 080e            	
+  00000268 00  7c63 0734        601 		extsh		r3,r3		# s16AggregatedError=r3
+                                602 	# 
+                                603 	# }
+  00000240 02  0005 0200 0000   604 		.d2epilogue_begin
+  00000246 02  000b 01              	
+  00000249 02  0005 0200 0000   605 		.d2line		321
+  0000024f 02  0010                 	
+                                606 	.Llo41:
+  0000026c 00  8001 0014        607 		lwz		r0,20(r1)
+  00000270 00  7c08 03a6        608 		mtspr		lr,r0
+  00000274 00  3821 0010        609 		addi		r1,r1,16		
+  0000004f 04  023e 0e00        610 		.d2_cfa_def_cfa_offset	0
+  00000278 00  4e80 0020        611 		blr
+                                612 	#$$ef
+                                613 		.d2_cfa_end 2
+                                614 		.text
+                                615 	#$$ld
+                                616 	.L502:
+                                617 		.type		s16DiagDfmAl_WriteData,@function
+                                618 		.size		s16DiagDfmAl_WriteData,.-s16DiagDfmAl_WriteData
+                                619 	# Number of nodes = 132
+                                620 	
+                                621 	# Allocations for s16DiagDfmAl_WriteData
+                                622 	#	?a4		u16Offset
+                                623 	#	?a5		pu32Data
+                                624 	#	?a6		u16Length
+                                625 	#	?a7		eDataType
+                                626 	#	?a8		eNVMemMode
+                                627 	#	?a9		s16AggregatedError
+                                628 	#	?a10		u16TempLen
+                                629 	#	SP,8		eStatus
+                                630 	# S16 s16DiagDfmAl_Init( void )
+                                631 	# {
+                                632 		.align		2
+                                633 		.text
+  00000251 02  0005 0200 0000   634 	        .d2line         325
+  00000257 02  0003 040e            	
+                                635 	#$$ld
+                                636 	.L517:
+                                637 	
+                                638 	#$$bf	s16DiagDfmAl_Init,interprocedural,rasave,nostackparams
+                                639 		.globl		s16DiagDfmAl_Init
+  00000054 04  0000 0024 0000   640 		.d2_cfa_start	__cie
+  0000005a 04  0000 0000 0000       	
+  00000060 04  0000 0080            	
+                                641 	s16DiagDfmAl_Init:
+  0000027c 00  3d60 0000        642 		addis		r11,0,__RTC_SP_LIMIT@ha
+  00000280 00  3981 fef0        643 		addi		r12,r1,-272
+  00000284 00  816b 0000        644 		lwz		r11,__RTC_SP_LIMIT@l(r11)
+  00000288 00  7c0c 5840        645 		cmpl		0,0,r12,r11
+  0000028c 00  40a0 0010        646 		bc		5,0,.L526
+  00000290 00  7d68 02a6        647 		mfspr		r11,8
+  00000294 00  4800 0001        648 		bl		__sp_grow_s
+  00000298 00  7d68 03a6        649 		mtspr		lr,r11
+                                650 	.L526:
+  0000029c 00  9421 ffe0        651 		stwu		r1,-32(r1)		
+  00000064 04  490e 20          652 		.d2_cfa_def_cfa_offset	32
+  000002a0 00  7c08 02a6        653 		mfspr		r0,lr
+  000002a4 00  bfc1 0018        654 		stmw		r30,24(r1)		# offset r1+24  0x18
+  00000067 04  429e 049f 01     655 		.d2_cfa_offset_list	30,31,4,-3
+  000002a8 00  9001 0024        656 		stw		r0,36(r1)
+  0000006c 04  4111 6c7f        657 		.d2_cfa_offset    108,-1
+  0000025b 02  0005 0200 0000   658 		.d2prologue_end
+  00000261 02  000a                 	
+                                659 	# 
+                                660 	#     BOOLEAN boReturn = TRUE;
+                                661 	#     S16 s16RetVal;
+                                662 	# 
+                                663 	#     // This function will check event in PDU queue for every 200 msec*/
+                                664 	#     boReturn &= boOS_ActivateFct( vDiagDfm_Operation, ( U8 ) eOS_SLICE_200MS );
+  00000263 02  0005 0200 0000   665 		.d2line		331
+  00000269 02  0003 060e            	
+  000002ac 00  3c60 0000        666 		addis		r3,0,vDiagDfm_Operation@ha
+  000002b0 00  3880 0007        667 		diab.li		r4,7
+  000002b4 00  3863 0000        668 		addi		r3,r3,vDiagDfm_Operation@l
+  0000026d 02  0005 0200 0000   669 		.d2line		334
+  00000273 02  0003 030e            	
+  000002b8 00  3bc0 fff8        670 		diab.li		r30,-8
+  000002bc 00  4800 0001        671 		bl		boOS_ActivateFct
+                                672 	# 
+                                673 	#     // This function will be used to decrement event counter after 20 iteration i.e every 
+                                    	10 sec*/
+                                674 	#     boReturn &= boOS_ActivateFct( vDiagDfm_RETDecCntrs, ( U8 ) eOS_SLICE_500MS );
+  000002c0 00  547f 07fe        675 		rlwinm		r31,r3,0,31,31
+                                676 	.Llo43:
+  000002c4 00  3880 0008        677 		diab.li		r4,8
+  000002c8 00  3c60 0000        678 		addis		r3,0,vDiagDfm_RETDecCntrs@ha
+  000002cc 00  3863 0000        679 		addi		r3,r3,vDiagDfm_RETDecCntrs@l
+  000002d0 00  4800 0001        680 		bl		boOS_ActivateFct
+  000002d4 00  7c63 f838        681 		and		r3,r3,r31		# boReturn=r31
+  000002d8 00  5463 063e        682 		rlwinm		r3,r3,0,24,31		# boReturn=r3
+  000002dc 00  2c03 0001        683 		cmpi		0,0,r3,1
+  000002e0 00  7c60 f09e        684 		isel		r3,0,r30,2		# s16RetVal=r3
+                                685 	# 
+                                686 	#     if( boReturn == ( BOOLEAN )TRUE )
+                                687 	#     {
+                                688 	#         s16RetVal = KB_RET_OK;
+                                689 	#     }
+                                690 	#     else
+                                691 	#     {
+                                692 	#         s16RetVal = KB_RET_ERR_INTERNAL;
+                                693 	#     }
+                                694 	# 
+                                695 	#     return( s16RetVal );
+  00000277 02  0005 0200 0000   696 		.d2line		345
+  0000027d 02  0003 0b0e            	
+                                697 	.Llo45:
+  000002e4 00  7c63 0734        698 		extsh		r3,r3		# s16RetVal=r3
+                                699 	# 
+                                700 	# }
+  00000281 02  0005 0200 0000   701 		.d2epilogue_begin
+  00000287 02  000b 01              	
+                                702 	.Llo46:
+  000002e8 00  bbc1 0018        703 		lmw		r30,24(r1)		# offset r1+24  0x18
+  00000070 04  50c3 c4c5 c6c7   704 		.d2_cfa_restore_list	3,10
+  00000076 04  c8c9 ca              	
+  0000028a 02  0005 0200 0000   705 		.d2line		347
+  00000290 02  0010                 	
+                                706 	.Llo44:
+  000002ec 00  8001 0024        707 		lwz		r0,36(r1)
+  000002f0 00  7c08 03a6        708 		mtspr		lr,r0
+  000002f4 00  3821 0020        709 		addi		r1,r1,32		
+  00000079 04  430e 00          710 		.d2_cfa_def_cfa_offset	0
+  000002f8 00  4e80 0020        711 		blr
+                                712 	#$$ef
+                                713 		.d2_cfa_end 2
+                                714 		.text
+                                715 	#$$ld
+                                716 	.L518:
+                                717 		.type		s16DiagDfmAl_Init,@function
+                                718 		.size		s16DiagDfmAl_Init,.-s16DiagDfmAl_Init
+                                719 	# Number of nodes = 34
+                                720 	
+                                721 	# Allocations for s16DiagDfmAl_Init
+                                722 	#	?a4		boReturn
+                                723 	#	?a5		s16RetVal
+                                724 	
+                                725 	# Allocations for module
+                                726 		.text
+  000002fc 00                   727 		.0byte		.L527
+                                728 		.text
+                                729 	#$$ld
+                                730 	.L5:
+  00000292 02  003a 032e 2e5c   731 	.L528:	.d2filenum "..\\..\\..\\..\\FWK\\deployment\\lad\\FwkAlDFMNvMem.h"
+  00000298 02  5c2e 2e5c 5c2e       	
+  0000029e 02  2e5c 5c2e 2e5c       	
+  000002a4 02  5c46 574b 5c5c       	
+  000002aa 02  6465 706c 6f79       	
+  000002b0 02  6d65                 	
+                                732 	.L465:	.d2filenum "..\\source\\diagdfmal.c"
+  000002ce 02  0005 0200 0000   733 		.d2_line_end
+  000002d4 02  0000 0101            	
+                                734 	
+                                735 	
+                                736 		.section	.debug_abbrev,,n
+                                737 	.L9:
+                                738 		.section	.debug_abbrev,,n
+  00000000 05  01               739 		.uleb128	1
+  00000001 05  11               740 		.uleb128	17
+  00000002 05  01               741 		.byte		0x1
+  00000003 05  01               742 		.uleb128	1
+  00000004 05  13               743 		.uleb128	19
+  00000005 05  03               744 		.uleb128	3
+  00000006 05  08               745 		.uleb128	8
+  00000007 05  25               746 		.uleb128	37
+  00000008 05  08               747 		.uleb128	8
+  00000009 05  1b               748 		.uleb128	27
+  0000000a 05  08               749 		.uleb128	8
+  0000000b 05  13               750 		.uleb128	19
+  0000000c 05  0f               751 		.uleb128	15
+  0000000d 05  11               752 		.uleb128	17
+  0000000e 05  01               753 		.uleb128	1
+  0000000f 05  12               754 		.uleb128	18
+  00000010 05  01               755 		.uleb128	1
+  00000011 05  10               756 		.uleb128	16
+  00000012 05  06               757 		.uleb128	6
+  00000013 05  00               758 		.uleb128	0
+  00000014 05  00               759 		.uleb128	0
+                                760 		.section	.debug_abbrev,,n
+  00000015 05  02               761 		.uleb128	2
+  00000016 05  2e               762 		.uleb128	46
+  00000017 05  01               763 		.byte		0x1
+  00000018 05  01               764 		.uleb128	1
+  00000019 05  13               765 		.uleb128	19
+  0000001a 05  03               766 		.uleb128	3
+  0000001b 05  08               767 		.uleb128	8
+  0000001c 05  3a               768 		.uleb128	58
+  0000001d 05  06               769 		.uleb128	6
+  0000001e 05  3b               770 		.uleb128	59
+  0000001f 05  0f               771 		.uleb128	15
+  00000020 05  49               772 		.uleb128	73
+  00000021 05  10               773 		.uleb128	16
+  00000022 05  27               774 		.uleb128	39
+  00000023 05  0c               775 		.uleb128	12
+  00000024 05  11               776 		.uleb128	17
+  00000025 05  01               777 		.uleb128	1
+  00000026 05  12               778 		.uleb128	18
+  00000027 05  01               779 		.uleb128	1
+  00000028 05  00               780 		.uleb128	0
+  00000029 05  00               781 		.uleb128	0
+                                782 		.section	.debug_abbrev,,n
+  0000002a 05  03               783 		.uleb128	3
+  0000002b 05  05               784 		.uleb128	5
+  0000002c 05  00               785 		.byte		0x0
+  0000002d 05  3a               786 		.uleb128	58
+  0000002e 05  06               787 		.uleb128	6
+  0000002f 05  3b               788 		.uleb128	59
+  00000030 05  0f               789 		.uleb128	15
+  00000031 05  03               790 		.uleb128	3
+  00000032 05  08               791 		.uleb128	8
+  00000033 05  49               792 		.uleb128	73
+  00000034 05  10               793 		.uleb128	16
+  00000035 05  02               794 		.uleb128	2
+  00000036 05  06               795 		.uleb128	6
+  00000037 05  00               796 		.uleb128	0
+  00000038 05  00               797 		.uleb128	0
+                                798 		.section	.debug_abbrev,,n
+  00000039 05  04               799 		.uleb128	4
+  0000003a 05  34               800 		.uleb128	52
+  0000003b 05  00               801 		.byte		0x0
+  0000003c 05  3a               802 		.uleb128	58
+  0000003d 05  06               803 		.uleb128	6
+  0000003e 05  3b               804 		.uleb128	59
+  0000003f 05  0f               805 		.uleb128	15
+  00000040 05  03               806 		.uleb128	3
+  00000041 05  08               807 		.uleb128	8
+  00000042 05  49               808 		.uleb128	73
+  00000043 05  10               809 		.uleb128	16
+  00000044 05  02               810 		.uleb128	2
+  00000045 05  06               811 		.uleb128	6
+  00000046 05  00               812 		.uleb128	0
+  00000047 05  00               813 		.uleb128	0
+                                814 		.section	.debug_abbrev,,n
+  00000048 05  05               815 		.uleb128	5
+  00000049 05  2e               816 		.uleb128	46
+  0000004a 05  01               817 		.byte		0x1
+  0000004b 05  01               818 		.uleb128	1
+  0000004c 05  13               819 		.uleb128	19
+  0000004d 05  03               820 		.uleb128	3
+  0000004e 05  08               821 		.uleb128	8
+  0000004f 05  3a               822 		.uleb128	58
+  00000050 05  06               823 		.uleb128	6
+  00000051 05  3b               824 		.uleb128	59
+  00000052 05  0f               825 		.uleb128	15
+  00000053 05  49               826 		.uleb128	73
+  00000054 05  10               827 		.uleb128	16
+  00000055 05  3f               828 		.uleb128	63
+  00000056 05  0c               829 		.uleb128	12
+  00000057 05  27               830 		.uleb128	39
+  00000058 05  0c               831 		.uleb128	12
+  00000059 05  11               832 		.uleb128	17
+  0000005a 05  01               833 		.uleb128	1
+  0000005b 05  12               834 		.uleb128	18
+  0000005c 05  01               835 		.uleb128	1
+  0000005d 05  00               836 		.uleb128	0
+  0000005e 05  00               837 		.uleb128	0
+                                838 		.section	.debug_abbrev,,n
+  0000005f 05  06               839 		.uleb128	6
+  00000060 05  34               840 		.uleb128	52
+  00000061 05  00               841 		.byte		0x0
+  00000062 05  3a               842 		.uleb128	58
+  00000063 05  06               843 		.uleb128	6
+  00000064 05  3b               844 		.uleb128	59
+  00000065 05  0f               845 		.uleb128	15
+  00000066 05  03               846 		.uleb128	3
+  00000067 05  08               847 		.uleb128	8
+  00000068 05  49               848 		.uleb128	73
+  00000069 05  10               849 		.uleb128	16
+  0000006a 05  02               850 		.uleb128	2
+  0000006b 05  09               851 		.uleb128	9
+  0000006c 05  00               852 		.uleb128	0
+  0000006d 05  00               853 		.uleb128	0
+                                854 		.section	.debug_abbrev,,n
+  0000006e 05  07               855 		.uleb128	7
+  0000006f 05  34               856 		.uleb128	52
+  00000070 05  00               857 		.byte		0x0
+  00000071 05  3f               858 		.uleb128	63
+  00000072 05  0c               859 		.uleb128	12
+  00000073 05  3c               860 		.uleb128	60
+  00000074 05  0c               861 		.uleb128	12
+  00000075 05  3a               862 		.uleb128	58
+  00000076 05  06               863 		.uleb128	6
+  00000077 05  3b               864 		.uleb128	59
+  00000078 05  0f               865 		.uleb128	15
+  00000079 05  03               866 		.uleb128	3
+  0000007a 05  08               867 		.uleb128	8
+  0000007b 05  49               868 		.uleb128	73
+  0000007c 05  10               869 		.uleb128	16
+  0000007d 05  00               870 		.uleb128	0
+  0000007e 05  00               871 		.uleb128	0
+                                872 		.section	.debug_abbrev,,n
+  0000007f 05  08               873 		.uleb128	8
+  00000080 05  04               874 		.uleb128	4
+  00000081 05  01               875 		.byte		0x1
+  00000082 05  01               876 		.uleb128	1
+  00000083 05  13               877 		.uleb128	19
+  00000084 05  0b               878 		.uleb128	11
+  00000085 05  0f               879 		.uleb128	15
+  00000086 05  00               880 		.uleb128	0
+  00000087 05  00               881 		.uleb128	0
+                                882 		.section	.debug_abbrev,,n
+  00000088 05  09               883 		.uleb128	9
+  00000089 05  28               884 		.uleb128	40
+  0000008a 05  00               885 		.byte		0x0
+  0000008b 05  03               886 		.uleb128	3
+  0000008c 05  08               887 		.uleb128	8
+  0000008d 05  1c               888 		.uleb128	28
+  0000008e 05  0d               889 		.uleb128	13
+  0000008f 05  00               890 		.uleb128	0
+  00000090 05  00               891 		.uleb128	0
+                                892 		.section	.debug_abbrev,,n
+  00000091 05  0a               893 		.uleb128	10
+  00000092 05  24               894 		.uleb128	36
+  00000093 05  00               895 		.byte		0x0
+  00000094 05  03               896 		.uleb128	3
+  00000095 05  08               897 		.uleb128	8
+  00000096 05  3e               898 		.uleb128	62
+  00000097 05  0b               899 		.uleb128	11
+  00000098 05  0b               900 		.uleb128	11
+  00000099 05  0b               901 		.uleb128	11
+  0000009a 05  00               902 		.uleb128	0
+  0000009b 05  00               903 		.uleb128	0
+                                904 		.section	.debug_abbrev,,n
+  0000009c 05  0b               905 		.uleb128	11
+  0000009d 05  16               906 		.uleb128	22
+  0000009e 05  00               907 		.byte		0x0
+  0000009f 05  03               908 		.uleb128	3
+  000000a0 05  08               909 		.uleb128	8
+  000000a1 05  49               910 		.uleb128	73
+  000000a2 05  10               911 		.uleb128	16
+  000000a3 05  00               912 		.uleb128	0
+  000000a4 05  00               913 		.uleb128	0
+                                914 		.section	.debug_abbrev,,n
+  000000a5 05  0c               915 		.uleb128	12
+  000000a6 05  0f               916 		.uleb128	15
+  000000a7 05  00               917 		.byte		0x0
+  000000a8 05  49               918 		.uleb128	73
+  000000a9 05  10               919 		.uleb128	16
+  000000aa 05  00               920 		.uleb128	0
+  000000ab 05  00               921 		.uleb128	0
+                                922 		.section	.debug_abbrev,,n
+  000000ac 05  0d               923 		.uleb128	13
+  000000ad 05  26               924 		.uleb128	38
+  000000ae 05  00               925 		.byte		0x0
+  000000af 05  49               926 		.uleb128	73
+  000000b0 05  10               927 		.uleb128	16
+  000000b1 05  00               928 		.uleb128	0
+  000000b2 05  00               929 		.uleb128	0
+                                930 		.section	.debug_abbrev,,n
+  000000b3 05  00               931 		.sleb128	0
+                                932 	
+                                933 	
+                                934 		.section	.debug_info,,n
+                                935 	.L2:
+  00000000 06  0000 059c        936 		.4byte		.L3-.L1
+                                937 	.L1:
+  00000004 06  0002             938 		.2byte		0x2
+  00000006 06  0000 0000        939 		.4byte		.L9
+  0000000a 06  04               940 		.byte		0x4
+                                941 		.section	.debug_info,,n
+  0000000b 06  01               942 		.sleb128	1
+  0000000c 06  0000 059f        943 		.4byte		.L7-.L2
+  00000010 06  2e2e 5c73 6f75   944 		.byte		"..\\source\\diagdfmal.c"
+  00000016 06  7263 655c 6469       	
+  0000001c 06  6167 6466 6d61       	
+  00000022 06  6c2e 63              	
+  00000025 06  00               945 		.byte		0
+  00000026 06  4469 6162 2044   946 		.byte		"Diab Data, Inc:dcc Rel 5.9.3.0:PPC5554"
+  0000002c 06  6174 612c 2049       	
+  00000032 06  6e63 3a64 6363       	
+  00000038 06  2052 656c 2035       	
+  0000003e 06  2e39 2e33 2e30       	
+  00000044 06  3a50                 	
+  0000004c 06  00               947 		.byte		0
+  0000004d 06  433a 5c44 6973   948 		.byte		"C:\\Disco_D\\Progetti\\LADS\\LAD01\\SW\\LAD01_CA_CCA_Integration\\f
+  00000053 06  636f 5f44 5c50       	offo.development_21042023\\SRC\\LAD_CPU04\\mwl\\mwl01\\source"
+  00000059 06  726f 6765 7474       	
+  0000005f 06  695c 4c41 4453       	
+  00000065 06  5c4c 4144 3031       	
+  0000006b 06  5c53                 	
+  000000c1 06  00               949 		.byte		0
+  000000c2 06  01               950 		.uleb128	1
+  000000c3 06  0000 0000        951 		.4byte		.L4
+  000000c7 06  0000 0000        952 		.4byte		.L5
+  000000cb 06  0000 0000        953 		.4byte		.L8
+                                954 		.section	.debug_info,,n
+                                955 	.L468:
+  000000cf 06  02               956 		.sleb128	2
+  000000d0 06  0000 0131        957 		.4byte		.L462-.L2
+  000000d4 06  7531 3644 666d   958 		.byte		"u16DfmAlCheckValidParamSize"
+  000000da 06  416c 4368 6563       	
+  000000e0 06  6b56 616c 6964       	
+  000000e6 06  5061 7261 6d53       	
+  000000ec 06  697a 65              	
+  000000ef 06  00               959 		.byte		0
+  000000f0 06  0000 0001        960 		.4byte		.L465
+  000000f4 06  53               961 		.uleb128	83
+  000000f5 06  0000 0000        962 		.4byte		.L466
+  000000f9 06  01               963 		.byte		0x1
+  000000fa 06  0000 0000        964 		.4byte		.L463
+  000000fe 06  0000 0000        965 		.4byte		.L464
+                                966 		.section	.debug_info,,n
+  00000102 06  03               967 		.sleb128	3
+  00000103 06  0000 0001        968 		.4byte		.L465
+  00000107 06  53               969 		.uleb128	83
+  00000108 06  7531 3653 697a   970 		.byte		"u16Size"
+  0000010e 06  65                   	
+  0000010f 06  00               971 		.byte		0
+  00000110 06  0000 0000        972 		.4byte		.L466
+  00000114 06  0000 0000        973 		.4byte		.L469
+                                974 		.section	.debug_info,,n
+                                975 	.L470:
+  00000118 06  04               976 		.sleb128	4
+  00000119 06  0000 0001        977 		.4byte		.L465
+  0000011d 06  56               978 		.uleb128	86
+  0000011e 06  7531 3652 6574   979 		.byte		"u16RetVal"
+  00000124 06  5661 6c              	
+  00000127 06  00               980 		.byte		0
+  00000128 06  0000 0000        981 		.4byte		.L466
+  0000012c 06  0000 0000        982 		.4byte		.L471
+                                983 		.section	.debug_info,,n
+  00000130 06  00               984 		.sleb128	0
+                                985 	.L462:
+                                986 		.section	.debug_info,,n
+                                987 	.L478:
+  00000131 06  05               988 		.sleb128	5
+  00000132 06  0000 0228        989 		.4byte		.L473-.L2
+  00000136 06  7331 3644 6961   990 		.byte		"s16DiagDfmAl_ReadData"
+  0000013c 06  6744 666d 416c       	
+  00000142 06  5f52 6561 6444       	
+  00000148 06  6174 61              	
+  0000014b 06  00               991 		.byte		0
+  0000014c 06  0000 0001        992 		.4byte		.L465
+  00000150 06  69               993 		.uleb128	105
+  00000151 06  0000 0000        994 		.4byte		.L476
+  00000155 06  01               995 		.byte		0x1
+  00000156 06  01               996 		.byte		0x1
+  00000157 06  0000 0000        997 		.4byte		.L474
+  0000015b 06  0000 0000        998 		.4byte		.L475
+  0000015f 06  03               999 		.sleb128	3
+  00000160 06  0000 0001       1000 		.4byte		.L465
+  00000164 06  69              1001 		.uleb128	105
+  00000165 06  7531 364f 6666  1002 		.byte		"u16Offset"
+  0000016b 06  7365 74              	
+  0000016e 06  00              1003 		.byte		0
+  0000016f 06  0000 0000       1004 		.4byte		.L466
+  00000173 06  0000 0000       1005 		.4byte		.L479
+  00000177 06  03              1006 		.sleb128	3
+  00000178 06  0000 0001       1007 		.4byte		.L465
+  0000017c 06  69              1008 		.uleb128	105
+  0000017d 06  7075 3332 4461  1009 		.byte		"pu32Data"
+  00000183 06  7461                 	
+  00000185 06  00              1010 		.byte		0
+  00000186 06  0000 0000       1011 		.4byte		.L480
+  0000018a 06  0000 0000       1012 		.4byte		.L483
+  0000018e 06  03              1013 		.sleb128	3
+  0000018f 06  0000 0001       1014 		.4byte		.L465
+  00000193 06  69              1015 		.uleb128	105
+  00000194 06  7531 364c 656e  1016 		.byte		"u16Length"
+  0000019a 06  6774 68              	
+  0000019d 06  00              1017 		.byte		0
+  0000019e 06  0000 0000       1018 		.4byte		.L466
+  000001a2 06  0000 0000       1019 		.4byte		.L484
+  000001a6 06  03              1020 		.sleb128	3
+  000001a7 06  0000 0001       1021 		.4byte		.L465
+  000001ab 06  6a              1022 		.uleb128	106
+  000001ac 06  6544 6174 6154  1023 		.byte		"eDataType"
+  000001b2 06  7970 65              	
+  000001b5 06  00              1024 		.byte		0
+  000001b6 06  0000 0000       1025 		.4byte		.L485
+  000001ba 06  0000 0000       1026 		.4byte		.L487
+  000001be 06  03              1027 		.sleb128	3
+  000001bf 06  0000 0001       1028 		.4byte		.L465
+  000001c3 06  6b              1029 		.uleb128	107
+  000001c4 06  654e 564d 656d  1030 		.byte		"eNVMemMode"
+  000001ca 06  4d6f 6465            	
+  000001ce 06  00              1031 		.byte		0
+  000001cf 06  0000 0000       1032 		.4byte		.L488
+  000001d3 06  0000 0000       1033 		.4byte		.L490
+                               1034 	.L491:
+  000001d7 06  04              1035 		.sleb128	4
+  000001d8 06  0000 0001       1036 		.4byte		.L465
+  000001dc 06  70              1037 		.uleb128	112
+  000001dd 06  7331 3641 6767  1038 		.byte		"s16AggregatedError"
+  000001e3 06  7265 6761 7465       	
+  000001e9 06  6445 7272 6f72       	
+  000001ef 06  00              1039 		.byte		0
+  000001f0 06  0000 0000       1040 		.4byte		.L476
+  000001f4 06  0000 0000       1041 		.4byte		.L492
+                               1042 	.L493:
+  000001f8 06  04              1043 		.sleb128	4
+  000001f9 06  0000 0001       1044 		.4byte		.L465
+  000001fd 06  71              1045 		.uleb128	113
+  000001fe 06  7531 3654 656d  1046 		.byte		"u16TempLen"
+  00000204 06  704c 656e            	
+  00000208 06  00              1047 		.byte		0
+  00000209 06  0000 0000       1048 		.4byte		.L466
+  0000020d 06  0000 0000       1049 		.4byte		.L494
+                               1050 		.section	.debug_info,,n
+                               1051 	.L495:
+  00000211 06  06              1052 		.sleb128	6
+  00000212 06  0000 0001       1053 		.4byte		.L465
+  00000216 06  72              1054 		.uleb128	114
+  00000217 06  6553 7461 7475  1055 		.byte		"eStatus"
+  0000021d 06  73                   	
+  0000021e 06  00              1056 		.byte		0
+  0000021f 06  0000 0000       1057 		.4byte		.L496
+  00000223 06  03              1058 		.sleb128	3
+  00000224 06  92              1059 		.byte		0x92
+  00000225 06  01              1060 		.uleb128	1
+  00000226 06  08              1061 		.sleb128	8
+                               1062 		.section	.debug_info,,n
+  00000227 06  00              1063 		.sleb128	0
+                               1064 	.L473:
+                               1065 		.section	.debug_info,,n
+                               1066 	.L503:
+  00000228 06  05              1067 		.sleb128	5
+  00000229 06  0000 0329       1068 		.4byte		.L500-.L2
+  0000022d 06  7331 3644 6961  1069 		.byte		"s16DiagDfmAl_WriteData"
+  00000233 06  6744 666d 416c       	
+  00000239 06  5f57 7269 7465       	
+  0000023f 06  4461 7461            	
+  00000243 06  00              1070 		.byte		0
+  00000244 06  0000 0001       1071 		.4byte		.L465
+  00000248 06  d901            1072 		.uleb128	217
+  0000024a 06  0000 0000       1073 		.4byte		.L476
+  0000024e 06  01              1074 		.byte		0x1
+  0000024f 06  01              1075 		.byte		0x1
+  00000250 06  0000 0000       1076 		.4byte		.L501
+  00000254 06  0000 0000       1077 		.4byte		.L502
+  00000258 06  03              1078 		.sleb128	3
+  00000259 06  0000 0001       1079 		.4byte		.L465
+  0000025d 06  d901            1080 		.uleb128	217
+  0000025f 06  7531 364f 6666  1081 		.byte		"u16Offset"
+  00000265 06  7365 74              	
+  00000268 06  00              1082 		.byte		0
+  00000269 06  0000 0000       1083 		.4byte		.L466
+  0000026d 06  0000 0000       1084 		.4byte		.L504
+  00000271 06  03              1085 		.sleb128	3
+  00000272 06  0000 0001       1086 		.4byte		.L465
+  00000276 06  d901            1087 		.uleb128	217
+  00000278 06  7075 3332 4461  1088 		.byte		"pu32Data"
+  0000027e 06  7461                 	
+  00000280 06  00              1089 		.byte		0
+  00000281 06  0000 0000       1090 		.4byte		.L480
+  00000285 06  0000 0000       1091 		.4byte		.L505
+  00000289 06  03              1092 		.sleb128	3
+  0000028a 06  0000 0001       1093 		.4byte		.L465
+  0000028e 06  d901            1094 		.uleb128	217
+  00000290 06  7531 364c 656e  1095 		.byte		"u16Length"
+  00000296 06  6774 68              	
+  00000299 06  00              1096 		.byte		0
+  0000029a 06  0000 0000       1097 		.4byte		.L466
+  0000029e 06  0000 0000       1098 		.4byte		.L506
+  000002a2 06  03              1099 		.sleb128	3
+  000002a3 06  0000 0001       1100 		.4byte		.L465
+  000002a7 06  da01            1101 		.uleb128	218
+  000002a9 06  6544 6174 6154  1102 		.byte		"eDataType"
+  000002af 06  7970 65              	
+  000002b2 06  00              1103 		.byte		0
+  000002b3 06  0000 0000       1104 		.4byte		.L485
+  000002b7 06  0000 0000       1105 		.4byte		.L507
+  000002bb 06  03              1106 		.sleb128	3
+  000002bc 06  0000 0001       1107 		.4byte		.L465
+  000002c0 06  db01            1108 		.uleb128	219
+  000002c2 06  654e 564d 656d  1109 		.byte		"eNVMemMode"
+  000002c8 06  4d6f 6465            	
+  000002cc 06  00              1110 		.byte		0
+  000002cd 06  0000 0000       1111 		.4byte		.L488
+  000002d1 06  0000 0000       1112 		.4byte		.L508
+                               1113 	.L509:
+  000002d5 06  04              1114 		.sleb128	4
+  000002d6 06  0000 0001       1115 		.4byte		.L465
+  000002da 06  e001            1116 		.uleb128	224
+  000002dc 06  7331 3641 6767  1117 		.byte		"s16AggregatedError"
+  000002e2 06  7265 6761 7465       	
+  000002e8 06  6445 7272 6f72       	
+  000002ee 06  00              1118 		.byte		0
+  000002ef 06  0000 0000       1119 		.4byte		.L476
+  000002f3 06  0000 0000       1120 		.4byte		.L510
+                               1121 	.L511:
+  000002f7 06  04              1122 		.sleb128	4
+  000002f8 06  0000 0001       1123 		.4byte		.L465
+  000002fc 06  e201            1124 		.uleb128	226
+  000002fe 06  7531 3654 656d  1125 		.byte		"u16TempLen"
+  00000304 06  704c 656e            	
+  00000308 06  00              1126 		.byte		0
+  00000309 06  0000 0000       1127 		.4byte		.L466
+  0000030d 06  0000 0000       1128 		.4byte		.L512
+                               1129 	.L513:
+  00000311 06  06              1130 		.sleb128	6
+  00000312 06  0000 0001       1131 		.4byte		.L465
+  00000316 06  e301            1132 		.uleb128	227
+  00000318 06  6553 7461 7475  1133 		.byte		"eStatus"
+  0000031e 06  73                   	
+  0000031f 06  00              1134 		.byte		0
+  00000320 06  0000 0000       1135 		.4byte		.L496
+  00000324 06  03              1136 		.sleb128	3
+  00000325 06  92              1137 		.byte		0x92
+  00000326 06  01              1138 		.uleb128	1
+  00000327 06  08              1139 		.sleb128	8
+                               1140 		.section	.debug_info,,n
+  00000328 06  00              1141 		.sleb128	0
+                               1142 	.L500:
+                               1143 		.section	.debug_info,,n
+                               1144 	.L519:
+  00000329 06  05              1145 		.sleb128	5
+  0000032a 06  0000 0386       1146 		.4byte		.L516-.L2
+  0000032e 06  7331 3644 6961  1147 		.byte		"s16DiagDfmAl_Init"
+  00000334 06  6744 666d 416c       	
+  0000033a 06  5f49 6e69 74         	
+  0000033f 06  00              1148 		.byte		0
+  00000340 06  0000 0001       1149 		.4byte		.L465
+  00000344 06  c402            1150 		.uleb128	324
+  00000346 06  0000 0000       1151 		.4byte		.L476
+  0000034a 06  01              1152 		.byte		0x1
+  0000034b 06  01              1153 		.byte		0x1
+  0000034c 06  0000 0000       1154 		.4byte		.L517
+  00000350 06  0000 0000       1155 		.4byte		.L518
+                               1156 	.L520:
+  00000354 06  04              1157 		.sleb128	4
+  00000355 06  0000 0001       1158 		.4byte		.L465
+  00000359 06  c702            1159 		.uleb128	327
+  0000035b 06  626f 5265 7475  1160 		.byte		"boReturn"
+  00000361 06  726e                 	
+  00000363 06  00              1161 		.byte		0
+  00000364 06  0000 0000       1162 		.4byte		.L521
+  00000368 06  0000 0000       1163 		.4byte		.L523
+                               1164 	.L524:
+  0000036c 06  04              1165 		.sleb128	4
+  0000036d 06  0000 0001       1166 		.4byte		.L465
+  00000371 06  c802            1167 		.uleb128	328
+  00000373 06  7331 3652 6574  1168 		.byte		"s16RetVal"
+  00000379 06  5661 6c              	
+  0000037c 06  00              1169 		.byte		0
+  0000037d 06  0000 0000       1170 		.4byte		.L476
+  00000381 06  0000 0000       1171 		.4byte		.L525
+                               1172 		.section	.debug_info,,n
+  00000385 06  00              1173 		.sleb128	0
+                               1174 	.L516:
+                               1175 		.section	.debug_info,,n
+                               1176 	.L527:
+  00000386 06  07              1177 		.sleb128	7
+  00000387 06  01              1178 		.byte		0x1
+  00000388 06  01              1179 		.byte		0x1
+  00000389 06  0000 0002       1180 		.4byte		.L528
+  0000038d 06  36              1181 		.uleb128	54
+  0000038e 06  7538 4446 4d5f  1182 		.byte		"u8DFM_MyPoffUsrArea"
+  00000394 06  4d79 506f 6666       	
+  0000039a 06  5573 7241 7265       	
+  000003a0 06  61                   	
+  000003a1 06  00              1183 		.byte		0
+  000003a2 06  0000 0000       1184 		.4byte		.L529
+                               1185 		.section	.debug_info,,n
+                               1186 	.L531:
+  000003a6 06  07              1187 		.sleb128	7
+  000003a7 06  01              1188 		.byte		0x1
+  000003a8 06  01              1189 		.byte		0x1
+  000003a9 06  0000 0002       1190 		.4byte		.L528
+  000003ad 06  3f              1191 		.uleb128	63
+  000003ae 06  7538 4446 4d5f  1192 		.byte		"u8DFM_NonPoffFwkArea"
+  000003b4 06  4e6f 6e50 6f66       	
+  000003ba 06  6646 776b 4172       	
+  000003c0 06  6561                 	
+  000003c2 06  00              1193 		.byte		0
+  000003c3 06  0000 0000       1194 		.4byte		.L529
+                               1195 		.section	.debug_info,,n
+                               1196 	.L497:
+  000003c7 06  08              1197 		.sleb128	8
+  000003c8 06  0000 0444       1198 		.4byte		.L532-.L2
+  000003cc 06  04              1199 		.uleb128	4
+                               1200 		.section	.debug_info,,n
+  000003cd 06  09              1201 		.sleb128	9
+  000003ce 06  654e 564d 5f53  1202 		.byte		"eNVM_STATUS_OPERATION_INIT"
+  000003d4 06  5441 5455 535f       	
+  000003da 06  4f50 4552 4154       	
+  000003e0 06  494f 4e5f 494e       	
+  000003e6 06  4954                 	
+  000003e8 06  00              1203 		.byte		0
+  000003e9 06  00              1204 		.sleb128	0
+  000003ea 06  09              1205 		.sleb128	9
+  000003eb 06  654e 564d 5f53  1206 		.byte		"eNVM_STATUS_OPERATION_BUSY"
+  000003f1 06  5441 5455 535f       	
+  000003f7 06  4f50 4552 4154       	
+  000003fd 06  494f 4e5f 4255       	
+  00000403 06  5359                 	
+  00000405 06  00              1207 		.byte		0
+  00000406 06  01              1208 		.sleb128	1
+  00000407 06  09              1209 		.sleb128	9
+  00000408 06  654e 564d 5f53  1210 		.byte		"eNVM_STATUS_OPERATION_DONE"
+  0000040e 06  5441 5455 535f       	
+  00000414 06  4f50 4552 4154       	
+  0000041a 06  494f 4e5f 444f       	
+  00000420 06  4e45                 	
+  00000422 06  00              1211 		.byte		0
+  00000423 06  02              1212 		.sleb128	2
+  00000424 06  09              1213 		.sleb128	9
+  00000425 06  654e 564d 5f53  1214 		.byte		"eNVM_STATUS_OPERATION_FAILED"
+  0000042b 06  5441 5455 535f       	
+  00000431 06  4f50 4552 4154       	
+  00000437 06  494f 4e5f 4641       	
+  0000043d 06  494c 4544            	
+  00000441 06  00              1215 		.byte		0
+  00000442 06  03              1216 		.sleb128	3
+  00000443 06  00              1217 		.sleb128	0
+                               1218 	.L532:
+                               1219 	.L489:
+  00000444 06  08              1220 		.sleb128	8
+  00000445 06  0000 0494       1221 		.4byte		.L533-.L2
+  00000449 06  04              1222 		.uleb128	4
+  0000044a 06  09              1223 		.sleb128	9
+  0000044b 06  6544 464d 5f4e  1224 		.byte		"eDFM_NVMEM_BLOCK_MODE"
+  00000451 06  564d 454d 5f42       	
+  00000457 06  4c4f 434b 5f4d       	
+  0000045d 06  4f44 45              	
+  00000460 06  00              1225 		.byte		0
+  00000461 06  00              1226 		.sleb128	0
+  00000462 06  09              1227 		.sleb128	9
+  00000463 06  6544 464d 5f4e  1228 		.byte		"eDFM_NVMEM_QUEUE_MODE"
+  00000469 06  564d 454d 5f51       	
+  0000046f 06  5545 5545 5f4d       	
+  00000475 06  4f44 45              	
+  00000478 06  00              1229 		.byte		0
+  00000479 06  01              1230 		.sleb128	1
+  0000047a 06  09              1231 		.sleb128	9
+  0000047b 06  6544 464d 5f4e  1232 		.byte		"eDFM_NVMEM_UNUSED_MODE"
+  00000481 06  564d 454d 5f55       	
+  00000487 06  4e55 5345 445f       	
+  0000048d 06  4d4f 4445            	
+  00000491 06  00              1233 		.byte		0
+  00000492 06  02              1234 		.sleb128	2
+  00000493 06  00              1235 		.sleb128	0
+                               1236 	.L533:
+                               1237 	.L486:
+  00000494 06  08              1238 		.sleb128	8
+  00000495 06  0000 04cc       1239 		.4byte		.L534-.L2
+  00000499 06  04              1240 		.uleb128	4
+  0000049a 06  09              1241 		.sleb128	9
+  0000049b 06  6544 464d 5f4e  1242 		.byte		"eDFM_NVMEM_MARKER_DATA"
+  000004a1 06  564d 454d 5f4d       	
+  000004a7 06  4152 4b45 525f       	
+  000004ad 06  4441 5441            	
+  000004b1 06  00              1243 		.byte		0
+  000004b2 06  00              1244 		.sleb128	0
+  000004b3 06  09              1245 		.sleb128	9
+  000004b4 06  6544 464d 5f4e  1246 		.byte		"eDFM_NVMEM_EVENT_DATA"
+  000004ba 06  564d 454d 5f45       	
+  000004c0 06  5645 4e54 5f44       	
+  000004c6 06  4154 41              	
+  000004c9 06  00              1247 		.byte		0
+  000004ca 06  01              1248 		.sleb128	1
+  000004cb 06  00              1249 		.sleb128	0
+                               1250 	.L534:
+                               1251 		.section	.debug_info,,n
+                               1252 	.L467:
+  000004cc 06  0a              1253 		.sleb128	10
+  000004cd 06  756e 7369 676e  1254 		.byte		"unsigned short"
+  000004d3 06  6564 2073 686f       	
+  000004d9 06  7274                 	
+  000004db 06  00              1255 		.byte		0
+  000004dc 06  07              1256 		.byte		0x7
+  000004dd 06  02              1257 		.byte		0x2
+                               1258 		.section	.debug_info,,n
+                               1259 	.L466:
+  000004de 06  0b              1260 		.sleb128	11
+  000004df 06  5531 36         1261 		.byte		"U16"
+  000004e2 06  00              1262 		.byte		0
+  000004e3 06  0000 0000       1263 		.4byte		.L467
+                               1264 	.L477:
+  000004e7 06  0a              1265 		.sleb128	10
+  000004e8 06  7368 6f72 74    1266 		.byte		"short"
+  000004ed 06  00              1267 		.byte		0
+  000004ee 06  05              1268 		.byte		0x5
+  000004ef 06  02              1269 		.byte		0x2
+                               1270 	.L476:
+  000004f0 06  0b              1271 		.sleb128	11
+  000004f1 06  5331 36         1272 		.byte		"S16"
+  000004f4 06  00              1273 		.byte		0
+  000004f5 06  0000 0000       1274 		.4byte		.L477
+                               1275 	.L482:
+  000004f9 06  0a              1276 		.sleb128	10
+  000004fa 06  756e 7369 676e  1277 		.byte		"unsigned long"
+  00000500 06  6564 206c 6f6e       	
+  00000506 06  67                   	
+  00000507 06  00              1278 		.byte		0
+  00000508 06  07              1279 		.byte		0x7
+  00000509 06  04              1280 		.byte		0x4
+                               1281 	.L481:
+  0000050a 06  0b              1282 		.sleb128	11
+  0000050b 06  5533 32         1283 		.byte		"U32"
+  0000050e 06  00              1284 		.byte		0
+  0000050f 06  0000 0000       1285 		.4byte		.L482
+                               1286 		.section	.debug_info,,n
+                               1287 	.L480:
+  00000513 06  0c              1288 		.sleb128	12
+  00000514 06  0000 0000       1289 		.4byte		.L481
+                               1290 	.L485:
+  00000518 06  0b              1291 		.sleb128	11
+  00000519 06  455f 4449 4147  1292 		.byte		"E_DIAG_DFM_NVMEM_DATA_TYPE"
+  0000051f 06  5f44 464d 5f4e       	
+  00000525 06  564d 454d 5f44       	
+  0000052b 06  4154 415f 5459       	
+  00000531 06  5045                 	
+  00000533 06  00              1293 		.byte		0
+  00000534 06  0000 0000       1294 		.4byte		.L486
+                               1295 	.L488:
+  00000538 06  0b              1296 		.sleb128	11
+  00000539 06  455f 4449 4147  1297 		.byte		"E_DIAG_DFM_NVMEM_XFER_MODE"
+  0000053f 06  5f44 464d 5f4e       	
+  00000545 06  564d 454d 5f58       	
+  0000054b 06  4645 525f 4d4f       	
+  00000551 06  4445                 	
+  00000553 06  00              1298 		.byte		0
+  00000554 06  0000 0000       1299 		.4byte		.L489
+                               1300 	.L496:
+  00000558 06  0b              1301 		.sleb128	11
+  00000559 06  455f 4e56 4d5f  1302 		.byte		"E_NVM_OPERATION_STATUS"
+  0000055f 06  4f50 4552 4154       	
+  00000565 06  494f 4e5f 5354       	
+  0000056b 06  4154 5553            	
+  0000056f 06  00              1303 		.byte		0
+  00000570 06  0000 0000       1304 		.4byte		.L497
+                               1305 	.L522:
+  00000574 06  0a              1306 		.sleb128	10
+  00000575 06  756e 7369 676e  1307 		.byte		"unsigned char"
+  0000057b 06  6564 2063 6861       	
+  00000581 06  72                   	
+  00000582 06  00              1308 		.byte		0
+  00000583 06  08              1309 		.byte		0x8
+  00000584 06  01              1310 		.byte		0x1
+                               1311 	.L521:
+  00000585 06  0b              1312 		.sleb128	11
+  00000586 06  424f 4f4c 4541  1313 		.byte		"BOOLEAN"
+  0000058c 06  4e                   	
+  0000058d 06  00              1314 		.byte		0
+  0000058e 06  0000 0000       1315 		.4byte		.L522
+                               1316 	.L530:
+  00000592 06  0b              1317 		.sleb128	11
+  00000593 06  5538            1318 		.byte		"U8"
+  00000595 06  00              1319 		.byte		0
+  00000596 06  0000 0000       1320 		.4byte		.L522
+                               1321 		.section	.debug_info,,n
+                               1322 	.L529:
+  0000059a 06  0d              1323 		.sleb128	13
+  0000059b 06  0000 0000       1324 		.4byte		.L530
+                               1325 	.L7:
+  0000059f 06  00              1326 		.sleb128	0
+                               1327 	.L3:
+                               1328 	
+                               1329 		.section	.debug_loc,,n
+                               1330 		.align	0
+                               1331 	.L469:
+  00000000 07  0000 0000 0000  1332 		.d2locreg	%offsetof(.Llo1), %offsetof(.Llo2),3
+  00000006 07  0020 0001 53         	
+  0000000b 07  0000 0000 0000  1333 		.d2locend
+  00000011 07  0000                 	
+                               1334 	.L471:
+  00000013 07  0000 001c 0000  1335 		.d2locreg	%offsetof(.Llo3), %offsetof(.Llo4),4
+  00000019 07  002c 0001 54         	
+  0000001e 07  0000 0000 0000  1336 		.d2locend
+  00000024 07  0000                 	
+                               1337 	.L479:
+  00000026 07  0000 005c 0000  1338 		.d2locreg	%offsetof(.Llo5), %offsetof(.Llo6),9
+  0000002c 07  008c 0001 59         	
+  00000031 07  0000 00bc 0000  1339 		.d2locreg	%offsetof(.Llo7), %offsetof(.Llo8),9
+  00000037 07  00d8 0001 59         	
+  0000003c 07  0000 00e4 0000  1340 		.d2locreg	%offsetof(.Llo9), %offsetof(.Llo10),9
+  00000042 07  0104 0001 59         	
+  00000047 07  0000 0000 0000  1341 		.d2locend
+  0000004d 07  0000                 	
+                               1342 	.L487:
+  0000004f 07  0000 0048 0000  1343 		.d2locreg	%offsetof(.Llo11), %offsetof(.Llo6),6
+  00000055 07  008c 0001 56         	
+  0000005a 07  0000 0000 0000  1344 		.d2locend
+  00000060 07  0000                 	
+                               1345 	.L490:
+  00000062 07  0000 0048 0000  1346 		.d2locreg	%offsetof(.Llo11), %offsetof(.Llo6),7
+  00000068 07  008c 0001 57         	
+  0000006d 07  0000 0000 0000  1347 		.d2locend
+  00000073 07  0000                 	
+                               1348 	.L492:
+  00000075 07  0000 0074 0000  1349 		.d2locreg	%offsetof(.Llo12), %offsetof(.Llo13),3
+  0000007b 07  0078 0001 53         	
+  00000080 07  0000 00ac 0000  1350 		.d2locreg	%offsetof(.Llo14), %offsetof(.Llo7),3
+  00000086 07  00bc 0001 53         	
+  0000008b 07  0000 00e0 0000  1351 		.d2locreg	%offsetof(.Llo15), %offsetof(.Llo9),3
+  00000091 07  00e4 0001 53         	
+  00000096 07  0000 0108 0000  1352 		.d2locreg	%offsetof(.Llo16), %offsetof(.Llo17),3
+  0000009c 07  011c 0001 53         	
+  000000a1 07  0000 012c 0000  1353 		.d2locreg	%offsetof(.Llo18), %offsetof(.Llo19),3
+  000000a7 07  0134 0001 53         	
+  000000ac 07  0000 0138 0000  1354 		.d2locreg	%offsetof(.Llo20), %offsetof(.Llo21),3
+  000000b2 07  013c 0001 53         	
+  000000b7 07  0000 0140 0000  1355 		.d2locreg	%offsetof(.Llo22), %offsetof(.Llo23),3
+  000000bd 07  0144 0001 53         	
+  000000c2 07  0000 0000 0000  1356 		.d2locend
+  000000c8 07  0000                 	
+                               1357 	.L494:
+  000000ca 07  0000 0084 0000  1358 		.d2locreg	%offsetof(.Llo24), %offsetof(.Llo14),0
+  000000d0 07  00ac 0001 50         	
+  000000d5 07  0000 00bc 0000  1359 		.d2locreg	%offsetof(.Llo7), %offsetof(.Llo15),0
+  000000db 07  00e0 0001 50         	
+  000000e0 07  0000 00e4 0000  1360 		.d2locreg	%offsetof(.Llo9), %offsetof(.Llo16),0
+  000000e6 07  0108 0001 50         	
+  000000eb 07  0000 0000 0000  1361 		.d2locend
+  000000f1 07  0000                 	
+                               1362 	.L483:
+                               1363 	.L484:
+  000000f3 07  0000 0000 0000  1364 		.d2locend
+  000000f9 07  0000                 	
+                               1365 	.L504:
+  000000fb 07  0000 0184 0000  1366 		.d2locreg	%offsetof(.Llo25), %offsetof(.Llo26),9
+  00000101 07  01b4 0001 59         	
+  00000106 07  0000 01e4 0000  1367 		.d2locreg	%offsetof(.Llo27), %offsetof(.Llo28),9
+  0000010c 07  0200 0001 59         	
+  00000111 07  0000 020c 0000  1368 		.d2locreg	%offsetof(.Llo29), %offsetof(.Llo30),9
+  00000117 07  022c 0001 59         	
+  0000011c 07  0000 0000 0000  1369 		.d2locend
+  00000122 07  0000                 	
+                               1370 	.L507:
+  00000124 07  0000 0170 0000  1371 		.d2locreg	%offsetof(.Llo31), %offsetof(.Llo26),6
+  0000012a 07  01b4 0001 56         	
+  0000012f 07  0000 0000 0000  1372 		.d2locend
+  00000135 07  0000                 	
+                               1373 	.L508:
+  00000137 07  0000 0170 0000  1374 		.d2locreg	%offsetof(.Llo31), %offsetof(.Llo26),7
+  0000013d 07  01b4 0001 57         	
+  00000142 07  0000 0000 0000  1375 		.d2locend
+  00000148 07  0000                 	
+                               1376 	.L510:
+  0000014a 07  0000 019c 0000  1377 		.d2locreg	%offsetof(.Llo32), %offsetof(.Llo33),3
+  00000150 07  01a0 0001 53         	
+  00000155 07  0000 01d4 0000  1378 		.d2locreg	%offsetof(.Llo34), %offsetof(.Llo27),3
+  0000015b 07  01e4 0001 53         	
+  00000160 07  0000 0208 0000  1379 		.d2locreg	%offsetof(.Llo35), %offsetof(.Llo29),3
+  00000166 07  020c 0001 53         	
+  0000016b 07  0000 0230 0000  1380 		.d2locreg	%offsetof(.Llo36), %offsetof(.Llo37),3
+  00000171 07  0244 0001 53         	
+  00000176 07  0000 0254 0000  1381 		.d2locreg	%offsetof(.Llo38), %offsetof(.Llo39),3
+  0000017c 07  0258 0001 53         	
+  00000181 07  0000 025c 0000  1382 		.d2locreg	%offsetof(.Llo40), %offsetof(.Llo41),3
+  00000187 07  026c 0001 53         	
+  0000018c 07  0000 0000 0000  1383 		.d2locend
+  00000192 07  0000                 	
+                               1384 	.L512:
+  00000194 07  0000 01ac 0000  1385 		.d2locreg	%offsetof(.Llo42), %offsetof(.Llo34),0
+  0000019a 07  01d4 0001 50         	
+  0000019f 07  0000 01e4 0000  1386 		.d2locreg	%offsetof(.Llo27), %offsetof(.Llo35),0
+  000001a5 07  0208 0001 50         	
+  000001aa 07  0000 020c 0000  1387 		.d2locreg	%offsetof(.Llo29), %offsetof(.Llo36),0
+  000001b0 07  0230 0001 50         	
+  000001b5 07  0000 0000 0000  1388 		.d2locend
+  000001bb 07  0000                 	
+                               1389 	.L505:
+                               1390 	.L506:
+  000001bd 07  0000 0000 0000  1391 		.d2locend
+  000001c3 07  0000                 	
+                               1392 	.L523:
+  000001c5 07  0000 02c4 0000  1393 		.d2locreg	%offsetof(.Llo43), %offsetof(.Llo44),31
+  000001cb 07  02ec 0001 6f         	
+  000001d0 07  0000 0000 0000  1394 		.d2locend
+  000001d6 07  0000                 	
+                               1395 	.L525:
+  000001d8 07  0000 02e4 0000  1396 		.d2locreg	%offsetof(.Llo45), %offsetof(.Llo46),3
+  000001de 07  02e8 0001 53         	
+  000001e3 07  0000 0000 0000  1397 		.d2locend
+  000001e9 07  0000                 	
+                               1398 		.wrcm.doc
+                               1399 		.wrcm.elem
+                               1400 		.wrcm.nelem "code"
+                               1401 		.wrcm.nelem "functions"
+                               1402 		.wrcm.nelem "s16DiagDfmAl_Init"
+                               1403 		.wrcm.nstrlist "calls", "__sp_grow_s","boOS_ActivateFct"
+                               1404 		.wrcm.nint32 "frameSize", 32
+                               1405 		.wrcm.end
+                               1406 		.wrcm.nelem "s16DiagDfmAl_WriteData"
+                               1407 		.wrcm.nstrlist "calls", "__sp_grow_s","s16NVM_WriteData","u16DfmAlCheckValidParamSiz
+                                    	e"
+                               1408 		.wrcm.nint32 "frameSize", 16
+                               1409 		.wrcm.end
+                               1410 		.wrcm.nelem "s16DiagDfmAl_ReadData"
+                               1411 		.wrcm.nstrlist "calls", "__sp_grow_s","s16NVM_ReadData","u16DfmAlCheckValidParamSize
+                                    	"
+                               1412 		.wrcm.nint32 "frameSize", 16
+                               1413 		.wrcm.end
+                               1414 		.wrcm.nelem "u16DfmAlCheckValidParamSize"
+                               1415 		.wrcm.nint32 "frameSize", 16
+                               1416 		.wrcm.nint32 "local", 1
+                               1417 		.wrcm.end
+                               1418 		.wrcm.end
+                               1419 		.wrcm.end
+                               1420 		.wrcm.nelem "tools"
+                               1421 		.wrcm.nelem "llopt"
+                               1422 		.wrcm.nelem "version"
+                               1423 		.wrcm.nstr "string", "5.9.3.0"
+                               1424 		.wrcm.nint32 "number", 5930
+                               1425 		.wrcm.nstr "path", "C:\KBApps\KB_SYS\Compiler\Windriver\diab\5.9.3.0\WIN32\bin\llopt
+                                    	.exe"
+                               1426 		.wrcm.nstr "label", "DIAB_5_9_3_0-FCS_20130829_231006"
+                               1427 		.wrcm.end
+                               1428 		.wrcm.end
+                               1429 		.wrcm.nelem "ctoa"
+                               1430 		.wrcm.nelem "version"
+                               1431 		.wrcm.nstr "string", "5.9.3.0"
+                               1432 		.wrcm.nint32 "number", 5930
+                               1433 		.wrcm.nstr "path", "C:\KBApps\KB_SYS\Compiler\Windriver\diab\5.9.3.0\WIN32\lib\ctoa.
+                                    	exe"
+                               1434 		.wrcm.nstr "label", "DIAB_5_9_3_0-FCS_20130829_231006"
+                               1435 		.wrcm.end
+                               1436 		.wrcm.nstr "options", "-Xmake-opt-key=..\reloc\diagdfmal.o -Xsingle-fp -Xuser-specif
+                                    	ied-proc=PPC5554 -Xintc-eoir -XPPC5554 -Xintrinsic-mask=0xc00041 -Xstsw-slow -Xconventions-e
+                                    	abi -Xsmall-data=0 -Xsmall-const=0 -Xsoft-float -Xcoloring -Xkeywords=0xff0000 -Xapu-efpu-v1
+                                    	 -Xefpu-spfsfv -Xtarget-family=2 -Xlicense-proxy-use -Xlicense-proxy-path=C:\KBApps\KB_SYS\C
+                                    	ompiler\WINDRI~1\diab\593~1.0\WIN32\lib -Xkeywords=0x4 -Xbss-common-off -Xlint=1 -Xstack-pro
+                                    	be -Xshow-configuration=1 -Xpass-source -Xmake-opt-key=..\reloc\diagdfmal.o -MC:\KBApps\KB_S
+                                    	YS\Compiler\WINDRI~1\diab\593~1.0\PPC\PPC.cd -ZC:\KBApps\KB_SYS\Compiler\WINDRI~1\diab\593~1
+                                    	.0\WIN32\lib\cderror.cat -Xsingle-fp -Xuser-specified-proc=PPC5554 -Xintc-eoir -XPPC5554 -Xi
+                                    	ntrinsic-mask=0xc00041 -Xstsw-slow -Xconventions-eabi -Xsmall-data=0 -Xsmall-const=0 -Xsoft-
+                                    	float -Xcoloring -Xkeywords=0xff0000 -Xapu-efpu-v1 -Xefpu-spfsfv -Xtarget-family=2 -Xlicense
+                                    	-proxy-use -Xlicense-proxy-path=C:\KBApps\KB_SYS\Compiler\WINDRI~1\diab\593~1.0\WIN32\lib -g
+                                    	3 -Xkeywords=0x4 -Xbss-common-off -Xlint=1 -Xstack-probe -Xshow-configuration=1 -Xpass-sourc
+                                    	e -YC:\KBApps\KB_SYS\Compiler\WINDRI~1\diab\593~1.0\include\cpp/std:C:\KBApps\KB_SYS\Compile
+                                    	r\WINDRI~1\diab\593~1.0\include\cpp:C:\KBApps\KB_SYS\Compiler\WINDRI~1\diab\593~1.0\include\
+                                    	simple:C:\KBApps\KB_SYS\Compiler\WINDRI~1\diab\593~1.0\include -D__softfp -D__EVEC__=81402 -
+                                    	D__softfp_abi -D__SPE__=1 -D__EABI__ -D__BIG_ENDIAN__ -D__NO_SDATA__ -D__ppc -D_SUPPORTS_BUI
+                                    	LTIN_PREFETCH -D__CONFIGURE_EMBEDDED=0 -D__CONFIGURE_EXCEPTIONS=1 -D_DIAB_TOOL -D_SUPPORTS_B
+                                    	UILTIN_EXPECT -D__MM_PROCESSOR=kb_PPC -DNDEBUG -I..\include -I..\..\mwl01.int\include -I..\.
+                                    	.\..\..\eLAD0x\hal\ecal01.int\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\common.in
+                                    	t\include -I..\..\..\..\GenMPC55xx\GenCA_FWK\code\mwl\mwl01.int\include -I..\..\..\..\GenMPC
+                                    	55xx\GenMPC55xxCCA\common.int\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\Genrl\common.in
+                                    	t\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\hal\mcal01\Include -I..\..\..\..\GenMPC55xx
+                                    	\GenMPC55xxCCA\hal\mcal01.int\Include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\svl4g\xos01.int
+                                    	\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\svl4g\xos01.int\include\sciopta -I..\..\..\.
+                                    	.\GenMPC55xx\GenMPC55xxCCA\GenCA\svl4g\bsw01\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\
+                                    	GenCA\svl4g\bsw01.int\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\hal\ecal01.int\in
+                                    	clude -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\svl4g\bsw01\include -I..\..\..\..\GenMPC55xx\Ge
+                                    	nMPC55xxCCA\svl4g\bsw01.int\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\hal\ecal01.int\in
+                                    	clude -I..\..\..\..\eLAD0x\svl4g\bsw01.int\include -I..\..\..\..\eLAD0x\mwl\mwl01.int\includ
+                                    	e -I..\..\..\..\LAD_CPU04\svl4g\bsw01.int\include -I..\..\..\..\FWK\deployment\lad -I..\..\.
+                                    	.\..\FWK\deployment\lad\impl -I..\..\..\..\CoFwk\Deployment -IC:\KBApps\KB_SYS\Compiler\Wind
+                                    	river\diab\5.9.3.0\include"
+                               1437 		.wrcm.end
+                               1438 		.wrcm.end
+                               1439 		.wrcm.nelem "file"
+                               1440 		.wrcm.nstr "input", "..\source\diagdfmal.c"
+                               1441 		.wrcm.end
+                               1442 		.wrcm.end
+  00000000 08                  1443 		.wrcm.end
+

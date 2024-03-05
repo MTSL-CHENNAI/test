@@ -1,0 +1,381 @@
+                                  1 	#$$eb
+                                  2 	#$$sz 0		- Size opt info
+                                  3 	#$$ss 0		- XO option
+                                  4 	#$$fp 0		- Floating point mode
+                                  5 	#$$m2		- PowerPC mnemonics
+                                  6 	#$$pPPC	- PowerPC instructions
+                                  7 	#$$oPPC5554	 - Optimized for PowerPC PPC5554
+                                  8 	#$$ko 1
+                                  9 		.file		"rtccconfig.c"
+                                 10 	#$$dg 1
+                                 11 	# -X user configurable options:
+                                 12 	#$$x X7=1 X8=1 X10=1 X11=1 X12=1 X15=2 X16=20 X18=4
+                                 13 	#$$x X19=10 X20=21093 X23=1 X27=1048576 X32=2 X33=3328 X36=1 X39=5554
+                                 14 	#$$x X46=1 X48=1 X55=7 X56=1 X57=2 X74=255 X78=4 X83=3
+                                 15 	#$$x X84=-2 X86=3 X91=1 X93=4 X115=32767 X119=44 X146=6 X147=3
+                                 16 	#$$x X153=2 X154=12582977 X175=65535 X179=1 X180=20 X191=1 X422=10000000 X423=6000000
+                                 17 	#$$x X424=300000 X428=1 X446=1 X450=1 X459=64
+                                 18 		.section	.PPC.EMB.apuinfo,,@note
+  00000000 01  0000 0008         19 		.4byte		8
+  00000004 01  0000 0008         20 		.4byte		0+4+4
+  00000008 01  0000 0002         21 		.4byte		2
+  0000000c 01  4150 5569 6e66    22 		.byte		"APUinfo"
+  00000012 01  6f                   	
+  00000013 01  00                23 		.byte		0
+                                 24 		.align		2
+  00000014 01  0100 0001         25 		.4byte		0x01000001
+  00000018 01  0040 0001         26 		.4byte		0x00400001
+                                 27 		.text
+                                 28 		.section	.debug_line,,n
+                                 29 	.L8:
+                                 30 		.text
+                                 31 	#$$ld
+                                 32 	.L4:
+  00000000 00                    33 		.0byte		.L2
+  00000000 02  0000 0065 0002    34 		.d2_line_start	.debug_line
+  00000006 02  0000 0013 0401       	
+  0000000c 02  ff04 0d00 0101       	
+  00000012 02  0101 0000 0001       	
+  00000018 02  0000 0100 00         	
+                                 35 		.text
+                                 36 	
+                                 37 	# Allocations for module
+                                 38 		.text
+  00000000 00                    39 		.0byte		.L38
+                                 40 		.text
+                                 41 		.type		cRTCCConfiguration,@object
+                                 42 		.size		cRTCCConfiguration,12
+                                 43 		.align		2
+                                 44 		.globl		cRTCCConfiguration
+                                 45 	cRTCCConfiguration:
+  00000000 00  0200              46 		.short		512
+  00000002 00  01f4              47 		.short		500
+  00000004 00  0001 5180         48 		.long		86400
+  00000008 00  000a              49 		.short		10
+                                 50 		.space		2
+                                 51 		.text
+                                 52 	#$$ld
+                                 53 	.L5:
+  0000001d 02  0040 032e 2e5c    54 	.L39:	.d2filenum "..\\..\\..\\..\\FWK\\deployment\\lad\\impl/RtcCConfigImpl.h"
+  00000023 02  5c2e 2e5c 5c2e       	
+  00000029 02  2e5c 5c2e 2e5c       	
+  0000002f 02  5c46 574b 5c5c       	
+  00000035 02  6465 706c 6f79       	
+  0000003b 02  6d65                 	
+  0000005f 02  0005 0200 0000    55 		.d2_line_end
+  00000065 02  0000 0101            	
+                                 56 	
+                                 57 	
+                                 58 		.section	.debug_abbrev,,n
+                                 59 	.L9:
+                                 60 		.section	.debug_abbrev,,n
+  00000000 03  01                61 		.uleb128	1
+  00000001 03  11                62 		.uleb128	17
+  00000002 03  01                63 		.byte		0x1
+  00000003 03  01                64 		.uleb128	1
+  00000004 03  13                65 		.uleb128	19
+  00000005 03  03                66 		.uleb128	3
+  00000006 03  08                67 		.uleb128	8
+  00000007 03  25                68 		.uleb128	37
+  00000008 03  08                69 		.uleb128	8
+  00000009 03  1b                70 		.uleb128	27
+  0000000a 03  08                71 		.uleb128	8
+  0000000b 03  13                72 		.uleb128	19
+  0000000c 03  0f                73 		.uleb128	15
+  0000000d 03  11                74 		.uleb128	17
+  0000000e 03  01                75 		.uleb128	1
+  0000000f 03  12                76 		.uleb128	18
+  00000010 03  01                77 		.uleb128	1
+  00000011 03  10                78 		.uleb128	16
+  00000012 03  06                79 		.uleb128	6
+  00000013 03  00                80 		.uleb128	0
+  00000014 03  00                81 		.uleb128	0
+                                 82 		.section	.debug_abbrev,,n
+  00000015 03  02                83 		.uleb128	2
+  00000016 03  34                84 		.uleb128	52
+  00000017 03  00                85 		.byte		0x0
+  00000018 03  3f                86 		.uleb128	63
+  00000019 03  0c                87 		.uleb128	12
+  0000001a 03  3a                88 		.uleb128	58
+  0000001b 03  06                89 		.uleb128	6
+  0000001c 03  3b                90 		.uleb128	59
+  0000001d 03  0f                91 		.uleb128	15
+  0000001e 03  03                92 		.uleb128	3
+  0000001f 03  08                93 		.uleb128	8
+  00000020 03  49                94 		.uleb128	73
+  00000021 03  10                95 		.uleb128	16
+  00000022 03  02                96 		.uleb128	2
+  00000023 03  09                97 		.uleb128	9
+  00000024 03  00                98 		.uleb128	0
+  00000025 03  00                99 		.uleb128	0
+                                100 		.section	.debug_abbrev,,n
+  00000026 03  03               101 		.uleb128	3
+  00000027 03  13               102 		.uleb128	19
+  00000028 03  01               103 		.byte		0x1
+  00000029 03  3a               104 		.uleb128	58
+  0000002a 03  06               105 		.uleb128	6
+  0000002b 03  3b               106 		.uleb128	59
+  0000002c 03  0f               107 		.uleb128	15
+  0000002d 03  01               108 		.uleb128	1
+  0000002e 03  13               109 		.uleb128	19
+  0000002f 03  03               110 		.uleb128	3
+  00000030 03  08               111 		.uleb128	8
+  00000031 03  0b               112 		.uleb128	11
+  00000032 03  0f               113 		.uleb128	15
+  00000033 03  00               114 		.uleb128	0
+  00000034 03  00               115 		.uleb128	0
+                                116 		.section	.debug_abbrev,,n
+  00000035 03  04               117 		.uleb128	4
+  00000036 03  0d               118 		.uleb128	13
+  00000037 03  00               119 		.byte		0x0
+  00000038 03  03               120 		.uleb128	3
+  00000039 03  08               121 		.uleb128	8
+  0000003a 03  49               122 		.uleb128	73
+  0000003b 03  10               123 		.uleb128	16
+  0000003c 03  38               124 		.uleb128	56
+  0000003d 03  09               125 		.uleb128	9
+  0000003e 03  00               126 		.uleb128	0
+  0000003f 03  00               127 		.uleb128	0
+                                128 		.section	.debug_abbrev,,n
+  00000040 03  05               129 		.uleb128	5
+  00000041 03  16               130 		.uleb128	22
+  00000042 03  00               131 		.byte		0x0
+  00000043 03  03               132 		.uleb128	3
+  00000044 03  08               133 		.uleb128	8
+  00000045 03  49               134 		.uleb128	73
+  00000046 03  10               135 		.uleb128	16
+  00000047 03  00               136 		.uleb128	0
+  00000048 03  00               137 		.uleb128	0
+                                138 		.section	.debug_abbrev,,n
+  00000049 03  06               139 		.uleb128	6
+  0000004a 03  26               140 		.uleb128	38
+  0000004b 03  00               141 		.byte		0x0
+  0000004c 03  49               142 		.uleb128	73
+  0000004d 03  10               143 		.uleb128	16
+  0000004e 03  00               144 		.uleb128	0
+  0000004f 03  00               145 		.uleb128	0
+                                146 		.section	.debug_abbrev,,n
+  00000050 03  07               147 		.uleb128	7
+  00000051 03  24               148 		.uleb128	36
+  00000052 03  00               149 		.byte		0x0
+  00000053 03  03               150 		.uleb128	3
+  00000054 03  08               151 		.uleb128	8
+  00000055 03  3e               152 		.uleb128	62
+  00000056 03  0b               153 		.uleb128	11
+  00000057 03  0b               154 		.uleb128	11
+  00000058 03  0b               155 		.uleb128	11
+  00000059 03  00               156 		.uleb128	0
+  0000005a 03  00               157 		.uleb128	0
+                                158 		.section	.debug_abbrev,,n
+  0000005b 03  00               159 		.sleb128	0
+                                160 	
+                                161 	
+                                162 		.section	.debug_info,,n
+                                163 	.L2:
+  00000000 04  0000 01db        164 		.4byte		.L3-.L1
+                                165 	.L1:
+  00000004 04  0002             166 		.2byte		0x2
+  00000006 04  0000 0000        167 		.4byte		.L9
+  0000000a 04  04               168 		.byte		0x4
+                                169 		.section	.debug_info,,n
+  0000000b 04  01               170 		.sleb128	1
+  0000000c 04  0000 01de        171 		.4byte		.L7-.L2
+  00000010 04  2e2e 5c73 6f75   172 		.byte		"..\\source\\rtccconfig.c"
+  00000016 04  7263 655c 7274       	
+  0000001c 04  6363 636f 6e66       	
+  00000022 04  6967 2e63            	
+  00000026 04  00               173 		.byte		0
+  00000027 04  4469 6162 2044   174 		.byte		"Diab Data, Inc:dcc Rel 5.9.3.0:PPC5554"
+  0000002d 04  6174 612c 2049       	
+  00000033 04  6e63 3a64 6363       	
+  00000039 04  2052 656c 2035       	
+  0000003f 04  2e39 2e33 2e30       	
+  00000045 04  3a50                 	
+  0000004d 04  00               175 		.byte		0
+  0000004e 04  433a 5c44 6973   176 		.byte		"C:\\Disco_D\\Progetti\\LADS\\LAD01\\SW\\LAD01_CA_CCA_Integration\\f
+  00000054 04  636f 5f44 5c50       	offo.development_21042023\\SRC\\LAD_CPU04\\mwl\\mwl01\\source"
+  0000005a 04  726f 6765 7474       	
+  00000060 04  695c 4c41 4453       	
+  00000066 04  5c4c 4144 3031       	
+  0000006c 04  5c53                 	
+  000000c2 04  00               177 		.byte		0
+  000000c3 04  01               178 		.uleb128	1
+  000000c4 04  0000 0000        179 		.4byte		.L4
+  000000c8 04  0000 0000        180 		.4byte		.L5
+  000000cc 04  0000 0000        181 		.4byte		.L8
+                                182 		.section	.debug_info,,n
+                                183 	.L38:
+  000000d0 04  02               184 		.sleb128	2
+  000000d1 04  01               185 		.byte		0x1
+  000000d2 04  0000 0001        186 		.4byte		.L39
+  000000d6 04  4e               187 		.uleb128	78
+  000000d7 04  6352 5443 4343   188 		.byte		"cRTCCConfiguration"
+  000000dd 04  6f6e 6669 6775       	
+  000000e3 04  7261 7469 6f6e       	
+  000000e9 04  00               189 		.byte		0
+  000000ea 04  0000 0000        190 		.4byte		.L40
+  000000ee 04  05               191 		.sleb128	5
+  000000ef 04  03               192 		.byte		0x3
+  000000f0 04  0000 0000        193 		.4byte		cRTCCConfiguration
+                                194 		.section	.debug_info,,n
+                                195 		.section	.debug_info,,n
+                                196 	.L42:
+  000000f4 04  03               197 		.sleb128	3
+  000000f5 04  0000 0001        198 		.4byte		.L39
+  000000f9 04  32               199 		.uleb128	50
+  000000fa 04  0000 018a        200 		.4byte		.L43-.L2
+  000000fe 04  535f 5254 4343   201 		.byte		"S_RTCC_CONFIGURATION"
+  00000104 04  5f43 4f4e 4649       	
+  0000010a 04  4755 5241 5449       	
+  00000110 04  4f4e                 	
+  00000112 04  00               202 		.byte		0
+  00000113 04  0c               203 		.uleb128	12
+                                204 		.section	.debug_info,,n
+                                205 	.L34:
+  00000114 04  04               206 		.sleb128	4
+  00000115 04  7531 3652 7463   207 		.byte		"u16RtcCLsTimeBase"
+  0000011b 04  434c 7354 696d       	
+  00000121 04  6542 6173 65         	
+  00000126 04  00               208 		.byte		0
+  00000127 04  0000 0000        209 		.4byte		.L44
+  0000012b 04  02               210 		.sleb128	2
+  0000012c 04  23               211 		.byte		0x23
+  0000012d 04  00               212 		.uleb128	0
+                                213 	.L35:
+  0000012e 04  04               214 		.sleb128	4
+  0000012f 04  7531 3652 7463   215 		.byte		"u16RtcCOperationCycle"
+  00000135 04  434f 7065 7261       	
+  0000013b 04  7469 6f6e 4379       	
+  00000141 04  636c 65              	
+  00000144 04  00               216 		.byte		0
+  00000145 04  0000 0000        217 		.4byte		.L44
+  00000149 04  02               218 		.sleb128	2
+  0000014a 04  23               219 		.byte		0x23
+  0000014b 04  02               220 		.uleb128	2
+                                221 	.L36:
+  0000014c 04  04               222 		.sleb128	4
+  0000014d 04  7533 3252 7463   223 		.byte		"u32RtcCStandaloneTime"
+  00000153 04  4353 7461 6e64       	
+  00000159 04  616c 6f6e 6554       	
+  0000015f 04  696d 65              	
+  00000162 04  00               224 		.byte		0
+  00000163 04  0000 0000        225 		.4byte		.L46
+  00000167 04  02               226 		.sleb128	2
+  00000168 04  23               227 		.byte		0x23
+  00000169 04  04               228 		.uleb128	4
+                                229 	.L37:
+  0000016a 04  04               230 		.sleb128	4
+  0000016b 04  7531 3652 7463   231 		.byte		"u16RtcCNvMemWriteCycle"
+  00000171 04  434e 764d 656d       	
+  00000177 04  5772 6974 6543       	
+  0000017d 04  7963 6c65            	
+  00000181 04  00               232 		.byte		0
+  00000182 04  0000 0000        233 		.4byte		.L44
+  00000186 04  02               234 		.sleb128	2
+  00000187 04  23               235 		.byte		0x23
+  00000188 04  08               236 		.uleb128	8
+  00000189 04  00               237 		.sleb128	0
+                                238 	.L43:
+                                239 		.section	.debug_info,,n
+                                240 	.L41:
+  0000018a 04  05               241 		.sleb128	5
+  0000018b 04  545f 5254 4343   242 		.byte		"T_RTCC_CONFIGURATION"
+  00000191 04  5f43 4f4e 4649       	
+  00000197 04  4755 5241 5449       	
+  0000019d 04  4f4e                 	
+  0000019f 04  00               243 		.byte		0
+  000001a0 04  0000 0000        244 		.4byte		.L42
+                                245 		.section	.debug_info,,n
+                                246 	.L40:
+  000001a4 04  06               247 		.sleb128	6
+  000001a5 04  0000 0000        248 		.4byte		.L41
+                                249 		.section	.debug_info,,n
+                                250 	.L45:
+  000001a9 04  07               251 		.sleb128	7
+  000001aa 04  756e 7369 676e   252 		.byte		"unsigned short"
+  000001b0 04  6564 2073 686f       	
+  000001b6 04  7274                 	
+  000001b8 04  00               253 		.byte		0
+  000001b9 04  07               254 		.byte		0x7
+  000001ba 04  02               255 		.byte		0x2
+                                256 	.L44:
+  000001bb 04  05               257 		.sleb128	5
+  000001bc 04  5531 36          258 		.byte		"U16"
+  000001bf 04  00               259 		.byte		0
+  000001c0 04  0000 0000        260 		.4byte		.L45
+                                261 	.L47:
+  000001c4 04  07               262 		.sleb128	7
+  000001c5 04  756e 7369 676e   263 		.byte		"unsigned long"
+  000001cb 04  6564 206c 6f6e       	
+  000001d1 04  67                   	
+  000001d2 04  00               264 		.byte		0
+  000001d3 04  07               265 		.byte		0x7
+  000001d4 04  04               266 		.byte		0x4
+                                267 	.L46:
+  000001d5 04  05               268 		.sleb128	5
+  000001d6 04  5533 32          269 		.byte		"U32"
+  000001d9 04  00               270 		.byte		0
+  000001da 04  0000 0000        271 		.4byte		.L47
+                                272 	.L7:
+  000001de 04  00               273 		.sleb128	0
+                                274 	.L3:
+                                275 		.wrcm.doc
+                                276 		.wrcm.elem
+                                277 		.wrcm.nelem "tools"
+                                278 		.wrcm.nelem "llopt"
+                                279 		.wrcm.nelem "version"
+                                280 		.wrcm.nstr "string", "5.9.3.0"
+                                281 		.wrcm.nint32 "number", 5930
+                                282 		.wrcm.nstr "path", "C:\KBApps\KB_SYS\Compiler\Windriver\diab\5.9.3.0\WIN32\bin\llopt
+                                    	.exe"
+                                283 		.wrcm.nstr "label", "DIAB_5_9_3_0-FCS_20130829_231006"
+                                284 		.wrcm.end
+                                285 		.wrcm.end
+                                286 		.wrcm.nelem "ctoa"
+                                287 		.wrcm.nelem "version"
+                                288 		.wrcm.nstr "string", "5.9.3.0"
+                                289 		.wrcm.nint32 "number", 5930
+                                290 		.wrcm.nstr "path", "C:\KBApps\KB_SYS\Compiler\Windriver\diab\5.9.3.0\WIN32\lib\ctoa.
+                                    	exe"
+                                291 		.wrcm.nstr "label", "DIAB_5_9_3_0-FCS_20130829_231006"
+                                292 		.wrcm.end
+                                293 		.wrcm.nstr "options", "-Xmake-opt-key=..\reloc\rtccconfig.o -Xsingle-fp -Xuser-speci
+                                    	fied-proc=PPC5554 -Xintc-eoir -XPPC5554 -Xintrinsic-mask=0xc00041 -Xstsw-slow -Xconventions-
+                                    	eabi -Xsmall-data=0 -Xsmall-const=0 -Xsoft-float -Xcoloring -Xkeywords=0xff0000 -Xapu-efpu-v
+                                    	1 -Xefpu-spfsfv -Xtarget-family=2 -Xlicense-proxy-use -Xlicense-proxy-path=C:\KBApps\KB_SYS\
+                                    	Compiler\WINDRI~1\diab\593~1.0\WIN32\lib -Xkeywords=0x4 -Xbss-common-off -Xlint=1 -Xstack-pr
+                                    	obe -Xshow-configuration=1 -Xpass-source -Xmake-opt-key=..\reloc\rtccconfig.o -MC:\KBApps\KB
+                                    	_SYS\Compiler\WINDRI~1\diab\593~1.0\PPC\PPC.cd -ZC:\KBApps\KB_SYS\Compiler\WINDRI~1\diab\593
+                                    	~1.0\WIN32\lib\cderror.cat -Xsingle-fp -Xuser-specified-proc=PPC5554 -Xintc-eoir -XPPC5554 -
+                                    	Xintrinsic-mask=0xc00041 -Xstsw-slow -Xconventions-eabi -Xsmall-data=0 -Xsmall-const=0 -Xsof
+                                    	t-float -Xcoloring -Xkeywords=0xff0000 -Xapu-efpu-v1 -Xefpu-spfsfv -Xtarget-family=2 -Xlicen
+                                    	se-proxy-use -Xlicense-proxy-path=C:\KBApps\KB_SYS\Compiler\WINDRI~1\diab\593~1.0\WIN32\lib 
+                                    	-g3 -Xkeywords=0x4 -Xbss-common-off -Xlint=1 -Xstack-probe -Xshow-configuration=1 -Xpass-sou
+                                    	rce -YC:\KBApps\KB_SYS\Compiler\WINDRI~1\diab\593~1.0\include\cpp/std:C:\KBApps\KB_SYS\Compi
+                                    	ler\WINDRI~1\diab\593~1.0\include\cpp:C:\KBApps\KB_SYS\Compiler\WINDRI~1\diab\593~1.0\includ
+                                    	e\simple:C:\KBApps\KB_SYS\Compiler\WINDRI~1\diab\593~1.0\include -D__softfp -D__EVEC__=81402
+                                    	 -D__softfp_abi -D__SPE__=1 -D__EABI__ -D__BIG_ENDIAN__ -D__NO_SDATA__ -D__ppc -D_SUPPORTS_B
+                                    	UILTIN_PREFETCH -D__CONFIGURE_EMBEDDED=0 -D__CONFIGURE_EXCEPTIONS=1 -D_DIAB_TOOL -D_SUPPORTS
+                                    	_BUILTIN_EXPECT -D__MM_PROCESSOR=kb_PPC -DNDEBUG -I..\include -I..\..\mwl01.int\include -I..
+                                    	\..\..\..\eLAD0x\hal\ecal01.int\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\common.
+                                    	int\include -I..\..\..\..\GenMPC55xx\GenCA_FWK\code\mwl\mwl01.int\include -I..\..\..\..\GenM
+                                    	PC55xx\GenMPC55xxCCA\common.int\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\Genrl\common.
+                                    	int\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\hal\mcal01\Include -I..\..\..\..\GenMPC55
+                                    	xx\GenMPC55xxCCA\hal\mcal01.int\Include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\svl4g\xos01.i
+                                    	nt\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\svl4g\xos01.int\include\sciopta -I..\..\..
+                                    	\..\GenMPC55xx\GenMPC55xxCCA\GenCA\svl4g\bsw01\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCC
+                                    	A\GenCA\svl4g\bsw01.int\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\hal\ecal01.int\
+                                    	include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\svl4g\bsw01\include -I..\..\..\..\GenMPC55xx\
+                                    	GenMPC55xxCCA\svl4g\bsw01.int\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\hal\ecal01.int\
+                                    	include -I..\..\..\..\eLAD0x\svl4g\bsw01.int\include -I..\..\..\..\eLAD0x\mwl\mwl01.int\incl
+                                    	ude -I..\..\..\..\LAD_CPU04\svl4g\bsw01.int\include -I..\..\..\..\FWK\deployment\lad -I..\..
+                                    	\..\..\FWK\deployment\lad\impl -I..\..\..\..\CoFwk\Deployment -IC:\KBApps\KB_SYS\Compiler\Wi
+                                    	ndriver\diab\5.9.3.0\include"
+                                294 		.wrcm.end
+                                295 		.wrcm.end
+                                296 		.wrcm.nelem "file"
+                                297 		.wrcm.nstr "input", "..\source\rtccconfig.c"
+                                298 		.wrcm.end
+                                299 		.wrcm.end
+  00000000 05                   300 		.wrcm.end
+

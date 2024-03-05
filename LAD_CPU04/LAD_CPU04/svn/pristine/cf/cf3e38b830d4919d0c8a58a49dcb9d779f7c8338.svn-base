@@ -1,0 +1,14 @@
+..\reloc\c_nvm.o
+..\reloc\diaggdshconfig.o
+..\reloc\diagdsmconfig.o
+..\reloc\diagdsmnvmem.o
+..\reloc\rtccconfig.o
+..\reloc\fwkcmmconfig.o
+..\reloc\fwkctrlconfig.o
+..\reloc\nwmmrconfig.o
+..\reloc\diagdfmal.o
+..\reloc\mdr_supported_roles.o
+..\reloc\drcaldeviddetconfig.o
+..\reloc\cfg_sdi_fwk.o
+..\reloc\cfg_aod_sdi.o
+..\reloc\cfg_peek_sdi.o

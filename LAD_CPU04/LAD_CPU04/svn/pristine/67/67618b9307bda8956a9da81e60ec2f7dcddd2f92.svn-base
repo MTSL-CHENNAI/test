@@ -1,0 +1,404 @@
+                                  1 	#$$eb
+                                  2 	#$$sz 0		- Size opt info
+                                  3 	#$$ss 0		- XO option
+                                  4 	#$$fp 0		- Floating point mode
+                                  5 	#$$m2		- PowerPC mnemonics
+                                  6 	#$$pPPC	- PowerPC instructions
+                                  7 	#$$oPPC5554	 - Optimized for PowerPC PPC5554
+                                  8 	#$$ko 1
+                                  9 		.file		"nwmmrconfig.c"
+                                 10 	#$$dg 1
+                                 11 	# -X user configurable options:
+                                 12 	#$$x X7=1 X8=1 X10=1 X11=1 X12=1 X15=2 X16=20 X18=4
+                                 13 	#$$x X19=10 X20=21093 X23=1 X27=1048576 X32=2 X33=3328 X36=1 X39=5554
+                                 14 	#$$x X46=1 X48=1 X55=7 X56=1 X57=2 X74=255 X78=4 X83=3
+                                 15 	#$$x X84=-2 X86=3 X91=1 X93=4 X115=32767 X119=44 X146=6 X147=3
+                                 16 	#$$x X153=2 X154=12582977 X175=65535 X179=1 X180=20 X191=1 X422=10000000 X423=6000000
+                                 17 	#$$x X424=300000 X428=1 X446=1 X450=1 X459=64
+                                 18 		.section	.PPC.EMB.apuinfo,,@note
+  00000000 01  0000 0008         19 		.4byte		8
+  00000004 01  0000 0008         20 		.4byte		0+4+4
+  00000008 01  0000 0002         21 		.4byte		2
+  0000000c 01  4150 5569 6e66    22 		.byte		"APUinfo"
+  00000012 01  6f                   	
+  00000013 01  00                23 		.byte		0
+                                 24 		.align		2
+  00000014 01  0100 0001         25 		.4byte		0x01000001
+  00000018 01  0040 0001         26 		.4byte		0x00400001
+                                 27 		.text
+                                 28 		.section	.debug_line,,n
+                                 29 	.L8:
+                                 30 		.text
+                                 31 	#$$ld
+                                 32 	.L4:
+  00000000 00                    33 		.0byte		.L2
+  00000000 02  0000 0066 0002    34 		.d2_line_start	.debug_line
+  00000006 02  0000 0013 0401       	
+  0000000c 02  ff04 0d00 0101       	
+  00000012 02  0101 0000 0001       	
+  00000018 02  0000 0100 00         	
+                                 35 		.text
+                                 36 	
+                                 37 	# Allocations for module
+                                 38 		.text
+  00000000 00                    39 		.0byte		.L59
+                                 40 		.text
+                                 41 		.type		cNwmMRCfg,@object
+                                 42 		.size		cNwmMRCfg,8
+                                 43 		.align		1
+                                 44 		.globl		cNwmMRCfg
+                                 45 	cNwmMRCfg:
+  00000000 00  0200              46 		.short		512
+  00000002 00  0032              47 		.short		50
+  00000004 00  00                48 		.byte		0
+  00000005 00  00                49 		.byte		0
+  00000006 00  00                50 		.byte		0
+  00000007 00  00                51 		.byte		0
+                                 52 		.text
+                                 53 	#$$ld
+                                 54 	.L5:
+  0000001d 02  0041 032e 2e5c    55 	.L60:	.d2filenum "..\\..\\..\\..\\FWK\\deployment\\lad\\impl/NwmMRConfigImpl.h"
+  00000023 02  5c2e 2e5c 5c2e       	
+  00000029 02  2e5c 5c2e 2e5c       	
+  0000002f 02  5c46 574b 5c5c       	
+  00000035 02  6465 706c 6f79       	
+  0000003b 02  6d65                 	
+  00000060 02  0005 0200 0000    56 		.d2_line_end
+  00000066 02  0000 0101            	
+                                 57 	
+                                 58 	
+                                 59 		.section	.debug_abbrev,,n
+                                 60 	.L9:
+                                 61 		.section	.debug_abbrev,,n
+  00000000 03  01                62 		.uleb128	1
+  00000001 03  11                63 		.uleb128	17
+  00000002 03  01                64 		.byte		0x1
+  00000003 03  01                65 		.uleb128	1
+  00000004 03  13                66 		.uleb128	19
+  00000005 03  03                67 		.uleb128	3
+  00000006 03  08                68 		.uleb128	8
+  00000007 03  25                69 		.uleb128	37
+  00000008 03  08                70 		.uleb128	8
+  00000009 03  1b                71 		.uleb128	27
+  0000000a 03  08                72 		.uleb128	8
+  0000000b 03  13                73 		.uleb128	19
+  0000000c 03  0f                74 		.uleb128	15
+  0000000d 03  11                75 		.uleb128	17
+  0000000e 03  01                76 		.uleb128	1
+  0000000f 03  12                77 		.uleb128	18
+  00000010 03  01                78 		.uleb128	1
+  00000011 03  10                79 		.uleb128	16
+  00000012 03  06                80 		.uleb128	6
+  00000013 03  00                81 		.uleb128	0
+  00000014 03  00                82 		.uleb128	0
+                                 83 		.section	.debug_abbrev,,n
+  00000015 03  02                84 		.uleb128	2
+  00000016 03  34                85 		.uleb128	52
+  00000017 03  00                86 		.byte		0x0
+  00000018 03  3f                87 		.uleb128	63
+  00000019 03  0c                88 		.uleb128	12
+  0000001a 03  3a                89 		.uleb128	58
+  0000001b 03  06                90 		.uleb128	6
+  0000001c 03  3b                91 		.uleb128	59
+  0000001d 03  0f                92 		.uleb128	15
+  0000001e 03  03                93 		.uleb128	3
+  0000001f 03  08                94 		.uleb128	8
+  00000020 03  49                95 		.uleb128	73
+  00000021 03  10                96 		.uleb128	16
+  00000022 03  02                97 		.uleb128	2
+  00000023 03  09                98 		.uleb128	9
+  00000024 03  00                99 		.uleb128	0
+  00000025 03  00               100 		.uleb128	0
+                                101 		.section	.debug_abbrev,,n
+  00000026 03  03               102 		.uleb128	3
+  00000027 03  13               103 		.uleb128	19
+  00000028 03  01               104 		.byte		0x1
+  00000029 03  3a               105 		.uleb128	58
+  0000002a 03  06               106 		.uleb128	6
+  0000002b 03  3b               107 		.uleb128	59
+  0000002c 03  0f               108 		.uleb128	15
+  0000002d 03  01               109 		.uleb128	1
+  0000002e 03  13               110 		.uleb128	19
+  0000002f 03  03               111 		.uleb128	3
+  00000030 03  08               112 		.uleb128	8
+  00000031 03  0b               113 		.uleb128	11
+  00000032 03  0f               114 		.uleb128	15
+  00000033 03  00               115 		.uleb128	0
+  00000034 03  00               116 		.uleb128	0
+                                117 		.section	.debug_abbrev,,n
+  00000035 03  04               118 		.uleb128	4
+  00000036 03  0d               119 		.uleb128	13
+  00000037 03  00               120 		.byte		0x0
+  00000038 03  03               121 		.uleb128	3
+  00000039 03  08               122 		.uleb128	8
+  0000003a 03  49               123 		.uleb128	73
+  0000003b 03  10               124 		.uleb128	16
+  0000003c 03  38               125 		.uleb128	56
+  0000003d 03  09               126 		.uleb128	9
+  0000003e 03  00               127 		.uleb128	0
+  0000003f 03  00               128 		.uleb128	0
+                                129 		.section	.debug_abbrev,,n
+  00000040 03  05               130 		.uleb128	5
+  00000041 03  16               131 		.uleb128	22
+  00000042 03  00               132 		.byte		0x0
+  00000043 03  03               133 		.uleb128	3
+  00000044 03  08               134 		.uleb128	8
+  00000045 03  49               135 		.uleb128	73
+  00000046 03  10               136 		.uleb128	16
+  00000047 03  00               137 		.uleb128	0
+  00000048 03  00               138 		.uleb128	0
+                                139 		.section	.debug_abbrev,,n
+  00000049 03  06               140 		.uleb128	6
+  0000004a 03  26               141 		.uleb128	38
+  0000004b 03  00               142 		.byte		0x0
+  0000004c 03  49               143 		.uleb128	73
+  0000004d 03  10               144 		.uleb128	16
+  0000004e 03  00               145 		.uleb128	0
+  0000004f 03  00               146 		.uleb128	0
+                                147 		.section	.debug_abbrev,,n
+  00000050 03  07               148 		.uleb128	7
+  00000051 03  24               149 		.uleb128	36
+  00000052 03  00               150 		.byte		0x0
+  00000053 03  03               151 		.uleb128	3
+  00000054 03  08               152 		.uleb128	8
+  00000055 03  3e               153 		.uleb128	62
+  00000056 03  0b               154 		.uleb128	11
+  00000057 03  0b               155 		.uleb128	11
+  00000058 03  0b               156 		.uleb128	11
+  00000059 03  00               157 		.uleb128	0
+  0000005a 03  00               158 		.uleb128	0
+                                159 		.section	.debug_abbrev,,n
+  0000005b 03  00               160 		.sleb128	0
+                                161 	
+                                162 	
+                                163 		.section	.debug_info,,n
+                                164 	.L2:
+  00000000 04  0000 0214        165 		.4byte		.L3-.L1
+                                166 	.L1:
+  00000004 04  0002             167 		.2byte		0x2
+  00000006 04  0000 0000        168 		.4byte		.L9
+  0000000a 04  04               169 		.byte		0x4
+                                170 		.section	.debug_info,,n
+  0000000b 04  01               171 		.sleb128	1
+  0000000c 04  0000 0217        172 		.4byte		.L7-.L2
+  00000010 04  2e2e 5c73 6f75   173 		.byte		"..\\source\\nwmmrconfig.c"
+  00000016 04  7263 655c 6e77       	
+  0000001c 04  6d6d 7263 6f6e       	
+  00000022 04  6669 672e 63         	
+  00000027 04  00               174 		.byte		0
+  00000028 04  4469 6162 2044   175 		.byte		"Diab Data, Inc:dcc Rel 5.9.3.0:PPC5554"
+  0000002e 04  6174 612c 2049       	
+  00000034 04  6e63 3a64 6363       	
+  0000003a 04  2052 656c 2035       	
+  00000040 04  2e39 2e33 2e30       	
+  00000046 04  3a50                 	
+  0000004e 04  00               176 		.byte		0
+  0000004f 04  433a 5c44 6973   177 		.byte		"C:\\Disco_D\\Progetti\\LADS\\LAD01\\SW\\LAD01_CA_CCA_Integration\\f
+  00000055 04  636f 5f44 5c50       	offo.development_21042023\\SRC\\LAD_CPU04\\mwl\\mwl01\\source"
+  0000005b 04  726f 6765 7474       	
+  00000061 04  695c 4c41 4453       	
+  00000067 04  5c4c 4144 3031       	
+  0000006d 04  5c53                 	
+  000000c3 04  00               178 		.byte		0
+  000000c4 04  01               179 		.uleb128	1
+  000000c5 04  0000 0000        180 		.4byte		.L4
+  000000c9 04  0000 0000        181 		.4byte		.L5
+  000000cd 04  0000 0000        182 		.4byte		.L8
+                                183 		.section	.debug_info,,n
+                                184 	.L59:
+  000000d1 04  02               185 		.sleb128	2
+  000000d2 04  01               186 		.byte		0x1
+  000000d3 04  0000 0001        187 		.4byte		.L60
+  000000d7 04  4a               188 		.uleb128	74
+  000000d8 04  634e 776d 4d52   189 		.byte		"cNwmMRCfg"
+  000000de 04  4366 67              	
+  000000e1 04  00               190 		.byte		0
+  000000e2 04  0000 0000        191 		.4byte		.L61
+  000000e6 04  05               192 		.sleb128	5
+  000000e7 04  03               193 		.byte		0x3
+  000000e8 04  0000 0000        194 		.4byte		cNwmMRCfg
+                                195 		.section	.debug_info,,n
+                                196 		.section	.debug_info,,n
+                                197 	.L63:
+  000000ec 04  03               198 		.sleb128	3
+  000000ed 04  0000 0001        199 		.4byte		.L60
+  000000f1 04  32               200 		.uleb128	50
+  000000f2 04  0000 01c3        201 		.4byte		.L64-.L2
+  000000f6 04  535f 4e57 4d4d   202 		.byte		"S_NWMMR_CONFIGURATION"
+  000000fc 04  525f 434f 4e46       	
+  00000102 04  4947 5552 4154       	
+  00000108 04  494f 4e              	
+  0000010b 04  00               203 		.byte		0
+  0000010c 04  08               204 		.uleb128	8
+                                205 		.section	.debug_info,,n
+                                206 	.L34:
+  0000010d 04  04               207 		.sleb128	4
+  0000010e 04  7531 364e 776d   208 		.byte		"u16NwmMRLsTimeBase"
+  00000114 04  4d52 4c73 5469       	
+  0000011a 04  6d65 4261 7365       	
+  00000120 04  00               209 		.byte		0
+  00000121 04  0000 0000        210 		.4byte		.L65
+  00000125 04  02               211 		.sleb128	2
+  00000126 04  23               212 		.byte		0x23
+  00000127 04  00               213 		.uleb128	0
+                                214 	.L35:
+  00000128 04  04               215 		.sleb128	4
+  00000129 04  7531 364e 776d   216 		.byte		"u16NwmMROperationCycle"
+  0000012f 04  4d52 4f70 6572       	
+  00000135 04  6174 696f 6e43       	
+  0000013b 04  7963 6c65            	
+  0000013f 04  00               217 		.byte		0
+  00000140 04  0000 0000        218 		.4byte		.L65
+  00000144 04  02               219 		.sleb128	2
+  00000145 04  23               220 		.byte		0x23
+  00000146 04  02               221 		.uleb128	2
+                                222 	.L36:
+  00000147 04  04               223 		.sleb128	4
+  00000148 04  7538 4e77 6d4d   224 		.byte		"u8NwmMRInitialStateDevReg"
+  0000014e 04  5249 6e69 7469       	
+  00000154 04  616c 5374 6174       	
+  0000015a 04  6544 6576 5265       	
+  00000160 04  67                   	
+  00000161 04  00               225 		.byte		0
+  00000162 04  0000 0000        226 		.4byte		.L67
+  00000166 04  02               227 		.sleb128	2
+  00000167 04  23               228 		.byte		0x23
+  00000168 04  04               229 		.uleb128	4
+                                230 	.L37:
+  00000169 04  04               231 		.sleb128	4
+  0000016a 04  7538 4e77 6d4d   232 		.byte		"u8NwmMRInitialStateConfig"
+  00000170 04  5249 6e69 7469       	
+  00000176 04  616c 5374 6174       	
+  0000017c 04  6543 6f6e 6669       	
+  00000182 04  67                   	
+  00000183 04  00               233 		.byte		0
+  00000184 04  0000 0000        234 		.4byte		.L67
+  00000188 04  02               235 		.sleb128	2
+  00000189 04  23               236 		.byte		0x23
+  0000018a 04  05               237 		.uleb128	5
+                                238 	.L38:
+  0000018b 04  04               239 		.sleb128	4
+  0000018c 04  7538 4e77 6d4d   240 		.byte		"u8NwmMRInitialStateApp"
+  00000192 04  5249 6e69 7469       	
+  00000198 04  616c 5374 6174       	
+  0000019e 04  6541 7070            	
+  000001a2 04  00               241 		.byte		0
+  000001a3 04  0000 0000        242 		.4byte		.L67
+  000001a7 04  02               243 		.sleb128	2
+  000001a8 04  23               244 		.byte		0x23
+  000001a9 04  06               245 		.uleb128	6
+                                246 	.L39:
+  000001aa 04  04               247 		.sleb128	4
+  000001ab 04  7538 4e77 6d4d   248 		.byte		"u8NwmMRReserved"
+  000001b1 04  5252 6573 6572       	
+  000001b7 04  7665 64              	
+  000001ba 04  00               249 		.byte		0
+  000001bb 04  0000 0000        250 		.4byte		.L67
+  000001bf 04  02               251 		.sleb128	2
+  000001c0 04  23               252 		.byte		0x23
+  000001c1 04  07               253 		.uleb128	7
+  000001c2 04  00               254 		.sleb128	0
+                                255 	.L64:
+                                256 		.section	.debug_info,,n
+                                257 	.L62:
+  000001c3 04  05               258 		.sleb128	5
+  000001c4 04  545f 4e57 4d4d   259 		.byte		"T_NWMMR_CONFIGURATION"
+  000001ca 04  525f 434f 4e46       	
+  000001d0 04  4947 5552 4154       	
+  000001d6 04  494f 4e              	
+  000001d9 04  00               260 		.byte		0
+  000001da 04  0000 0000        261 		.4byte		.L63
+                                262 		.section	.debug_info,,n
+                                263 	.L61:
+  000001de 04  06               264 		.sleb128	6
+  000001df 04  0000 0000        265 		.4byte		.L62
+                                266 		.section	.debug_info,,n
+                                267 	.L66:
+  000001e3 04  07               268 		.sleb128	7
+  000001e4 04  756e 7369 676e   269 		.byte		"unsigned short"
+  000001ea 04  6564 2073 686f       	
+  000001f0 04  7274                 	
+  000001f2 04  00               270 		.byte		0
+  000001f3 04  07               271 		.byte		0x7
+  000001f4 04  02               272 		.byte		0x2
+                                273 	.L65:
+  000001f5 04  05               274 		.sleb128	5
+  000001f6 04  5531 36          275 		.byte		"U16"
+  000001f9 04  00               276 		.byte		0
+  000001fa 04  0000 0000        277 		.4byte		.L66
+                                278 	.L68:
+  000001fe 04  07               279 		.sleb128	7
+  000001ff 04  756e 7369 676e   280 		.byte		"unsigned char"
+  00000205 04  6564 2063 6861       	
+  0000020b 04  72                   	
+  0000020c 04  00               281 		.byte		0
+  0000020d 04  08               282 		.byte		0x8
+  0000020e 04  01               283 		.byte		0x1
+                                284 	.L67:
+  0000020f 04  05               285 		.sleb128	5
+  00000210 04  5538             286 		.byte		"U8"
+  00000212 04  00               287 		.byte		0
+  00000213 04  0000 0000        288 		.4byte		.L68
+                                289 	.L7:
+  00000217 04  00               290 		.sleb128	0
+                                291 	.L3:
+                                292 		.wrcm.doc
+                                293 		.wrcm.elem
+                                294 		.wrcm.nelem "tools"
+                                295 		.wrcm.nelem "llopt"
+                                296 		.wrcm.nelem "version"
+                                297 		.wrcm.nstr "string", "5.9.3.0"
+                                298 		.wrcm.nint32 "number", 5930
+                                299 		.wrcm.nstr "path", "C:\KBApps\KB_SYS\Compiler\Windriver\diab\5.9.3.0\WIN32\bin\llopt
+                                    	.exe"
+                                300 		.wrcm.nstr "label", "DIAB_5_9_3_0-FCS_20130829_231006"
+                                301 		.wrcm.end
+                                302 		.wrcm.end
+                                303 		.wrcm.nelem "ctoa"
+                                304 		.wrcm.nelem "version"
+                                305 		.wrcm.nstr "string", "5.9.3.0"
+                                306 		.wrcm.nint32 "number", 5930
+                                307 		.wrcm.nstr "path", "C:\KBApps\KB_SYS\Compiler\Windriver\diab\5.9.3.0\WIN32\lib\ctoa.
+                                    	exe"
+                                308 		.wrcm.nstr "label", "DIAB_5_9_3_0-FCS_20130829_231006"
+                                309 		.wrcm.end
+                                310 		.wrcm.nstr "options", "-Xmake-opt-key=..\reloc\nwmmrconfig.o -Xsingle-fp -Xuser-spec
+                                    	ified-proc=PPC5554 -Xintc-eoir -XPPC5554 -Xintrinsic-mask=0xc00041 -Xstsw-slow -Xconventions
+                                    	-eabi -Xsmall-data=0 -Xsmall-const=0 -Xsoft-float -Xcoloring -Xkeywords=0xff0000 -Xapu-efpu-
+                                    	v1 -Xefpu-spfsfv -Xtarget-family=2 -Xlicense-proxy-use -Xlicense-proxy-path=C:\KBApps\KB_SYS
+                                    	\Compiler\WINDRI~1\diab\593~1.0\WIN32\lib -Xkeywords=0x4 -Xbss-common-off -Xlint=1 -Xstack-p
+                                    	robe -Xshow-configuration=1 -Xpass-source -Xmake-opt-key=..\reloc\nwmmrconfig.o -MC:\KBApps\
+                                    	KB_SYS\Compiler\WINDRI~1\diab\593~1.0\PPC\PPC.cd -ZC:\KBApps\KB_SYS\Compiler\WINDRI~1\diab\5
+                                    	93~1.0\WIN32\lib\cderror.cat -Xsingle-fp -Xuser-specified-proc=PPC5554 -Xintc-eoir -XPPC5554
+                                    	 -Xintrinsic-mask=0xc00041 -Xstsw-slow -Xconventions-eabi -Xsmall-data=0 -Xsmall-const=0 -Xs
+                                    	oft-float -Xcoloring -Xkeywords=0xff0000 -Xapu-efpu-v1 -Xefpu-spfsfv -Xtarget-family=2 -Xlic
+                                    	ense-proxy-use -Xlicense-proxy-path=C:\KBApps\KB_SYS\Compiler\WINDRI~1\diab\593~1.0\WIN32\li
+                                    	b -g3 -Xkeywords=0x4 -Xbss-common-off -Xlint=1 -Xstack-probe -Xshow-configuration=1 -Xpass-s
+                                    	ource -YC:\KBApps\KB_SYS\Compiler\WINDRI~1\diab\593~1.0\include\cpp/std:C:\KBApps\KB_SYS\Com
+                                    	piler\WINDRI~1\diab\593~1.0\include\cpp:C:\KBApps\KB_SYS\Compiler\WINDRI~1\diab\593~1.0\incl
+                                    	ude\simple:C:\KBApps\KB_SYS\Compiler\WINDRI~1\diab\593~1.0\include -D__softfp -D__EVEC__=814
+                                    	02 -D__softfp_abi -D__SPE__=1 -D__EABI__ -D__BIG_ENDIAN__ -D__NO_SDATA__ -D__ppc -D_SUPPORTS
+                                    	_BUILTIN_PREFETCH -D__CONFIGURE_EMBEDDED=0 -D__CONFIGURE_EXCEPTIONS=1 -D_DIAB_TOOL -D_SUPPOR
+                                    	TS_BUILTIN_EXPECT -D__MM_PROCESSOR=kb_PPC -DNDEBUG -I..\include -I..\..\mwl01.int\include -I
+                                    	..\..\..\..\eLAD0x\hal\ecal01.int\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\commo
+                                    	n.int\include -I..\..\..\..\GenMPC55xx\GenCA_FWK\code\mwl\mwl01.int\include -I..\..\..\..\Ge
+                                    	nMPC55xx\GenMPC55xxCCA\common.int\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\Genrl\commo
+                                    	n.int\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\hal\mcal01\Include -I..\..\..\..\GenMPC
+                                    	55xx\GenMPC55xxCCA\hal\mcal01.int\Include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\svl4g\xos01
+                                    	.int\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\svl4g\xos01.int\include\sciopta -I..\..\
+                                    	..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\svl4g\bsw01\include -I..\..\..\..\GenMPC55xx\GenMPC55xx
+                                    	CCA\GenCA\svl4g\bsw01.int\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\hal\ecal01.in
+                                    	t\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\svl4g\bsw01\include -I..\..\..\..\GenMPC55x
+                                    	x\GenMPC55xxCCA\svl4g\bsw01.int\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\hal\ecal01.in
+                                    	t\include -I..\..\..\..\eLAD0x\svl4g\bsw01.int\include -I..\..\..\..\eLAD0x\mwl\mwl01.int\in
+                                    	clude -I..\..\..\..\LAD_CPU04\svl4g\bsw01.int\include -I..\..\..\..\FWK\deployment\lad -I..\
+                                    	..\..\..\FWK\deployment\lad\impl -I..\..\..\..\CoFwk\Deployment -IC:\KBApps\KB_SYS\Compiler\
+                                    	Windriver\diab\5.9.3.0\include"
+                                311 		.wrcm.end
+                                312 		.wrcm.end
+                                313 		.wrcm.nelem "file"
+                                314 		.wrcm.nstr "input", "..\source\nwmmrconfig.c"
+                                315 		.wrcm.end
+                                316 		.wrcm.end
+  00000000 05                   317 		.wrcm.end
+

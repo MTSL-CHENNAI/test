@@ -1,0 +1,531 @@
+                                  1 	#$$eb
+                                  2 	#$$sz 0		- Size opt info
+                                  3 	#$$ss 0		- XO option
+                                  4 	#$$fp 0		- Floating point mode
+                                  5 	#$$m2		- PowerPC mnemonics
+                                  6 	#$$pPPC	- PowerPC instructions
+                                  7 	#$$oPPC5554	 - Optimized for PowerPC PPC5554
+                                  8 	#$$ko 1
+                                  9 		.file		"fwkctrlconfig.c"
+                                 10 	#$$dg 1
+                                 11 	# -X user configurable options:
+                                 12 	#$$x X7=1 X8=1 X10=1 X11=1 X12=1 X15=2 X16=20 X18=4
+                                 13 	#$$x X19=10 X20=21093 X23=1 X27=1048576 X32=2 X33=3328 X36=1 X39=5554
+                                 14 	#$$x X46=1 X48=1 X55=7 X56=1 X57=2 X74=255 X78=4 X83=3
+                                 15 	#$$x X84=-2 X86=3 X91=1 X93=4 X115=32767 X119=44 X146=6 X147=3
+                                 16 	#$$x X153=2 X154=12582977 X175=65535 X179=1 X180=20 X191=1 X422=10000000 X423=6000000
+                                 17 	#$$x X424=300000 X428=1 X446=1 X450=1 X459=64
+                                 18 		.section	.PPC.EMB.apuinfo,,@note
+  00000000 01  0000 0008         19 		.4byte		8
+  00000004 01  0000 0008         20 		.4byte		0+4+4
+  00000008 01  0000 0002         21 		.4byte		2
+  0000000c 01  4150 5569 6e66    22 		.byte		"APUinfo"
+  00000012 01  6f                   	
+  00000013 01  00                23 		.byte		0
+                                 24 		.align		2
+  00000014 01  0100 0001         25 		.4byte		0x01000001
+  00000018 01  0040 0001         26 		.4byte		0x00400001
+                                 27 		.text
+                                 28 		.section	.debug_line,,n
+                                 29 	.L8:
+                                 30 		.text
+                                 31 	#$$ld
+                                 32 	.L4:
+  00000000 00                    33 		.0byte		.L2
+  00000000 02  0000 005f 0002    34 		.d2_line_start	.debug_line
+  00000006 02  0000 0013 0401       	
+  0000000c 02  ff04 0d00 0101       	
+  00000012 02  0101 0000 0001       	
+  00000018 02  0000 0100 00         	
+                                 35 		.text
+                                 36 	
+                                 37 	# Allocations for module
+                                 38 		.text
+  00000000 00                    39 		.0byte		.L226
+                                 40 		.text
+                                 41 		.type		cFwkCtrlConfig,@object
+                                 42 		.size		cFwkCtrlConfig,16
+                                 43 		.align		2
+                                 44 		.globl		cFwkCtrlConfig
+                                 45 	cFwkCtrlConfig:
+  00000000 00  00                46 		.byte		0
+  00000001 00  01                47 		.byte		1
+  00000002 00  02                48 		.byte		2
+  00000003 00  03                49 		.byte		3
+  00000004 00  04                50 		.byte		4
+  00000005 00  05                51 		.byte		5
+  00000006 00  06                52 		.byte		6
+  00000007 00  07                53 		.byte		7
+  00000008 00  08                54 		.byte		8
+  00000009 00  09                55 		.byte		9
+  0000000a 00  0a                56 		.byte		10
+  0000000b 00  01                57 		.byte		1
+  0000000c 00  0000 0000         58 		.long		boOS_ActivateFct
+                                 59 		.text
+                                 60 	#$$ld
+                                 61 	.L5:
+  0000001d 02  003a 032e 2e5c    62 	.L227:	.d2filenum "..\\..\\..\\..\\FWK\\deployment\\lad\\FwkCtrlConfig.h"
+  00000023 02  5c2e 2e5c 5c2e       	
+  00000029 02  2e5c 5c2e 2e5c       	
+  0000002f 02  5c46 574b 5c5c       	
+  00000035 02  6465 706c 6f79       	
+  0000003b 02  6d65                 	
+  00000059 02  0005 0200 0000    63 		.d2_line_end
+  0000005f 02  0000 0101            	
+                                 64 	
+                                 65 	
+                                 66 		.section	.debug_abbrev,,n
+                                 67 	.L9:
+                                 68 		.section	.debug_abbrev,,n
+  00000000 03  01                69 		.uleb128	1
+  00000001 03  11                70 		.uleb128	17
+  00000002 03  01                71 		.byte		0x1
+  00000003 03  01                72 		.uleb128	1
+  00000004 03  13                73 		.uleb128	19
+  00000005 03  03                74 		.uleb128	3
+  00000006 03  08                75 		.uleb128	8
+  00000007 03  25                76 		.uleb128	37
+  00000008 03  08                77 		.uleb128	8
+  00000009 03  1b                78 		.uleb128	27
+  0000000a 03  08                79 		.uleb128	8
+  0000000b 03  13                80 		.uleb128	19
+  0000000c 03  0f                81 		.uleb128	15
+  0000000d 03  11                82 		.uleb128	17
+  0000000e 03  01                83 		.uleb128	1
+  0000000f 03  12                84 		.uleb128	18
+  00000010 03  01                85 		.uleb128	1
+  00000011 03  10                86 		.uleb128	16
+  00000012 03  06                87 		.uleb128	6
+  00000013 03  00                88 		.uleb128	0
+  00000014 03  00                89 		.uleb128	0
+                                 90 		.section	.debug_abbrev,,n
+  00000015 03  02                91 		.uleb128	2
+  00000016 03  34                92 		.uleb128	52
+  00000017 03  00                93 		.byte		0x0
+  00000018 03  3f                94 		.uleb128	63
+  00000019 03  0c                95 		.uleb128	12
+  0000001a 03  3a                96 		.uleb128	58
+  0000001b 03  06                97 		.uleb128	6
+  0000001c 03  3b                98 		.uleb128	59
+  0000001d 03  0f                99 		.uleb128	15
+  0000001e 03  03               100 		.uleb128	3
+  0000001f 03  08               101 		.uleb128	8
+  00000020 03  49               102 		.uleb128	73
+  00000021 03  10               103 		.uleb128	16
+  00000022 03  02               104 		.uleb128	2
+  00000023 03  09               105 		.uleb128	9
+  00000024 03  00               106 		.uleb128	0
+  00000025 03  00               107 		.uleb128	0
+                                108 		.section	.debug_abbrev,,n
+  00000026 03  03               109 		.uleb128	3
+  00000027 03  13               110 		.uleb128	19
+  00000028 03  01               111 		.byte		0x1
+  00000029 03  01               112 		.uleb128	1
+  0000002a 03  13               113 		.uleb128	19
+  0000002b 03  0b               114 		.uleb128	11
+  0000002c 03  0f               115 		.uleb128	15
+  0000002d 03  00               116 		.uleb128	0
+  0000002e 03  00               117 		.uleb128	0
+                                118 		.section	.debug_abbrev,,n
+  0000002f 03  04               119 		.uleb128	4
+  00000030 03  0d               120 		.uleb128	13
+  00000031 03  00               121 		.byte		0x0
+  00000032 03  03               122 		.uleb128	3
+  00000033 03  08               123 		.uleb128	8
+  00000034 03  49               124 		.uleb128	73
+  00000035 03  10               125 		.uleb128	16
+  00000036 03  38               126 		.uleb128	56
+  00000037 03  09               127 		.uleb128	9
+  00000038 03  00               128 		.uleb128	0
+  00000039 03  00               129 		.uleb128	0
+                                130 		.section	.debug_abbrev,,n
+  0000003a 03  05               131 		.uleb128	5
+  0000003b 03  16               132 		.uleb128	22
+  0000003c 03  00               133 		.byte		0x0
+  0000003d 03  03               134 		.uleb128	3
+  0000003e 03  08               135 		.uleb128	8
+  0000003f 03  49               136 		.uleb128	73
+  00000040 03  10               137 		.uleb128	16
+  00000041 03  00               138 		.uleb128	0
+  00000042 03  00               139 		.uleb128	0
+                                140 		.section	.debug_abbrev,,n
+  00000043 03  06               141 		.uleb128	6
+  00000044 03  26               142 		.uleb128	38
+  00000045 03  00               143 		.byte		0x0
+  00000046 03  49               144 		.uleb128	73
+  00000047 03  10               145 		.uleb128	16
+  00000048 03  00               146 		.uleb128	0
+  00000049 03  00               147 		.uleb128	0
+                                148 		.section	.debug_abbrev,,n
+  0000004a 03  07               149 		.uleb128	7
+  0000004b 03  24               150 		.uleb128	36
+  0000004c 03  00               151 		.byte		0x0
+  0000004d 03  03               152 		.uleb128	3
+  0000004e 03  08               153 		.uleb128	8
+  0000004f 03  3e               154 		.uleb128	62
+  00000050 03  0b               155 		.uleb128	11
+  00000051 03  0b               156 		.uleb128	11
+  00000052 03  0b               157 		.uleb128	11
+  00000053 03  00               158 		.uleb128	0
+  00000054 03  00               159 		.uleb128	0
+                                160 		.section	.debug_abbrev,,n
+  00000055 03  08               161 		.uleb128	8
+  00000056 03  15               162 		.uleb128	21
+  00000057 03  01               163 		.byte		0x1
+  00000058 03  01               164 		.uleb128	1
+  00000059 03  13               165 		.uleb128	19
+  0000005a 03  49               166 		.uleb128	73
+  0000005b 03  10               167 		.uleb128	16
+  0000005c 03  27               168 		.uleb128	39
+  0000005d 03  0c               169 		.uleb128	12
+  0000005e 03  00               170 		.uleb128	0
+  0000005f 03  00               171 		.uleb128	0
+                                172 		.section	.debug_abbrev,,n
+  00000060 03  09               173 		.uleb128	9
+  00000061 03  15               174 		.uleb128	21
+  00000062 03  01               175 		.byte		0x1
+  00000063 03  01               176 		.uleb128	1
+  00000064 03  13               177 		.uleb128	19
+  00000065 03  27               178 		.uleb128	39
+  00000066 03  0c               179 		.uleb128	12
+  00000067 03  00               180 		.uleb128	0
+  00000068 03  00               181 		.uleb128	0
+                                182 		.section	.debug_abbrev,,n
+  00000069 03  0a               183 		.uleb128	10
+  0000006a 03  0f               184 		.uleb128	15
+  0000006b 03  00               185 		.byte		0x0
+  0000006c 03  49               186 		.uleb128	73
+  0000006d 03  10               187 		.uleb128	16
+  0000006e 03  00               188 		.uleb128	0
+  0000006f 03  00               189 		.uleb128	0
+                                190 		.section	.debug_abbrev,,n
+  00000070 03  0b               191 		.uleb128	11
+  00000071 03  05               192 		.uleb128	5
+  00000072 03  00               193 		.byte		0x0
+  00000073 03  49               194 		.uleb128	73
+  00000074 03  10               195 		.uleb128	16
+  00000075 03  00               196 		.uleb128	0
+  00000076 03  00               197 		.uleb128	0
+                                198 		.section	.debug_abbrev,,n
+  00000077 03  00               199 		.sleb128	0
+                                200 	
+                                201 	
+                                202 		.section	.debug_info,,n
+                                203 	.L2:
+  00000000 04  0000 02b0        204 		.4byte		.L3-.L1
+                                205 	.L1:
+  00000004 04  0002             206 		.2byte		0x2
+  00000006 04  0000 0000        207 		.4byte		.L9
+  0000000a 04  04               208 		.byte		0x4
+                                209 		.section	.debug_info,,n
+  0000000b 04  01               210 		.sleb128	1
+  0000000c 04  0000 02b3        211 		.4byte		.L7-.L2
+  00000010 04  2e2e 5c73 6f75   212 		.byte		"..\\source\\fwkctrlconfig.c"
+  00000016 04  7263 655c 6677       	
+  0000001c 04  6b63 7472 6c63       	
+  00000022 04  6f6e 6669 672e       	
+  00000028 04  63                   	
+  00000029 04  00               213 		.byte		0
+  0000002a 04  4469 6162 2044   214 		.byte		"Diab Data, Inc:dcc Rel 5.9.3.0:PPC5554"
+  00000030 04  6174 612c 2049       	
+  00000036 04  6e63 3a64 6363       	
+  0000003c 04  2052 656c 2035       	
+  00000042 04  2e39 2e33 2e30       	
+  00000048 04  3a50                 	
+  00000050 04  00               215 		.byte		0
+  00000051 04  433a 5c44 6973   216 		.byte		"C:\\Disco_D\\Progetti\\LADS\\LAD01\\SW\\LAD01_CA_CCA_Integration\\f
+  00000057 04  636f 5f44 5c50       	offo.development_21042023\\SRC\\LAD_CPU04\\mwl\\mwl01\\source"
+  0000005d 04  726f 6765 7474       	
+  00000063 04  695c 4c41 4453       	
+  00000069 04  5c4c 4144 3031       	
+  0000006f 04  5c53                 	
+  000000c5 04  00               217 		.byte		0
+  000000c6 04  01               218 		.uleb128	1
+  000000c7 04  0000 0000        219 		.4byte		.L4
+  000000cb 04  0000 0000        220 		.4byte		.L5
+  000000cf 04  0000 0000        221 		.4byte		.L8
+                                222 		.section	.debug_info,,n
+                                223 	.L226:
+  000000d3 04  02               224 		.sleb128	2
+  000000d4 04  01               225 		.byte		0x1
+  000000d5 04  0000 0001        226 		.4byte		.L227
+  000000d9 04  56               227 		.uleb128	86
+  000000da 04  6346 776b 4374   228 		.byte		"cFwkCtrlConfig"
+  000000e0 04  726c 436f 6e66       	
+  000000e6 04  6967                 	
+  000000e8 04  00               229 		.byte		0
+  000000e9 04  0000 0000        230 		.4byte		.L228
+  000000ed 04  05               231 		.sleb128	5
+  000000ee 04  03               232 		.byte		0x3
+  000000ef 04  0000 0000        233 		.4byte		cFwkCtrlConfig
+                                234 		.section	.debug_info,,n
+                                235 		.section	.debug_info,,n
+                                236 	.L230:
+  000000f3 04  03               237 		.sleb128	3
+  000000f4 04  0000 021c        238 		.4byte		.L231-.L2
+  000000f8 04  10               239 		.uleb128	16
+                                240 		.section	.debug_info,,n
+                                241 	.L34:
+  000000f9 04  04               242 		.sleb128	4
+  000000fa 04  7538 536c 6963   243 		.byte		"u8Slice_1ms"
+  00000100 04  655f 316d 73         	
+  00000105 04  00               244 		.byte		0
+  00000106 04  0000 0000        245 		.4byte		.L232
+  0000010a 04  02               246 		.sleb128	2
+  0000010b 04  23               247 		.byte		0x23
+  0000010c 04  00               248 		.uleb128	0
+                                249 	.L35:
+  0000010d 04  04               250 		.sleb128	4
+  0000010e 04  7538 536c 6963   251 		.byte		"u8Slice_2ms"
+  00000114 04  655f 326d 73         	
+  00000119 04  00               252 		.byte		0
+  0000011a 04  0000 0000        253 		.4byte		.L232
+  0000011e 04  02               254 		.sleb128	2
+  0000011f 04  23               255 		.byte		0x23
+  00000120 04  01               256 		.uleb128	1
+                                257 	.L36:
+  00000121 04  04               258 		.sleb128	4
+  00000122 04  7538 536c 6963   259 		.byte		"u8Slice_5ms"
+  00000128 04  655f 356d 73         	
+  0000012d 04  00               260 		.byte		0
+  0000012e 04  0000 0000        261 		.4byte		.L232
+  00000132 04  02               262 		.sleb128	2
+  00000133 04  23               263 		.byte		0x23
+  00000134 04  02               264 		.uleb128	2
+                                265 	.L37:
+  00000135 04  04               266 		.sleb128	4
+  00000136 04  7538 536c 6963   267 		.byte		"u8Slice_10ms"
+  0000013c 04  655f 3130 6d73       	
+  00000142 04  00               268 		.byte		0
+  00000143 04  0000 0000        269 		.4byte		.L232
+  00000147 04  02               270 		.sleb128	2
+  00000148 04  23               271 		.byte		0x23
+  00000149 04  03               272 		.uleb128	3
+                                273 	.L38:
+  0000014a 04  04               274 		.sleb128	4
+  0000014b 04  7538 536c 6963   275 		.byte		"u8Slice_20ms"
+  00000151 04  655f 3230 6d73       	
+  00000157 04  00               276 		.byte		0
+  00000158 04  0000 0000        277 		.4byte		.L232
+  0000015c 04  02               278 		.sleb128	2
+  0000015d 04  23               279 		.byte		0x23
+  0000015e 04  04               280 		.uleb128	4
+                                281 	.L39:
+  0000015f 04  04               282 		.sleb128	4
+  00000160 04  7538 536c 6963   283 		.byte		"u8Slice_50ms"
+  00000166 04  655f 3530 6d73       	
+  0000016c 04  00               284 		.byte		0
+  0000016d 04  0000 0000        285 		.4byte		.L232
+  00000171 04  02               286 		.sleb128	2
+  00000172 04  23               287 		.byte		0x23
+  00000173 04  05               288 		.uleb128	5
+                                289 	.L40:
+  00000174 04  04               290 		.sleb128	4
+  00000175 04  7538 536c 6963   291 		.byte		"u8Slice_100ms"
+  0000017b 04  655f 3130 306d       	
+  00000181 04  73                   	
+  00000182 04  00               292 		.byte		0
+  00000183 04  0000 0000        293 		.4byte		.L232
+  00000187 04  02               294 		.sleb128	2
+  00000188 04  23               295 		.byte		0x23
+  00000189 04  06               296 		.uleb128	6
+                                297 	.L41:
+  0000018a 04  04               298 		.sleb128	4
+  0000018b 04  7538 536c 6963   299 		.byte		"u8Slice_200ms"
+  00000191 04  655f 3230 306d       	
+  00000197 04  73                   	
+  00000198 04  00               300 		.byte		0
+  00000199 04  0000 0000        301 		.4byte		.L232
+  0000019d 04  02               302 		.sleb128	2
+  0000019e 04  23               303 		.byte		0x23
+  0000019f 04  07               304 		.uleb128	7
+                                305 	.L42:
+  000001a0 04  04               306 		.sleb128	4
+  000001a1 04  7538 536c 6963   307 		.byte		"u8Slice_500ms"
+  000001a7 04  655f 3530 306d       	
+  000001ad 04  73                   	
+  000001ae 04  00               308 		.byte		0
+  000001af 04  0000 0000        309 		.4byte		.L232
+  000001b3 04  02               310 		.sleb128	2
+  000001b4 04  23               311 		.byte		0x23
+  000001b5 04  08               312 		.uleb128	8
+                                313 	.L43:
+  000001b6 04  04               314 		.sleb128	4
+  000001b7 04  7538 536c 6963   315 		.byte		"u8Slice_1000ms"
+  000001bd 04  655f 3130 3030       	
+  000001c3 04  6d73                 	
+  000001c5 04  00               316 		.byte		0
+  000001c6 04  0000 0000        317 		.4byte		.L232
+  000001ca 04  02               318 		.sleb128	2
+  000001cb 04  23               319 		.byte		0x23
+  000001cc 04  09               320 		.uleb128	9
+                                321 	.L44:
+  000001cd 04  04               322 		.sleb128	4
+  000001ce 04  7538 536c 6963   323 		.byte		"u8Slice_User"
+  000001d4 04  655f 5573 6572       	
+  000001da 04  00               324 		.byte		0
+  000001db 04  0000 0000        325 		.4byte		.L232
+  000001df 04  02               326 		.sleb128	2
+  000001e0 04  23               327 		.byte		0x23
+  000001e1 04  0a               328 		.uleb128	10
+                                329 	.L45:
+  000001e2 04  04               330 		.sleb128	4
+  000001e3 04  626f 4973 5573   331 		.byte		"boIsUserSlice"
+  000001e9 04  6572 536c 6963       	
+  000001ef 04  65                   	
+  000001f0 04  00               332 		.byte		0
+  000001f1 04  0000 0000        333 		.4byte		.L234
+  000001f5 04  02               334 		.sleb128	2
+  000001f6 04  23               335 		.byte		0x23
+  000001f7 04  0b               336 		.uleb128	11
+                                337 	.L46:
+  000001f8 04  04               338 		.sleb128	4
+  000001f9 04  7066 426f 4163   339 		.byte		"pfBoActivateCyclicFunction"
+  000001ff 04  7469 7661 7465       	
+  00000205 04  4379 636c 6963       	
+  0000020b 04  4675 6e63 7469       	
+  00000211 04  6f6e                 	
+  00000213 04  00               340 		.byte		0
+  00000214 04  0000 0000        341 		.4byte		.L235
+  00000218 04  02               342 		.sleb128	2
+  00000219 04  23               343 		.byte		0x23
+  0000021a 04  0c               344 		.uleb128	12
+  0000021b 04  00               345 		.sleb128	0
+                                346 	.L231:
+                                347 		.section	.debug_info,,n
+                                348 	.L229:
+  0000021c 04  05               349 		.sleb128	5
+  0000021d 04  535f 4657 4b43   350 		.byte		"S_FWKCTRL_CONFIG"
+  00000223 04  5452 4c5f 434f       	
+  00000229 04  4e46 4947            	
+  0000022d 04  00               351 		.byte		0
+  0000022e 04  0000 0000        352 		.4byte		.L230
+                                353 		.section	.debug_info,,n
+                                354 	.L228:
+  00000232 04  06               355 		.sleb128	6
+  00000233 04  0000 0000        356 		.4byte		.L229
+                                357 		.section	.debug_info,,n
+                                358 	.L233:
+  00000237 04  07               359 		.sleb128	7
+  00000238 04  756e 7369 676e   360 		.byte		"unsigned char"
+  0000023e 04  6564 2063 6861       	
+  00000244 04  72                   	
+  00000245 04  00               361 		.byte		0
+  00000246 04  08               362 		.byte		0x8
+  00000247 04  01               363 		.byte		0x1
+                                364 	.L232:
+  00000248 04  05               365 		.sleb128	5
+  00000249 04  5538             366 		.byte		"U8"
+  0000024b 04  00               367 		.byte		0
+  0000024c 04  0000 0000        368 		.4byte		.L233
+                                369 	.L234:
+  00000250 04  05               370 		.sleb128	5
+  00000251 04  424f 4f4c 4541   371 		.byte		"BOOLEAN"
+  00000257 04  4e                   	
+  00000258 04  00               372 		.byte		0
+  00000259 04  0000 0000        373 		.4byte		.L233
+                                374 		.section	.debug_info,,n
+                                375 	.L237:
+  0000025d 04  08               376 		.sleb128	8
+  0000025e 04  0000 0291        377 		.4byte		.L238-.L2
+  00000262 04  0000 0000        378 		.4byte		.L234
+  00000266 04  01               379 		.byte		0x1
+                                380 		.section	.debug_info,,n
+                                381 	.L241:
+  00000267 04  09               382 		.sleb128	9
+  00000268 04  0000 026e        383 		.4byte		.L242-.L2
+  0000026c 04  01               384 		.byte		0x1
+  0000026d 04  00               385 		.sleb128	0
+                                386 	.L242:
+                                387 		.section	.debug_info,,n
+                                388 	.L240:
+  0000026e 04  0a               389 		.sleb128	10
+  0000026f 04  0000 0000        390 		.4byte		.L241
+                                391 	.L239:
+  00000273 04  05               392 		.sleb128	5
+  00000274 04  565f 4359 434c   393 		.byte		"V_CYCLIC_FUNC"
+  0000027a 04  4943 5f46 554e       	
+  00000280 04  43                   	
+  00000281 04  00               394 		.byte		0
+  00000282 04  0000 0000        395 		.4byte		.L240
+                                396 		.section	.debug_info,,n
+  00000286 04  0b               397 		.sleb128	11
+  00000287 04  0000 0000        398 		.4byte		.L239
+  0000028b 04  0b               399 		.sleb128	11
+  0000028c 04  0000 0000        400 		.4byte		.L232
+  00000290 04  00               401 		.sleb128	0
+                                402 	.L238:
+                                403 	.L236:
+  00000291 04  0a               404 		.sleb128	10
+  00000292 04  0000 0000        405 		.4byte		.L237
+                                406 	.L235:
+  00000296 04  05               407 		.sleb128	5
+  00000297 04  424f 5f41 4354   408 		.byte		"BO_ACTIVATE_CYCLIC_FUNC"
+  0000029d 04  4956 4154 455f       	
+  000002a3 04  4359 434c 4943       	
+  000002a9 04  5f46 554e 43         	
+  000002ae 04  00               409 		.byte		0
+  000002af 04  0000 0000        410 		.4byte		.L236
+                                411 	.L7:
+  000002b3 04  00               412 		.sleb128	0
+                                413 	.L3:
+                                414 		.wrcm.doc
+                                415 		.wrcm.elem
+                                416 		.wrcm.nelem "tools"
+                                417 		.wrcm.nelem "llopt"
+                                418 		.wrcm.nelem "version"
+                                419 		.wrcm.nstr "string", "5.9.3.0"
+                                420 		.wrcm.nint32 "number", 5930
+                                421 		.wrcm.nstr "path", "C:\KBApps\KB_SYS\Compiler\Windriver\diab\5.9.3.0\WIN32\bin\llopt
+                                    	.exe"
+                                422 		.wrcm.nstr "label", "DIAB_5_9_3_0-FCS_20130829_231006"
+                                423 		.wrcm.end
+                                424 		.wrcm.end
+                                425 		.wrcm.nelem "ctoa"
+                                426 		.wrcm.nelem "version"
+                                427 		.wrcm.nstr "string", "5.9.3.0"
+                                428 		.wrcm.nint32 "number", 5930
+                                429 		.wrcm.nstr "path", "C:\KBApps\KB_SYS\Compiler\Windriver\diab\5.9.3.0\WIN32\lib\ctoa.
+                                    	exe"
+                                430 		.wrcm.nstr "label", "DIAB_5_9_3_0-FCS_20130829_231006"
+                                431 		.wrcm.end
+                                432 		.wrcm.nstr "options", "-Xmake-opt-key=..\reloc\fwkctrlconfig.o -Xsingle-fp -Xuser-sp
+                                    	ecified-proc=PPC5554 -Xintc-eoir -XPPC5554 -Xintrinsic-mask=0xc00041 -Xstsw-slow -Xconventio
+                                    	ns-eabi -Xsmall-data=0 -Xsmall-const=0 -Xsoft-float -Xcoloring -Xkeywords=0xff0000 -Xapu-efp
+                                    	u-v1 -Xefpu-spfsfv -Xtarget-family=2 -Xlicense-proxy-use -Xlicense-proxy-path=C:\KBApps\KB_S
+                                    	YS\Compiler\WINDRI~1\diab\593~1.0\WIN32\lib -Xkeywords=0x4 -Xbss-common-off -Xlint=1 -Xstack
+                                    	-probe -Xshow-configuration=1 -Xpass-source -Xmake-opt-key=..\reloc\fwkctrlconfig.o -MC:\KBA
+                                    	pps\KB_SYS\Compiler\WINDRI~1\diab\593~1.0\PPC\PPC.cd -ZC:\KBApps\KB_SYS\Compiler\WINDRI~1\di
+                                    	ab\593~1.0\WIN32\lib\cderror.cat -Xsingle-fp -Xuser-specified-proc=PPC5554 -Xintc-eoir -XPPC
+                                    	5554 -Xintrinsic-mask=0xc00041 -Xstsw-slow -Xconventions-eabi -Xsmall-data=0 -Xsmall-const=0
+                                    	 -Xsoft-float -Xcoloring -Xkeywords=0xff0000 -Xapu-efpu-v1 -Xefpu-spfsfv -Xtarget-family=2 -
+                                    	Xlicense-proxy-use -Xlicense-proxy-path=C:\KBApps\KB_SYS\Compiler\WINDRI~1\diab\593~1.0\WIN3
+                                    	2\lib -g3 -Xkeywords=0x4 -Xbss-common-off -Xlint=1 -Xstack-probe -Xshow-configuration=1 -Xpa
+                                    	ss-source -YC:\KBApps\KB_SYS\Compiler\WINDRI~1\diab\593~1.0\include\cpp/std:C:\KBApps\KB_SYS
+                                    	\Compiler\WINDRI~1\diab\593~1.0\include\cpp:C:\KBApps\KB_SYS\Compiler\WINDRI~1\diab\593~1.0\
+                                    	include\simple:C:\KBApps\KB_SYS\Compiler\WINDRI~1\diab\593~1.0\include -D__softfp -D__EVEC__
+                                    	=81402 -D__softfp_abi -D__SPE__=1 -D__EABI__ -D__BIG_ENDIAN__ -D__NO_SDATA__ -D__ppc -D_SUPP
+                                    	ORTS_BUILTIN_PREFETCH -D__CONFIGURE_EMBEDDED=0 -D__CONFIGURE_EXCEPTIONS=1 -D_DIAB_TOOL -D_SU
+                                    	PPORTS_BUILTIN_EXPECT -D__MM_PROCESSOR=kb_PPC -DNDEBUG -I..\include -I..\..\mwl01.int\includ
+                                    	e -I..\..\..\..\eLAD0x\hal\ecal01.int\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\c
+                                    	ommon.int\include -I..\..\..\..\GenMPC55xx\GenCA_FWK\code\mwl\mwl01.int\include -I..\..\..\.
+                                    	.\GenMPC55xx\GenMPC55xxCCA\common.int\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\Genrl\c
+                                    	ommon.int\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\hal\mcal01\Include -I..\..\..\..\Ge
+                                    	nMPC55xx\GenMPC55xxCCA\hal\mcal01.int\Include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\svl4g\x
+                                    	os01.int\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\svl4g\xos01.int\include\sciopta -I..
+                                    	\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\svl4g\bsw01\include -I..\..\..\..\GenMPC55xx\GenMPC
+                                    	55xxCCA\GenCA\svl4g\bsw01.int\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\hal\ecal0
+                                    	1.int\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\svl4g\bsw01\include -I..\..\..\..\GenMP
+                                    	C55xx\GenMPC55xxCCA\svl4g\bsw01.int\include -I..\..\..\..\GenMPC55xx\GenMPC55xxCCA\hal\ecal0
+                                    	1.int\include -I..\..\..\..\eLAD0x\svl4g\bsw01.int\include -I..\..\..\..\eLAD0x\mwl\mwl01.in
+                                    	t\include -I..\..\..\..\LAD_CPU04\svl4g\bsw01.int\include -I..\..\..\..\FWK\deployment\lad -
+                                    	I..\..\..\..\FWK\deployment\lad\impl -I..\..\..\..\CoFwk\Deployment -IC:\KBApps\KB_SYS\Compi
+                                    	ler\Windriver\diab\5.9.3.0\include"
+                                433 		.wrcm.end
+                                434 		.wrcm.end
+                                435 		.wrcm.nelem "file"
+                                436 		.wrcm.nstr "input", "..\source\fwkctrlconfig.c"
+                                437 		.wrcm.end
+                                438 		.wrcm.end
+  00000000 05                   439 		.wrcm.end
+

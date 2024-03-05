@@ -1,0 +1,34 @@
+#-------------- Compile-Projectrules LAD_CPU04_ECAL.rul ---------------------------------
+
+
+#-------------- Projectrules Compiling ----------------------------------------
+
+{..\SOURCE\}.cpp{$(OBJPATH)}.o:
+	@$(CC) ..\SOURCE\$(@B).cpp $(PROZ) $(BANKED_OFF) $(CCOPTION) $(C_MACROS) $(CSE_OPT) $(MISRA)
+
+
+{..\SOURCE\}.c{$(OBJPATH)}.o:
+	@$(CC) ..\SOURCE\$(@B).c $(PROZ) $(BANKED_OFF) $(CCOPTION) $(C_MACROS) $(CSE_OPT) $(MISRA)
+
+
+{..\SOURCE\}.c{$(OBJPATH)}.obj:
+	@$(CC) ..\SOURCE\$(@B).c $(PROZ) $(BANKED_OFF) $(CCOPTION) $(C_MACROS) $(CSE_OPT) $(MISRA)
+
+{..\SOURCE\}.c{$(OBJPATH)}.obb:
+	@$(CC) ..\SOURCE\$(@B) $(BANKED_ON) $(CCOPTION) $(C_MACROS)
+
+{..\SOURCE\}.pas{$(OBJPATH)}.obj:
+	@$(PAS) ..\SOURCE\$(@B)
+
+{..\SOURCE\}.asm{$(OBJPATH)}.obj:
+	@$(ASM) ..\SOURCE\$(@B) $(PROZ) $(CCOPT2) $(ASM_MACROS)
+
+{..\SOURCE\}.drv{$(OBJPATH)}.obj:
+	@$(ASM) ..\SOURCE\$(@B) $(PROZ) $(CCOPT2) $(ASM_MACROS)
+
+{..\SOURCE\}.s{$(OBJPATH)}.o:
+	@$(ASM) ..\SOURCE\$(@B) $(PROZ) $(CCOPT2) $(ASM_MACROS)
+
+{..\SOURCE\}.asm{$(OBJPATH)}.o:
+	@$(ASM) ..\SOURCE\$(@B) $(PROZ) $(CCOPT2) $(ASM_MACROS)
+

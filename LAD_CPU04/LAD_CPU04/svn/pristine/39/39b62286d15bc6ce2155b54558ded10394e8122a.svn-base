@@ -1,0 +1,488 @@
+#-Mak-Version 1.40
+#-Dependencies for Project CPU_MWL
+#-SRCPATH=$(SRCPATH)
+#-INCLUDES=$(CPU_EXE)\Fwr_ESRAEvol.int\source;\;..\include;..\..\mwl01.int\include;..\..\..\hal\ecal01.int\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\common.int\include;..\..\..\..\GenMPC55xx\GenCA_FWK\code\mwl\mwl01.int\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\common.int\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\Genrl\common.int\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\hal\mcal01\Include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\hal\mcal01.int\Include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\svl4g\xos01.int\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\svl4g\xos01.int\include\sciopta;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\svl4g\bsw01\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\svl4g\bsw01.int\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\hal\ecal01.int\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\svl4g\bsw01\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\svl4g\bsw01.int\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\hal\ecal01.int\include;..\..\..\..\eLAD01\svl4g\bsw01.int\include;..\..\..\..\LAD_CPU04\svl4g\bsw01.int\include;..\..\..\..\FWK\_Deployment\LADCA;..\..\..\..\FWK\_Deployment\LADCA\impl;..\..\..\..\LAD_CA\deployment;..\..\..\..\_Common\Include;..\..\..\..\CoFwk\Deployment;..\..\..\..\_Common\DiagDfm\Common\include;..\..\..\..\_Common\DiagDfm\LAD\include;..\..\..\..\_Common\Api;
+..\source\c_nvm.c: 				\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}ct_nvm.h    	\
+	{$(_INCLUDES)}cd_nvm.h    	\
+	{$(_INCLUDES)}cdo.h    	\
+	{$(_INCLUDES)}cbk_def.h    	\
+	{$(_INCLUDES)}c_nvm.h    	\
+	{$(_INCLUDES)}nvm_common.h    	\
+	{$(_INCLUDES)}fwkalmamonvmem.h    	\
+	{$(_INCLUDES)}bcm_common.h    	\
+	{$(_INCLUDES)}swident.h    	\
+	{$(_INCLUDES)}fwkalrtcnvmem.h    	\
+	{$(_INCLUDES)}fwkaldsmnvmem.h    	\
+	{$(_INCLUDES)}fwkaldfmnvmem.h    	\
+	{$(_INCLUDES)}fwkaldatabackup.h    	\
+	{$(_INCLUDES)}mamoal.h    	\
+	{$(_INCLUDES)}ladc_flash.h    	\
+	{$(_INCLUDES)}fwkaldrcnvmem.h    	\
+	#---------------
+
+..\source\c_fim.c: 				\
+	{$(_INCLUDES)}fim_adp.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}diagdsmtypes.h    	\
+	{$(_INCLUDES)}c_fim.h    	\
+	{$(_INCLUDES)}ct_fim_faultmap.h    	\
+	{$(_INCLUDES)}cbk_def.h    	\
+	{$(_INCLUDES)}cd_fim_faultmap.h    	\
+	{$(_INCLUDES)}cdo.h    	\
+	{$(_INCLUDES)}ios.h    	\
+	{$(_INCLUDES)}ios_common.h    	\
+	{$(_INCLUDES)}diagdsabswlad.h    	\
+	{$(_INCLUDES)}bcm_defs.h    	\
+	{$(_INCLUDES)}bcm_common.h    	\
+	{$(_INCLUDES)}swident.h    	\
+	{$(_INCLUDES)}kb_ret.h    	\
+	{$(_INCLUDES)}sdi.h    	\
+	{$(_INCLUDES)}nvm.h    	\
+	{$(_INCLUDES)}can.h    	\
+	{$(_INCLUDES)}can_common.h    	\
+	{$(_INCLUDES)}ios_bdspec.h    	\
+	{$(_INCLUDES)}mon_defs.h    	\
+	{$(_INCLUDES)}std_defs.h    	\
+	{$(_INCLUDES)}err.h    	\
+	#---------------
+..\source\diaggdshconfig.c: 				\
+	{$(_INCLUDES)}diaggdshconfig.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}diagdsmtypes.h    	\
+	{$(_INCLUDES)}diagdsabswlad.h    	\
+	#---------------
+..\source\diagdsmconfig.c: 				\
+	{$(_INCLUDES)}impl/diagdsmconfigimpl.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}diagdsmimpl.h    	\
+	{$(_INCLUDES)}diagdsmtypes.h    	\
+	{$(_INCLUDES)}diagdemtypes.h    	\
+	{$(_INCLUDES)}diagdsmfunctional.h    	\
+	{$(_INCLUDES)}diagdsmfunctionalbasic.h    	\
+	{$(_INCLUDES)}./impl/diagdsmfunctional_impl.h    	\
+	{$(_INCLUDES)}diagdsmfunctionalcommand.h    	\
+	{$(_INCLUDES)}diagdsmfunctionalretrieval.h    	\
+	{$(_INCLUDES)}diagdsmfunctional_impl.h    	\
+	{$(_INCLUDES)}ibcdebug.h    	\
+	{$(_INCLUDES)}ibcdebugoff.h    	\
+	{$(_INCLUDES)}cfg_dsm.h    	\
+	#---------------
+..\source\diagdsmnvmem.c: 				\
+	{$(_INCLUDES)}bcm_s.h    	\
+	{$(_INCLUDES)}bcm_pwr_s.h    	\
+	{$(_INCLUDES)}bcm_defs_s.h    	\
+	{$(_INCLUDES)}bcm_defs.h    	\
+	{$(_INCLUDES)}bcm_common.h    	\
+	{$(_INCLUDES)}cbk_def.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}swident.h    	\
+	{$(_INCLUDES)}kb_ret.h    	\
+	{$(_INCLUDES)}bcm_tim_s.h    	\
+	{$(_INCLUDES)}bcm_wd_s.h    	\
+	{$(_INCLUDES)}bcm_led_s.h    	\
+	{$(_INCLUDES)}bcm_rsm_s.h    	\
+	{$(_INCLUDES)}bcm_init_s.h    	\
+	{$(_INCLUDES)}bcm_cycl_s.h    	\
+	{$(_INCLUDES)}bcm_lmtd_s.h    	\
+	{$(_INCLUDES)}bcm_strt_s.h    	\
+	{$(_INCLUDES)}bcm_strt.h    	\
+	{$(_INCLUDES)}bcm_rst_s.h    	\
+	{$(_INCLUDES)}bcm_rst.h    	\
+	{$(_INCLUDES)}bcm_nrml_s.h    	\
+	{$(_INCLUDES)}bcm_comp_s.h    	\
+	{$(_INCLUDES)}diagdsmtypes.h    	\
+	{$(_INCLUDES)}coerrno.h    	\
+	{$(_INCLUDES)}impl/coerrno_.h    	\
+	{$(_INCLUDES)}coplatform.h    	\
+	{$(_INCLUDES)}diagdsmalnvmem.h    	\
+	{$(_INCLUDES)}cfg_dsm.h    	\
+	{$(_INCLUDES)}sse_crc.h    	\
+	{$(_INCLUDES)}bcm.h    	\
+	{$(_INCLUDES)}bcm_temp.h    	\
+	{$(_INCLUDES)}bcm_pwr.h    	\
+	{$(_INCLUDES)}bcm_onn.h    	\
+	{$(_INCLUDES)}bcm_swinf.h    	\
+	{$(_INCLUDES)}bcm_hwinf.h    	\
+	{$(_INCLUDES)}bcm_id.h    	\
+	{$(_INCLUDES)}bcm_owm.h    	\
+	{$(_INCLUDES)}bcm_inv.h    	\
+	{$(_INCLUDES)}bcm_como.h    	\
+	{$(_INCLUDES)}nvm.h    	\
+	{$(_INCLUDES)}nvm_common.h    	\
+	#---------------
+..\source\rtccconfig.c: 				\
+	{$(_INCLUDES)}impl/rtccconfigimpl.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	#---------------
+..\source\fwkcmmconfig.c: 				\
+	{$(_INCLUDES)}impl/fwkcmmconfig.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}fwkcmmimpl.h    	\
+	#---------------
+..\source\fwkctrlconfig.c: 				\
+	{$(_INCLUDES)}fwkctrlconfig.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}os_s.h    	\
+	{$(_INCLUDES)}os.h    	\
+	{$(_INCLUDES)}kb_ret.h    	\
+	{$(_INCLUDES)}os_util.h    	\
+	{$(_INCLUDES)}os_al.h    	\
+	{$(_INCLUDES)}os_app.h    	\
+	{$(_INCLUDES)}os_alext.h    	\
+	#---------------
+..\source\fwrverhconfig.c: 				\
+	{$(_INCLUDES)}fwrverhconfig.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	#---------------
+..\source\nwmmrconfig.c: 				\
+	{$(_INCLUDES)}impl/nwmmrconfigimpl.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}nwmmrstate.h    	\
+	#---------------
+..\source\diagdsabswlad.c: 				\
+	{$(_INCLUDES)}diagdsmfunctional.h    	\
+	{$(_INCLUDES)}diagdsmtypes.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}diagdsmfunctionalbasic.h    	\
+	{$(_INCLUDES)}./impl/diagdsmfunctional_impl.h    	\
+	{$(_INCLUDES)}diagdsmfunctionalcommand.h    	\
+	{$(_INCLUDES)}diagdsmfunctionalretrieval.h    	\
+	{$(_INCLUDES)}diagdsafwkcommon.h    	\
+	{$(_INCLUDES)}diagdsabswlad.h    	\
+	{$(_INCLUDES)}cfg_dsm.h    	\
+	{$(_INCLUDES)}ibcsysdefs.h    	\
+	#---------------
+..\source\ladc_hw.c: 				\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}ladc.h    	\
+	{$(_INCLUDES)}55xxsiu_reset.h    	\
+	{$(_INCLUDES)}std_defs.h    	\
+	#---------------
+..\source\ladc_flash.c: 				\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}kb_ret.h    	\
+	{$(_INCLUDES)}std_defs.h    	\
+	{$(_INCLUDES)}ladc_i.h    	\
+	{$(_INCLUDES)}ladc_flash.h    	\
+	{$(_INCLUDES)}bcm_common.h    	\
+	{$(_INCLUDES)}cbk_def.h    	\
+	{$(_INCLUDES)}swident.h    	\
+	{$(_INCLUDES)}nvm.h    	\
+	{$(_INCLUDES)}c_nvm.h    	\
+	#---------------
+..\source\ladc.c: 				\
+	{$(_INCLUDES)}ladc_i.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}ladc_s.h    	\
+	{$(_INCLUDES)}ladc_flash.h    	\
+	{$(_INCLUDES)}bcm_common.h    	\
+	{$(_INCLUDES)}cbk_def.h    	\
+	{$(_INCLUDES)}swident.h    	\
+	{$(_INCLUDES)}ladc_srv.h    	\
+	{$(_INCLUDES)}ladc.h    	\
+	#---------------
+..\..\..\..\_common\diagdfm\lad\source\diagdfmlad.c: 				\
+	{$(_INCLUDES)}impl/diagdfmlad.h    	\
+	{$(_INCLUDES)}diagdfm.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}diagdemtypes.h    	\
+	{$(_INCLUDES)}diagdsmtypes.h    	\
+	{$(_INCLUDES)}rtctypes.h    	\
+	{$(_INCLUDES)}rtcdefs.h    	\
+	{$(_INCLUDES)}diagdfmal.h    	\
+	{$(_INCLUDES)}fram.h    	\
+	{$(_INCLUDES)}std_defs.h    	\
+	{$(_INCLUDES)}impl/diagdfmcommon.h    	\
+	{$(_INCLUDES)}coerrno.h    	\
+	{$(_INCLUDES)}impl/coerrno_.h    	\
+	{$(_INCLUDES)}kb_ret.h    	\
+	{$(_INCLUDES)}coplatform.h    	\
+	{$(_INCLUDES)}diagdemdfmapi.h    	\
+	{$(_INCLUDES)}pdu_rte.h    	\
+	{$(_INCLUDES)}cotype.h    	\
+	{$(_INCLUDES)}diagseh.h    	\
+	{$(_INCLUDES)}ibccompid.h    	\
+	{$(_INCLUDES)}cosm.h    	\
+	{$(_INCLUDES)}impl/cosm_.h    	\
+	{$(_INCLUDES)}codefs.h    	\
+	{$(_INCLUDES)}coident.h    	\
+	{$(_INCLUDES)}impl/coident_.h    	\
+	{$(_INCLUDES)}cocheck.h    	\
+	{$(_INCLUDES)}impl/cocheck_.h    	\
+	{$(_INCLUDES)}cocheckmacros.h    	\
+	{$(_INCLUDES)}impl/cocheckmacros_.h    	\
+	{$(_INCLUDES)}coerror.h    	\
+	{$(_INCLUDES)}impl/coerror_.h    	\
+	{$(_INCLUDES)}comisc.h    	\
+	{$(_INCLUDES)}impl/comisc_.h    	\
+	{$(_INCLUDES)}cosvdata.h    	\
+	{$(_INCLUDES)}cocheckf.h    	\
+	{$(_INCLUDES)}cosvdataf.h    	\
+	{$(_INCLUDES)}cosmtarget.h    	\
+	{$(_INCLUDES)}impl/cosmtarget_.h    	\
+	{$(_INCLUDES)}pdu_config.h    	\
+	{$(_INCLUDES)}imid.h    	\
+	{$(_INCLUDES)}rtccfunctional.h    	\
+	{$(_INCLUDES)}diagdemfunctionaldsm.h    	\
+	{$(_INCLUDES)}diagdemfunctionaldea.h    	\
+	{$(_INCLUDES)}nwmdrc.h    	\
+	{$(_INCLUDES)}impl/ibcnwmdefs.h    	\
+	{$(_INCLUDES)}maintflagh.h    	\
+	#---------------
+..\..\..\..\_common\diagdfm\lad\source\diagdfmladretrieve.c: 				\
+	{$(_INCLUDES)}impl/diagdfmlad.h    	\
+	{$(_INCLUDES)}diagdfm.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}diagdemtypes.h    	\
+	{$(_INCLUDES)}diagdsmtypes.h    	\
+	{$(_INCLUDES)}rtctypes.h    	\
+	{$(_INCLUDES)}rtcdefs.h    	\
+	{$(_INCLUDES)}diagdfmal.h    	\
+	{$(_INCLUDES)}fram.h    	\
+	{$(_INCLUDES)}std_defs.h    	\
+	{$(_INCLUDES)}impl/diagdfmcommon.h    	\
+	{$(_INCLUDES)}coerrno.h    	\
+	{$(_INCLUDES)}impl/coerrno_.h    	\
+	{$(_INCLUDES)}kb_ret.h    	\
+	{$(_INCLUDES)}coplatform.h    	\
+	{$(_INCLUDES)}diagdemdfmapi.h    	\
+	{$(_INCLUDES)}pdu_rte.h    	\
+	{$(_INCLUDES)}cotype.h    	\
+	{$(_INCLUDES)}diagseh.h    	\
+	{$(_INCLUDES)}ibccompid.h    	\
+	{$(_INCLUDES)}cosm.h    	\
+	{$(_INCLUDES)}impl/cosm_.h    	\
+	{$(_INCLUDES)}codefs.h    	\
+	{$(_INCLUDES)}coident.h    	\
+	{$(_INCLUDES)}impl/coident_.h    	\
+	{$(_INCLUDES)}cocheck.h    	\
+	{$(_INCLUDES)}impl/cocheck_.h    	\
+	{$(_INCLUDES)}cocheckmacros.h    	\
+	{$(_INCLUDES)}impl/cocheckmacros_.h    	\
+	{$(_INCLUDES)}coerror.h    	\
+	{$(_INCLUDES)}impl/coerror_.h    	\
+	{$(_INCLUDES)}comisc.h    	\
+	{$(_INCLUDES)}impl/comisc_.h    	\
+	{$(_INCLUDES)}cosvdata.h    	\
+	{$(_INCLUDES)}cocheckf.h    	\
+	{$(_INCLUDES)}cosvdataf.h    	\
+	{$(_INCLUDES)}cosmtarget.h    	\
+	{$(_INCLUDES)}impl/cosmtarget_.h    	\
+	{$(_INCLUDES)}pdu_config.h    	\
+	{$(_INCLUDES)}imid.h    	\
+	{$(_INCLUDES)}rtccfunctional.h    	\
+	{$(_INCLUDES)}diagdemfunctionaldsm.h    	\
+	{$(_INCLUDES)}diagdemfunctionaldea.h    	\
+	{$(_INCLUDES)}ibctypeutil.h    	\
+	{$(_INCLUDES)}impl/ibctypeutilimpl.h    	\
+	#---------------
+..\..\..\..\_common\diagdfm\lad\source\diagdfmladstore.c: 				\
+	{$(_INCLUDES)}impl/diagdfmlad.h    	\
+	{$(_INCLUDES)}diagdfm.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}diagdemtypes.h    	\
+	{$(_INCLUDES)}diagdsmtypes.h    	\
+	{$(_INCLUDES)}rtctypes.h    	\
+	{$(_INCLUDES)}rtcdefs.h    	\
+	{$(_INCLUDES)}diagdfmal.h    	\
+	{$(_INCLUDES)}fram.h    	\
+	{$(_INCLUDES)}std_defs.h    	\
+	{$(_INCLUDES)}impl/diagdfmcommon.h    	\
+	{$(_INCLUDES)}coerrno.h    	\
+	{$(_INCLUDES)}impl/coerrno_.h    	\
+	{$(_INCLUDES)}kb_ret.h    	\
+	{$(_INCLUDES)}coplatform.h    	\
+	{$(_INCLUDES)}diagdemdfmapi.h    	\
+	{$(_INCLUDES)}pdu_rte.h    	\
+	{$(_INCLUDES)}cotype.h    	\
+	{$(_INCLUDES)}diagseh.h    	\
+	{$(_INCLUDES)}ibccompid.h    	\
+	{$(_INCLUDES)}cosm.h    	\
+	{$(_INCLUDES)}impl/cosm_.h    	\
+	{$(_INCLUDES)}codefs.h    	\
+	{$(_INCLUDES)}coident.h    	\
+	{$(_INCLUDES)}impl/coident_.h    	\
+	{$(_INCLUDES)}cocheck.h    	\
+	{$(_INCLUDES)}impl/cocheck_.h    	\
+	{$(_INCLUDES)}cocheckmacros.h    	\
+	{$(_INCLUDES)}impl/cocheckmacros_.h    	\
+	{$(_INCLUDES)}coerror.h    	\
+	{$(_INCLUDES)}impl/coerror_.h    	\
+	{$(_INCLUDES)}comisc.h    	\
+	{$(_INCLUDES)}impl/comisc_.h    	\
+	{$(_INCLUDES)}cosvdata.h    	\
+	{$(_INCLUDES)}cocheckf.h    	\
+	{$(_INCLUDES)}cosvdataf.h    	\
+	{$(_INCLUDES)}cosmtarget.h    	\
+	{$(_INCLUDES)}impl/cosmtarget_.h    	\
+	{$(_INCLUDES)}pdu_config.h    	\
+	{$(_INCLUDES)}imid.h    	\
+	{$(_INCLUDES)}rtccfunctional.h    	\
+	{$(_INCLUDES)}diagdemfunctionaldsm.h    	\
+	{$(_INCLUDES)}diagdemfunctionaldea.h    	\
+	#---------------
+..\..\..\..\_common\diagdfm\common\source\diagdfmcommon.c: 				\
+	{$(_INCLUDES)}impl/diagdfmcommon.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}coerrno.h    	\
+	{$(_INCLUDES)}impl/coerrno_.h    	\
+	{$(_INCLUDES)}kb_ret.h    	\
+	{$(_INCLUDES)}coplatform.h    	\
+	{$(_INCLUDES)}diagdfm.h    	\
+	{$(_INCLUDES)}diagdemtypes.h    	\
+	{$(_INCLUDES)}diagdsmtypes.h    	\
+	{$(_INCLUDES)}rtctypes.h    	\
+	{$(_INCLUDES)}rtcdefs.h    	\
+	{$(_INCLUDES)}diagdfmal.h    	\
+	{$(_INCLUDES)}fram.h    	\
+	{$(_INCLUDES)}std_defs.h    	\
+	{$(_INCLUDES)}diagdemdfmapi.h    	\
+	{$(_INCLUDES)}pdu_rte.h    	\
+	{$(_INCLUDES)}cotype.h    	\
+	{$(_INCLUDES)}diagseh.h    	\
+	{$(_INCLUDES)}ibccompid.h    	\
+	{$(_INCLUDES)}cosm.h    	\
+	{$(_INCLUDES)}impl/cosm_.h    	\
+	{$(_INCLUDES)}codefs.h    	\
+	{$(_INCLUDES)}coident.h    	\
+	{$(_INCLUDES)}impl/coident_.h    	\
+	{$(_INCLUDES)}cocheck.h    	\
+	{$(_INCLUDES)}impl/cocheck_.h    	\
+	{$(_INCLUDES)}cocheckmacros.h    	\
+	{$(_INCLUDES)}impl/cocheckmacros_.h    	\
+	{$(_INCLUDES)}coerror.h    	\
+	{$(_INCLUDES)}impl/coerror_.h    	\
+	{$(_INCLUDES)}comisc.h    	\
+	{$(_INCLUDES)}impl/comisc_.h    	\
+	{$(_INCLUDES)}cosvdata.h    	\
+	{$(_INCLUDES)}cocheckf.h    	\
+	{$(_INCLUDES)}cosvdataf.h    	\
+	{$(_INCLUDES)}cosmtarget.h    	\
+	{$(_INCLUDES)}impl/cosmtarget_.h    	\
+	{$(_INCLUDES)}pdu_config.h    	\
+	{$(_INCLUDES)}imid.h    	\
+	{$(_INCLUDES)}rtccfunctional.h    	\
+	{$(_INCLUDES)}diagdemfunctionaldsm.h    	\
+	{$(_INCLUDES)}diagdemfunctionaldea.h    	\
+	{$(_INCLUDES)}maintflagh.h    	\
+	{$(_INCLUDES)}nwmdrc.h    	\
+	{$(_INCLUDES)}impl/ibcnwmdefs.h    	\
+	{$(_INCLUDES)}ibcos.h    	\
+	#---------------
+..\source\diagdfmal.c: 				\
+	{$(_INCLUDES)}os_s.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}os.h    	\
+	{$(_INCLUDES)}kb_ret.h    	\
+	{$(_INCLUDES)}os_util.h    	\
+	{$(_INCLUDES)}os_al.h    	\
+	{$(_INCLUDES)}os_app.h    	\
+	{$(_INCLUDES)}os_alext.h    	\
+	{$(_INCLUDES)}coerrno.h    	\
+	{$(_INCLUDES)}impl/coerrno_.h    	\
+	{$(_INCLUDES)}coplatform.h    	\
+	{$(_INCLUDES)}cocheck.h    	\
+	{$(_INCLUDES)}impl/cocheck_.h    	\
+	{$(_INCLUDES)}cotype.h    	\
+	{$(_INCLUDES)}std_defs.h    	\
+	{$(_INCLUDES)}cocheckmacros.h    	\
+	{$(_INCLUDES)}impl/cocheckmacros_.h    	\
+	{$(_INCLUDES)}codefs.h    	\
+	{$(_INCLUDES)}coerror.h    	\
+	{$(_INCLUDES)}impl/coerror_.h    	\
+	{$(_INCLUDES)}comisc.h    	\
+	{$(_INCLUDES)}impl/comisc_.h    	\
+	{$(_INCLUDES)}cosvdata.h    	\
+	{$(_INCLUDES)}diagdfm.h    	\
+	{$(_INCLUDES)}diagdemtypes.h    	\
+	{$(_INCLUDES)}diagdsmtypes.h    	\
+	{$(_INCLUDES)}rtctypes.h    	\
+	{$(_INCLUDES)}rtcdefs.h    	\
+	{$(_INCLUDES)}diagdfmal.h    	\
+	{$(_INCLUDES)}fram.h    	\
+	#---------------
+..\source\ibccch.c: 				\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}coerrno.h    	\
+	{$(_INCLUDES)}impl/coerrno_.h    	\
+	{$(_INCLUDES)}kb_ret.h    	\
+	{$(_INCLUDES)}coplatform.h    	\
+	{$(_INCLUDES)}ibccch.h    	\
+	{$(_INCLUDES)}ibccchutil.h    	\
+	{$(_INCLUDES)}cchconnections.h    	\
+	{$(_INCLUDES)}can_hal.h    	\
+	{$(_INCLUDES)}can_common.h    	\
+	{$(_INCLUDES)}ibccchphysicaltological.h    	\
+	#---------------
+..\source\mdr_supported_roles.c: 				\
+	{$(_INCLUDES)}dvrmgral.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}ibcdvrutil.h    	\
+	#---------------
+..\source\drcaldeviddetconfig.c: 				\
+	{$(_INCLUDES)}drcaldeviddetconfigimpl.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	#---------------
+..\source\cfg_sdi_fwk.c: 				\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}cbk_def.h    	\
+	{$(_INCLUDES)}sdi_i.h    	\
+	{$(_INCLUDES)}sdi.h    	\
+	{$(_INCLUDES)}sdi_tasks_s.h    	\
+	{$(_INCLUDES)}diag_sdi_cmd_hndlr_s.h    	\
+	{$(_INCLUDES)}diag_dem_sdi_cmd_hndlr_s.h    	\
+	#---------------
+..\source\diag_dem_sdi_cmd_hndlr.c: 				\
+	{$(_INCLUDES)}diagdsmfunctionalbasic.h    	\
+	{$(_INCLUDES)}./impl/diagdsmfunctional_impl.h    	\
+	{$(_INCLUDES)}diagdsmtypes.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}diagdsmfunctionalretrieval.h    	\
+	{$(_INCLUDES)}diagdsmfunctionalcommand.h    	\
+	{$(_INCLUDES)}diagdsmcontrol.h    	\
+	{$(_INCLUDES)}impl/diagdsmconfigimpl.h    	\
+	{$(_INCLUDES)}diagdsmimpl.h    	\
+	{$(_INCLUDES)}diagdemtypes.h    	\
+	{$(_INCLUDES)}diagdsmfunctional.h    	\
+	{$(_INCLUDES)}diagdsmfunctional_impl.h    	\
+	{$(_INCLUDES)}ibcdebug.h    	\
+	{$(_INCLUDES)}ibcdebugoff.h    	\
+	{$(_INCLUDES)}diagdfm.h    	\
+	{$(_INCLUDES)}rtctypes.h    	\
+	{$(_INCLUDES)}rtcdefs.h    	\
+	{$(_INCLUDES)}ibctypeutil.h    	\
+	{$(_INCLUDES)}impl/ibctypeutilimpl.h    	\
+	{$(_INCLUDES)}sysmodeh.h    	\
+	{$(_INCLUDES)}maintflagh.h    	\
+	{$(_INCLUDES)}diag_dem_sdi_cmd_hndlr_i.h    	\
+	{$(_INCLUDES)}sdi.h    	\
+	{$(_INCLUDES)}diag_dem_sdi_cmd_hndlr_s.h    	\
+	#---------------
+..\source\diag_sdi_cmd_hndlr.c: 				\
+	{$(_INCLUDES)}diagdsmfunctionalbasic.h    	\
+	{$(_INCLUDES)}./impl/diagdsmfunctional_impl.h    	\
+	{$(_INCLUDES)}diagdsmtypes.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}diagdsmfunctionalretrieval.h    	\
+	{$(_INCLUDES)}diagdsmfunctionalcommand.h    	\
+	{$(_INCLUDES)}diagdsmcontrol.h    	\
+	{$(_INCLUDES)}impl/diagdsmconfigimpl.h    	\
+	{$(_INCLUDES)}diagdsmimpl.h    	\
+	{$(_INCLUDES)}diagdemtypes.h    	\
+	{$(_INCLUDES)}diagdsmfunctional.h    	\
+	{$(_INCLUDES)}diagdsmfunctional_impl.h    	\
+	{$(_INCLUDES)}ibcdebug.h    	\
+	{$(_INCLUDES)}ibcdebugoff.h    	\
+	{$(_INCLUDES)}diagdfm.h    	\
+	{$(_INCLUDES)}rtctypes.h    	\
+	{$(_INCLUDES)}rtcdefs.h    	\
+	{$(_INCLUDES)}ibctypeutil.h    	\
+	{$(_INCLUDES)}impl/ibctypeutilimpl.h    	\
+	{$(_INCLUDES)}sysmodeh.h    	\
+	{$(_INCLUDES)}maintflagh.h    	\
+	{$(_INCLUDES)}diag_sdi_cmd_hndlr_i.h    	\
+	{$(_INCLUDES)}sdi.h    	\
+	{$(_INCLUDES)}diag_sdi_cmd_hndlr_s.h    	\
+	#---------------
