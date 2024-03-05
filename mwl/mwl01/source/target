@@ -1,0 +1,112 @@
+##############################################################################
+# target
+##############################################################################
+# FWK Config
+#
+# History:
+# Date        Name             Changes
+# 2021-10-28  A. Mauro         Moved c_nvm.o, DiagGdshConfig.o, DiagDsmConfig.o, DiagDsmNvMem.o, 
+#                               RtcCConfig.o, FwkCmmConfig.o, FwkCtrlConfig.o, FwrVerHConfig.o, NwmMRConfig.o
+#                               ladc_hw.o, ladc_flash.o, ladc.o, DiagDfmLad.o, DiagDfmLadRetrieve.o,
+#                               DiagDfmLadStore.o, DiagDfmCommon.o, DiagDfmAl.o, IbcCCh.o, MDR_Supported_Roles.o,
+#                               DrcAlDevIdDetConfig.o, cfg_sdi_fwk.o, diag_dem_sdi_cmd_hndlr.o, diag_sdi_cmd_hndlr.o
+#                               from eLAD01\mwl directory 
+# 2021-10-28  A. Mauro         Removed ladc_hw.o, ladc_flash.o, ladc.o, diag_dem_sdi_cmd_hndlr.o, 
+#                               diag_sdi_cmd_hndlr.o: they are present in LAD_CA\CA_Al\LAD\source
+# 2021-10-29  A. Mauro         Added cfg_aod_sdi.o and cfg_peek_sdi.o
+#                               Removed IbcCCh.o (present in LAD_CA\CA_Al\Common\source)
+# 2022-03-24  S. Belsare       Updated FWK path
+# 2023-12-12  C. Brancolini    Updated for Lint Plus2.0 
+
+##############################################################################
+
+
+PROZESSOR   = PPC
+
+TYP         = LIB_TYP
+
+NAME        = cpu04_mwl
+
+COMPILER    = 5.9.3.0
+
+FORMAT      = ELF
+MACRO_ASM   = -DSW_TYPE_SVL
+MACRO_C     = -DNDEBUG
+STACKTEST   = ON
+XLINT       = 1
+
+LINTVERSION = Plus2.0
+GLOBAL_LINTRULE_ROOT = \\mucs0002\Bahn1\Esra_PD\System\SW\Tools\lint\config-new\lint_optg
+LINTRULE = \\mucs0002\Bahn1\Esra_PD\System\SW\Tools\lint\config-new\lint_opt\mpc55xx\lint_opt_mpc55xx\std_pclp.lnt
+
+CA_COMM          = ..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\common.int
+CA_HAL           = ..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\hal
+CA_SVL           = ..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\svl4g
+GENRL_COMM       = ..\..\..\..\GenMPC55xx\GenMPC55xxCCA\Genrl\common.int
+CA_FWK_MWL       = ..\..\..\..\GenMPC55xx\GenCA_FWK
+
+TC_CCA_COMM      = ..\..\..\..\GenMPC55xx\GenMPC55xxCCA\common.int
+TC_CCA_HAL       = ..\..\..\..\GenMPC55xx\GenMPC55xxCCA\hal
+TC_CCA_SVL       = ..\..\..\..\GenMPC55xx\GenMPC55xxCCA\svl4g
+
+CPU_EXE          = ..\..\..\..\eLAD0x\exe
+CPU_FWR          = ..\..\..\..\eLAD0x\hal
+CPU_SVL          = ..\..\..\..\eLAD0x\svl4g
+CPU_MWL          = ..\..\..\..\eLAD0x\mwl
+CPU04_SVL        = ..\..\..\..\LAD_CPU04\svl4g
+
+FWK              = ..\..\..\..\FWK
+COFWK            = ..\..\..\..\CoFwk
+
+
+
+INCLUDES=     ..\include;                                   \
+              ..\..\mwl01.int\include                       \
+              $(CPU_FWR)\ecal01.int\include                 \
+#------------ define common includes                        \
+              $(CA_COMM)\include;                           \
+              $(CA_FWK_MWL)\code\mwl\mwl01.int\include;     \
+              $(TC_CCA_COMM)\include;                       \
+              $(GENRL_COMM)\include;                        \
+#------------ define MAL includes;                          \
+#This must be removed, added bcz of includes from can_driver.h \
+              $(TC_CCA_HAL)\mcal01\Include;                 \
+              $(TC_CCA_HAL)\mcal01.int\Include;             \
+#------------ define os and sciopta includes;               \
+              $(TC_CCA_SVL)\xos01.int\include;              \
+              $(TC_CCA_SVL)\xos01.int\include\sciopta;      \
+#------------ define GENRL SVL includes                     \
+              $(CA_SVL)\bsw01\include;                      \
+              $(CA_SVL)\bsw01.int\include;                  \
+              $(CA_HAL)\ecal01.int\include;                 \
+              $(TC_CCA_SVL)\bsw01\include;                  \
+              $(TC_CCA_SVL)\bsw01.int\include;              \
+              $(TC_CCA_HAL)\ecal01.int\include;             \
+              $(CPU_SVL)\bsw01.int\include;                 \
+              $(CPU_MWL)\mwl01.int\include;                 \
+              $(CPU04_SVL)\bsw01.int\include;               \
+#------------ define IBC framework includes                 \
+              $(FWK)\deployment\lad;                     \
+              $(FWK)\deployment\lad\impl;                \
+#------------ define IBC common includes                    \
+              $(COFWK)\Deployment;                          \
+
+# Path to jumptable
+SRCPATH     = $(CPU_EXE)\Fwr_ESRAEvol.int\source;
+
+
+OBJS        =  @c_nvm.o                     \
+               @DiagGdshConfig.o            \
+               @DiagDsmConfig.o             \
+               @DiagDsmNvMem.o              \
+               @RtcCConfig.o                \
+               @FwkCmmConfig.o              \
+               @FwkCtrlConfig.o             \
+               @NwmMRConfig.o               \
+               @DiagDfmAl.o                 \
+               @MDR_Supported_Roles.o       \
+               @DrcAlDevIdDetConfig.o       \
+               @cfg_sdi_fwk.o               \
+			   @cfg_aod_sdi.o               \
+			   @cfg_peek_sdi.o
+

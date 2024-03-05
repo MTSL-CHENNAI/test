@@ -1,0 +1,66 @@
+#-------------- Compile-Projectrules CPU04_MWL.rul ---------------------------------
+
+
+#-------------- Projectrules Compiling ----------------------------------------
+
+{$(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\}.cpp{$(OBJPATH)}.o:
+	@$(CC) $(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\$(@B).cpp $(PROZ) $(BANKED_OFF) $(CCOPTION) $(C_MACROS) $(CSE_OPT) $(MISRA)
+
+
+{$(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\}.c{$(OBJPATH)}.o:
+	@$(CC) $(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\$(@B).c $(PROZ) $(BANKED_OFF) $(CCOPTION) $(C_MACROS) $(CSE_OPT) $(MISRA)
+
+
+{$(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\}.c{$(OBJPATH)}.obj:
+	@$(CC) $(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\$(@B).c $(PROZ) $(BANKED_OFF) $(CCOPTION) $(C_MACROS) $(CSE_OPT) $(MISRA)
+
+{$(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\}.c{$(OBJPATH)}.obb:
+	@$(CC) $(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\$(@B) $(BANKED_ON) $(CCOPTION) $(C_MACROS)
+
+{$(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\}.pas{$(OBJPATH)}.obj:
+	@$(PAS) $(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\$(@B)
+
+{$(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\}.asm{$(OBJPATH)}.obj:
+	@$(ASM) $(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\$(@B) $(PROZ) $(CCOPT2) $(ASM_MACROS)
+
+{$(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\}.drv{$(OBJPATH)}.obj:
+	@$(ASM) $(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\$(@B) $(PROZ) $(CCOPT2) $(ASM_MACROS)
+
+{$(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\}.s{$(OBJPATH)}.o:
+	@$(ASM) $(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\$(@B) $(PROZ) $(CCOPT2) $(ASM_MACROS)
+
+{$(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\}.asm{$(OBJPATH)}.o:
+	@$(ASM) $(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\$(@B) $(PROZ) $(CCOPT2) $(ASM_MACROS)
+
+
+#-------------- Projectrules Compiling ----------------------------------------
+
+{..\SOURCE\}.cpp{$(OBJPATH)}.o:
+	@$(CC) ..\SOURCE\$(@B).cpp $(PROZ) $(BANKED_OFF) $(CCOPTION) $(C_MACROS) $(CSE_OPT) $(MISRA)
+
+
+{..\SOURCE\}.c{$(OBJPATH)}.o:
+	@$(CC) ..\SOURCE\$(@B).c $(PROZ) $(BANKED_OFF) $(CCOPTION) $(C_MACROS) $(CSE_OPT) $(MISRA)
+
+
+{..\SOURCE\}.c{$(OBJPATH)}.obj:
+	@$(CC) ..\SOURCE\$(@B).c $(PROZ) $(BANKED_OFF) $(CCOPTION) $(C_MACROS) $(CSE_OPT) $(MISRA)
+
+{..\SOURCE\}.c{$(OBJPATH)}.obb:
+	@$(CC) ..\SOURCE\$(@B) $(BANKED_ON) $(CCOPTION) $(C_MACROS)
+
+{..\SOURCE\}.pas{$(OBJPATH)}.obj:
+	@$(PAS) ..\SOURCE\$(@B)
+
+{..\SOURCE\}.asm{$(OBJPATH)}.obj:
+	@$(ASM) ..\SOURCE\$(@B) $(PROZ) $(CCOPT2) $(ASM_MACROS)
+
+{..\SOURCE\}.drv{$(OBJPATH)}.obj:
+	@$(ASM) ..\SOURCE\$(@B) $(PROZ) $(CCOPT2) $(ASM_MACROS)
+
+{..\SOURCE\}.s{$(OBJPATH)}.o:
+	@$(ASM) ..\SOURCE\$(@B) $(PROZ) $(CCOPT2) $(ASM_MACROS)
+
+{..\SOURCE\}.asm{$(OBJPATH)}.o:
+	@$(ASM) ..\SOURCE\$(@B) $(PROZ) $(CCOPT2) $(ASM_MACROS)
+

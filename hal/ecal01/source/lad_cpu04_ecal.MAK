@@ -1,0 +1,528 @@
+#-Mak-Version 1.40
+#-Dependencies for Project LAD_CPU04_ECAL
+#-SRCPATH=$(SRCPATH)
+#-INCLUDES=..\include;..\..\..\hal\ecal01.int\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\common.int\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\common.int\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\hal\ecal01\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\hal\ecal01.int\include;..\..\..\..\GenMPC55xx\common.int\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\Genrl\common.int\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\hal\mcal01\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\hal\mcal01.int\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\hal\mcal02.int\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\hal\mcal01.int\include\mpc5500;..\..\..\..\GenMPC55xx\GenCA_FWK\code\hal\ecal01\include;..\..\..\..\GenMPC55xx\GenCA_FWK\code\hal\ecal01.int\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\hal\ecal02\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\hal\ecal02.int\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\hal\ecal01\include;..\..\..\..\GenMPC55xx\GenMPC55xxCCA\hal\ecal01.int\include;..\..\..\..\eLAD0x\hal\ecal01.int\include;..\..\..\..\eLAD0x\mwl\mwl01.int\include;..\..\..\..\LAD_CPU04\mwl\mwl01.int\include;..\..\..\..\FWK\deployment\lad;..\..\..\..\CoFwk\Deployment;
+..\source\bcm_fwr_adp_bs.c: 				\
+	{$(_INCLUDES)}bcm_fwr.h    	\
+	{$(_INCLUDES)}bcm_fwr_swinf.h    	\
+	{$(_INCLUDES)}bcm_fwr_defs.h    	\
+	{$(_INCLUDES)}cbk_def.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}kb_ret.h    	\
+	{$(_INCLUDES)}bcm_common.h    	\
+	{$(_INCLUDES)}swident.h    	\
+	{$(_INCLUDES)}bcm_fwr_hwinf.h    	\
+	{$(_INCLUDES)}bcm_fwr_rsm.h    	\
+	{$(_INCLUDES)}bcm_fwr_intf.h    	\
+	{$(_INCLUDES)}bcm_fwr_cfgbcmhal.h    	\
+	{$(_INCLUDES)}bcm_fwr_comp.h    	\
+	{$(_INCLUDES)}bcm_fwr_inv.h    	\
+	{$(_INCLUDES)}bcm_fwr_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_defs_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_log_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_rst_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_uart_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_wdr_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_crit_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_loop_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_dwld_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_vers_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_comp_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_ctrl_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_cb_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_fatal_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_adp_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_inv_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_rsm_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_hwinf_i.h    	\
+	{$(_INCLUDES)}bcm_hal.h    	\
+	{$(_INCLUDES)}bcm_hal_vers.h    	\
+	{$(_INCLUDES)}bcm_hal_defs.h    	\
+	{$(_INCLUDES)}bcm_hal_temp.h    	\
+	{$(_INCLUDES)}bcm_hal_wd.h    	\
+	{$(_INCLUDES)}bcm_hal_wdr.h    	\
+	{$(_INCLUDES)}bcm_hal_led.h    	\
+	{$(_INCLUDES)}bcm_hal_pwr.h    	\
+	{$(_INCLUDES)}bcm_hal_tim.h    	\
+	{$(_INCLUDES)}bcm_hal_onn.h    	\
+	{$(_INCLUDES)}bcm_hal_id.h    	\
+	{$(_INCLUDES)}bcm_hal_owm.h    	\
+	{$(_INCLUDES)}cfg_55xxsiu.h    	\
+	{$(_INCLUDES)}std_defs.h    	\
+	{$(_INCLUDES)}swd_cmd_handlr_i.h    	\
+	{$(_INCLUDES)}swd_comm_i.h    	\
+	{$(_INCLUDES)}sse_crc.h    	\
+	{$(_INCLUDES)}can_hal.h    	\
+	{$(_INCLUDES)}can_common.h    	\
+	{$(_INCLUDES)}swd.h    	\
+	{$(_INCLUDES)}bcl_fwr_i.h    	\
+	{$(_INCLUDES)}bcl_fwr_ctrl_i.h    	\
+	{$(_INCLUDES)}bcl_fwr_s.h    	\
+	{$(_INCLUDES)}bcl_hal_vmt_s.h    	\
+	{$(_INCLUDES)}bcl_hal_bdspec_i.h    	\
+	{$(_INCLUDES)}55xdspi.h    	\
+	{$(_INCLUDES)}cfgdspi.h    	\
+	{$(_INCLUDES)}typedefs.h    	\
+	{$(_INCLUDES)}55xdma.h    	\
+	#---------------
+..\source\cfg_bcm_fwr.c: 				\
+	{$(_INCLUDES)}bcm_fwr_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_defs_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_defs.h    	\
+	{$(_INCLUDES)}cbk_def.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}kb_ret.h    	\
+	{$(_INCLUDES)}bcm_common.h    	\
+	{$(_INCLUDES)}swident.h    	\
+	{$(_INCLUDES)}bcm_fwr_log_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_rst_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_uart_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_wdr_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_crit_i.h    	\
+	{$(_INCLUDES)}bcm_fwr.h    	\
+	{$(_INCLUDES)}bcm_fwr_swinf.h    	\
+	{$(_INCLUDES)}bcm_fwr_hwinf.h    	\
+	{$(_INCLUDES)}bcm_fwr_rsm.h    	\
+	{$(_INCLUDES)}bcm_fwr_intf.h    	\
+	{$(_INCLUDES)}bcm_fwr_cfgbcmhal.h    	\
+	{$(_INCLUDES)}bcm_fwr_comp.h    	\
+	{$(_INCLUDES)}bcm_fwr_inv.h    	\
+	{$(_INCLUDES)}bcm_fwr_loop_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_dwld_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_vers_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_comp_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_ctrl_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_cb_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_fatal_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_adp_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_inv_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_rsm_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_hwinf_i.h    	\
+	{$(_INCLUDES)}bcm_fwr_s.h    	\
+	{$(_INCLUDES)}bcm_fwr_rst_s.h    	\
+	{$(_INCLUDES)}bcm_fwr_wdr_s.h    	\
+	{$(_INCLUDES)}bcm_fwr_crit_s.h    	\
+	{$(_INCLUDES)}bcm_fwr_cfgbcmhal_s.h    	\
+	{$(_INCLUDES)}bcm_fwr_log_s.h    	\
+	{$(_INCLUDES)}bcm_fwr_loop_s.h    	\
+	{$(_INCLUDES)}bcm_fwr_dwld_s.h    	\
+	{$(_INCLUDES)}bcm_fwr_cb_s.h    	\
+	{$(_INCLUDES)}bcm_fwr_ctrl_s.h    	\
+	{$(_INCLUDES)}bcm_hal_i.h    	\
+	{$(_INCLUDES)}bcm_hal_temp_i.h    	\
+	{$(_INCLUDES)}bcm_hal_defs.h    	\
+	{$(_INCLUDES)}bcm_hal_io_i.h    	\
+	{$(_INCLUDES)}bcm_hal_io_s.h    	\
+	{$(_INCLUDES)}bcm_hal_owm_i.h    	\
+	{$(_INCLUDES)}bcm_hal_adp_i.h    	\
+	{$(_INCLUDES)}bcm_hal_s.h    	\
+	{$(_INCLUDES)}bcm_hal_tim_s.h    	\
+	{$(_INCLUDES)}bcm_hal_temp_s.h    	\
+	{$(_INCLUDES)}bcm_hal_wdr_s.h    	\
+	{$(_INCLUDES)}bcm_hal_onn_s.h    	\
+	{$(_INCLUDES)}bcm_hal_owm_s.h    	\
+	{$(_INCLUDES)}bcl_fwr_i.h    	\
+	{$(_INCLUDES)}bcl_fwr_ctrl_i.h    	\
+	{$(_INCLUDES)}bcl_fwr_s.h    	\
+	{$(_INCLUDES)}bcl_hal_vmt_s.h    	\
+	{$(_INCLUDES)}cfg_55xxsiu.h    	\
+	{$(_INCLUDES)}std_defs.h    	\
+	{$(_INCLUDES)}bcl_hal_s.h    	\
+	{$(_INCLUDES)}bcl_hal_io_s.h    	\
+	{$(_INCLUDES)}bcl_hal_defs_s.h    	\
+	{$(_INCLUDES)}bcl_hal_cpld_s.h    	\
+	{$(_INCLUDES)}bcl_hal_var_s.h    	\
+	{$(_INCLUDES)}bcl_hal_uart_s.h    	\
+	{$(_INCLUDES)}typedefs.h    	\
+	{$(_INCLUDES)}bcl_hal_rtc_s.h    	\
+	{$(_INCLUDES)}bcl_hal_sc_s.h    	\
+	{$(_INCLUDES)}bcl_hal_fc_s.h    	\
+	{$(_INCLUDES)}bcl_hal_init_s.h    	\
+	{$(_INCLUDES)}functabexe.h    	\
+	{$(_INCLUDES)}bcl_hal_adc_s.h    	\
+	{$(_INCLUDES)}bcl_hal_hwsd_s.h    	\
+	{$(_INCLUDES)}bcl_hal_i.h    	\
+	{$(_INCLUDES)}bcl_hal_adc_i.h    	\
+	{$(_INCLUDES)}bcl_hal_cpld_i.h    	\
+	{$(_INCLUDES)}bcl_hal_hwsd_i.h    	\
+	{$(_INCLUDES)}bcl_hal_io_i.h    	\
+	{$(_INCLUDES)}bcl_hal_uart_i.h    	\
+	{$(_INCLUDES)}55xesci.h    	\
+	{$(_INCLUDES)}55xdma.h    	\
+	{$(_INCLUDES)}bcl_hal_var_i.h    	\
+	{$(_INCLUDES)}bcl_hal_vmt_i.h    	\
+	{$(_INCLUDES)}bcl_hal_temp_i.h    	\
+	{$(_INCLUDES)}bcl_hal_bdspec_i.h    	\
+	{$(_INCLUDES)}55xtpu.h    	\
+	{$(_INCLUDES)}55xxsiu.h    	\
+	{$(_INCLUDES)}55xxsiu_error.h    	\
+	{$(_INCLUDES)}55xxerror.h    	\
+	{$(_INCLUDES)}55xcan.h    	\
+	{$(_INCLUDES)}55xdspi.h    	\
+	{$(_INCLUDES)}cfgdspi.h    	\
+	{$(_INCLUDES)}55xxemios.h    	\
+	{$(_INCLUDES)}55xxemios_error.h    	\
+	{$(_INCLUDES)}55xxeqadc.h    	\
+	{$(_INCLUDES)}simcpu.h    	\
+	{$(_INCLUDES)}simcpuwp.h    	\
+	{$(_INCLUDES)}1wire_hws.h    	\
+	{$(_INCLUDES)}maintflagh.h    	\
+	{$(_INCLUDES)}ibcsysdefs.h    	\
+	{$(_INCLUDES)}swd.h    	\
+	{$(_INCLUDES)}ios_hal.h    	\
+	{$(_INCLUDES)}ios_common.h    	\
+	{$(_INCLUDES)}nvm_hal.h    	\
+	{$(_INCLUDES)}nvm_common.h    	\
+	{$(_INCLUDES)}bcm_fwr_adp_bs_i.h    	\
+	{$(_INCLUDES)}bcl_fwr_bdspec.h    	\
+	#---------------
+..\source\cfg_can_hal.c: 				\
+	{$(_INCLUDES)}can_hal_i.h    	\
+	{$(_INCLUDES)}mpc55xxcan_ext.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}55xcan.h    	\
+	{$(_INCLUDES)}std_defs.h    	\
+	{$(_INCLUDES)}can_hal.h    	\
+	{$(_INCLUDES)}can_common.h    	\
+	{$(_INCLUDES)}bcm_hal.h    	\
+	{$(_INCLUDES)}bcm_hal_vers.h    	\
+	{$(_INCLUDES)}bcm_hal_defs.h    	\
+	{$(_INCLUDES)}cbk_def.h    	\
+	{$(_INCLUDES)}kb_ret.h    	\
+	{$(_INCLUDES)}bcm_common.h    	\
+	{$(_INCLUDES)}swident.h    	\
+	{$(_INCLUDES)}bcm_hal_temp.h    	\
+	{$(_INCLUDES)}bcm_hal_wd.h    	\
+	{$(_INCLUDES)}bcm_hal_wdr.h    	\
+	{$(_INCLUDES)}bcm_hal_led.h    	\
+	{$(_INCLUDES)}bcm_hal_pwr.h    	\
+	{$(_INCLUDES)}bcm_hal_tim.h    	\
+	{$(_INCLUDES)}bcm_hal_onn.h    	\
+	{$(_INCLUDES)}bcm_hal_id.h    	\
+	{$(_INCLUDES)}bcm_hal_owm.h    	\
+	#---------------
+..\source\cfg_ccc_ram.c: 				\
+	{$(_INCLUDES)}ccchws.h    	\
+	{$(_INCLUDES)}std_defs.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	#---------------
+..\source\cfg_nvm_hal_poff.c: 				\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}nvm_hal_i.h    	\
+	{$(_INCLUDES)}nvm_common.h    	\
+	{$(_INCLUDES)}cfg_nvm_hal_poff_i.h    	\
+	#---------------
+..\source\cfg_swd_cmd_handlr.c: 				\
+	{$(_INCLUDES)}swd_cmd_handlr_i.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}swd_comm_i.h    	\
+	{$(_INCLUDES)}kb_ret.h    	\
+	{$(_INCLUDES)}sse_crc.h    	\
+	{$(_INCLUDES)}can_hal.h    	\
+	{$(_INCLUDES)}can_common.h    	\
+	#---------------
+..\source\cfg1wire_hw.c: 				\
+	{$(_INCLUDES)}cfg1wire_hw.h    	\
+	{$(_INCLUDES)}1wire_hws.h    	\
+	{$(_INCLUDES)}1wire_hwi.h    	\
+	{$(_INCLUDES)}std_defs.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	#---------------
+..\source\cfgcan.c: 				\
+	{$(_INCLUDES)}55xxsiu.h    	\
+	{$(_INCLUDES)}std_defs.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}55xxsiu_error.h    	\
+	{$(_INCLUDES)}55xxerror.h    	\
+	{$(_INCLUDES)}55xcan.h    	\
+	{$(_INCLUDES)}can_common.h    	\
+	#---------------
+..\source\cfgeqadc.c: 				\
+	{$(_INCLUDES)}mpc5554.h    	\
+	{$(_INCLUDES)}typedefs.h    	\
+	{$(_INCLUDES)}55xxeqadc.h    	\
+	{$(_INCLUDES)}std_defs.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}cfgeqadc.h    	\
+	{$(_INCLUDES)}55xdma.h    	\
+	#---------------
+..\source\cfgsimcp.c: 				\
+	{$(_INCLUDES)}std_defs.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}55xdma.h    	\
+	{$(_INCLUDES)}55xdspi.h    	\
+	{$(_INCLUDES)}cfgdspi.h    	\
+	{$(_INCLUDES)}typedefs.h    	\
+	{$(_INCLUDES)}cfgsimcp.h    	\
+	{$(_INCLUDES)}simcpu.h    	\
+	{$(_INCLUDES)}simcpuwp.h    	\
+	#---------------
+..\source\cfgtpu.c: 				\
+	{$(_INCLUDES)}std_defs.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}55xtpu.h    	\
+	{$(_INCLUDES)}typedefs.h    	\
+	{$(_INCLUDES)}55xxsiu.h    	\
+	{$(_INCLUDES)}55xxsiu_error.h    	\
+	{$(_INCLUDES)}55xxerror.h    	\
+	{$(_INCLUDES)}cfgtpu_cpu04.h    	\
+	#---------------
+..\source\identexefwr.c: 				\
+	{$(_INCLUDES)}identexefwr.h    	\
+	{$(_INCLUDES)}swident.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}cfg_ccc_rom_segtabfwr.h    	\
+	{$(_INCLUDES)}ccc_rom.h    	\
+	#---------------
+..\source\nvm_hal_adp.c: 				\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}kb_ret.h    	\
+	{$(_INCLUDES)}nvm_common.h    	\
+	{$(_INCLUDES)}nvm_hal.h    	\
+	{$(_INCLUDES)}nvm_hal_adp_i.h    	\
+	{$(_INCLUDES)}nvm_hal_bs_i.h    	\
+	{$(_INCLUDES)}55xflsh.h    	\
+	{$(_INCLUDES)}std_defs.h    	\
+	{$(_INCLUDES)}typedefs.h    	\
+	{$(_INCLUDES)}mpc5554.h    	\
+	{$(_INCLUDES)}nvm_hal_s.h    	\
+	{$(_INCLUDES)}flsh_hal.h    	\
+	{$(_INCLUDES)}bcm_fwr_rst_s.h    	\
+	{$(_INCLUDES)}bcm_fwr_defs.h    	\
+	{$(_INCLUDES)}cbk_def.h    	\
+	{$(_INCLUDES)}bcm_common.h    	\
+	{$(_INCLUDES)}swident.h    	\
+	{$(_INCLUDES)}nvm_hal_i.h    	\
+	{$(_INCLUDES)}cfg_nvm_hal_poff_i.h    	\
+	{$(_INCLUDES)}fram_hal.h    	\
+	{$(_INCLUDES)}bcl_mcal_s.h    	\
+	#---------------
+
+..\source\bcl_hal_onn.c: 				\
+	{$(_INCLUDES)}std_defs.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}bcl_hal_i.h    	\
+	{$(_INCLUDES)}bcl_hal_adc_i.h    	\
+	{$(_INCLUDES)}bcl_hal_adc_s.h    	\
+	{$(_INCLUDES)}bcl_hal_defs_s.h    	\
+	{$(_INCLUDES)}bcl_hal_cpld_i.h    	\
+	{$(_INCLUDES)}bcl_hal_hwsd_i.h    	\
+	{$(_INCLUDES)}typedefs.h    	\
+	{$(_INCLUDES)}bcl_hal_hwsd_s.h    	\
+	{$(_INCLUDES)}bcl_hal_io_i.h    	\
+	{$(_INCLUDES)}bcm_hal_io_s.h    	\
+	{$(_INCLUDES)}bcm_hal_defs.h    	\
+	{$(_INCLUDES)}cbk_def.h    	\
+	{$(_INCLUDES)}kb_ret.h    	\
+	{$(_INCLUDES)}bcm_common.h    	\
+	{$(_INCLUDES)}swident.h    	\
+	{$(_INCLUDES)}bcl_hal_uart_i.h    	\
+	{$(_INCLUDES)}55xesci.h    	\
+	{$(_INCLUDES)}55xdma.h    	\
+	{$(_INCLUDES)}bcl_hal_var_i.h    	\
+	{$(_INCLUDES)}bcl_hal_vmt_i.h    	\
+	{$(_INCLUDES)}bcl_hal_vmt_s.h    	\
+	{$(_INCLUDES)}bcl_hal_temp_i.h    	\
+	{$(_INCLUDES)}bcl_hal_s.h    	\
+	{$(_INCLUDES)}bcl_hal_io_s.h    	\
+	{$(_INCLUDES)}bcl_hal_cpld_s.h    	\
+	{$(_INCLUDES)}bcl_hal_var_s.h    	\
+	{$(_INCLUDES)}bcl_hal_uart_s.h    	\
+	{$(_INCLUDES)}bcl_hal_rtc_s.h    	\
+	{$(_INCLUDES)}bcl_hal_sc_s.h    	\
+	{$(_INCLUDES)}bcl_hal_fc_s.h    	\
+	{$(_INCLUDES)}bcl_hal_init_s.h    	\
+	{$(_INCLUDES)}functabexe.h    	\
+	{$(_INCLUDES)}bcm_fwr.h    	\
+	{$(_INCLUDES)}bcm_fwr_swinf.h    	\
+	{$(_INCLUDES)}bcm_fwr_defs.h    	\
+	{$(_INCLUDES)}bcm_fwr_hwinf.h    	\
+	{$(_INCLUDES)}bcm_fwr_rsm.h    	\
+	{$(_INCLUDES)}bcm_fwr_intf.h    	\
+	{$(_INCLUDES)}bcm_fwr_cfgbcmhal.h    	\
+	{$(_INCLUDES)}bcm_fwr_comp.h    	\
+	{$(_INCLUDES)}bcm_fwr_inv.h    	\
+	{$(_INCLUDES)}bcl_mcal_s.h    	\
+	{$(_INCLUDES)}bcm_hal_tim.h    	\
+	{$(_INCLUDES)}devicetime.h    	\
+	{$(_INCLUDES)}nwmdrc.h    	\
+	{$(_INCLUDES)}impl/ibcnwmdefs.h    	\
+	{$(_INCLUDES)}bcl_hal_onn.h    	\
+	{$(_INCLUDES)}ibcsysdefs.h    	\
+	{$(_INCLUDES)}ibcinvdata.h    	\
+	{$(_INCLUDES)}bcm_hal.h    	\
+	{$(_INCLUDES)}bcm_hal_vers.h    	\
+	{$(_INCLUDES)}bcm_hal_temp.h    	\
+	{$(_INCLUDES)}bcm_hal_wd.h    	\
+	{$(_INCLUDES)}bcm_hal_wdr.h    	\
+	{$(_INCLUDES)}bcm_hal_led.h    	\
+	{$(_INCLUDES)}bcm_hal_pwr.h    	\
+	{$(_INCLUDES)}bcm_hal_onn.h    	\
+	{$(_INCLUDES)}bcm_hal_id.h    	\
+	{$(_INCLUDES)}bcm_hal_owm.h    	\
+	#---------------
+..\source\bcm_hal_adp_bs.c: 				\
+	{$(_INCLUDES)}bcl_hal_adc_s.h    	\
+	{$(_INCLUDES)}bcl_hal_defs_s.h    	\
+	{$(_INCLUDES)}std_defs.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}simcpuwp.h    	\
+	{$(_INCLUDES)}bcl_hal_temp_i.h    	\
+	{$(_INCLUDES)}simcpu.h    	\
+	{$(_INCLUDES)}1wire_hws.h    	\
+	{$(_INCLUDES)}ds28e01_hws.h    	\
+	{$(_INCLUDES)}sse_crc.h    	\
+	{$(_INCLUDES)}bcl_hal_io_i.h    	\
+	{$(_INCLUDES)}bcm_hal_io_s.h    	\
+	{$(_INCLUDES)}bcm_hal_defs.h    	\
+	{$(_INCLUDES)}cbk_def.h    	\
+	{$(_INCLUDES)}kb_ret.h    	\
+	{$(_INCLUDES)}bcm_common.h    	\
+	{$(_INCLUDES)}swident.h    	\
+	{$(_INCLUDES)}bcl_hal_io_s.h    	\
+	{$(_INCLUDES)}bcl_hal_onn.h    	\
+	{$(_INCLUDES)}bcl_mcal_s.h    	\
+	{$(_INCLUDES)}55xxsiu_gpio.h    	\
+	{$(_INCLUDES)}55xxerror.h    	\
+	{$(_INCLUDES)}mpc5554.h    	\
+	{$(_INCLUDES)}typedefs.h    	\
+	{$(_INCLUDES)}bcm_hal_onn.h    	\
+	{$(_INCLUDES)}ibcsysdefs.h    	\
+	{$(_INCLUDES)}bcm_hal_adp_i.h    	\
+	{$(_INCLUDES)}bcm_hal_io_i.h    	\
+	#---------------
+..\source\cfg_bcl_mcal.c: 				\
+	{$(_INCLUDES)}bcl_mcal_s.h    	\
+	{$(_INCLUDES)}std_defs.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}fmpll.h    	\
+	#---------------
+..\source\cfg_nvm_hal.c: 				\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}bcm_hal_onn.h    	\
+	{$(_INCLUDES)}bcm_hal_defs.h    	\
+	{$(_INCLUDES)}cbk_def.h    	\
+	{$(_INCLUDES)}kb_ret.h    	\
+	{$(_INCLUDES)}bcm_common.h    	\
+	{$(_INCLUDES)}swident.h    	\
+	{$(_INCLUDES)}bcm_hal_onn_s.h    	\
+	{$(_INCLUDES)}bcm_fwr_cfgbcmhal_s.h    	\
+	{$(_INCLUDES)}bcm_fwr.h    	\
+	{$(_INCLUDES)}bcm_fwr_swinf.h    	\
+	{$(_INCLUDES)}bcm_fwr_defs.h    	\
+	{$(_INCLUDES)}bcm_fwr_hwinf.h    	\
+	{$(_INCLUDES)}bcm_fwr_rsm.h    	\
+	{$(_INCLUDES)}bcm_fwr_intf.h    	\
+	{$(_INCLUDES)}bcm_fwr_cfgbcmhal.h    	\
+	{$(_INCLUDES)}bcm_fwr_comp.h    	\
+	{$(_INCLUDES)}bcm_fwr_inv.h    	\
+	{$(_INCLUDES)}bcm_fwr_log_s.h    	\
+	{$(_INCLUDES)}bcm_fwr_defs_i.h    	\
+	{$(_INCLUDES)}maintflagh_i.h    	\
+	{$(_INCLUDES)}nvm_hal_i.h    	\
+	{$(_INCLUDES)}nvm_hal.h    	\
+	{$(_INCLUDES)}nvm_hal_bs_i.h    	\
+	{$(_INCLUDES)}55xflsh.h    	\
+	{$(_INCLUDES)}std_defs.h    	\
+	{$(_INCLUDES)}typedefs.h    	\
+	{$(_INCLUDES)}mpc5554.h    	\
+	{$(_INCLUDES)}nvm_common.h    	\
+	{$(_INCLUDES)}cfg_nvm_hal_poff_i.h    	\
+	#---------------
+..\source\cfgds2431.c: 				\
+	{$(_INCLUDES)}ds2431_hws.h    	\
+	{$(_INCLUDES)}1wire_hws.h    	\
+	{$(_INCLUDES)}ds2431_hwi.h    	\
+	#---------------
+..\source\cfgds28e01.c: 				\
+	{$(_INCLUDES)}ds28e01_hws.h    	\
+	{$(_INCLUDES)}1wire_hws.h    	\
+	{$(_INCLUDES)}ds28e01_hwi.h    	\
+	{$(_INCLUDES)}ds28e01_sha1_i.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	#---------------
+..\source\cfgebi.c: 				\
+	{$(_INCLUDES)}55xxebi_i.h    	\
+	{$(_INCLUDES)}std_defs.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}mpc5554.h    	\
+	{$(_INCLUDES)}typedefs.h    	\
+	#---------------
+..\source\cfgesci.c: 				\
+	{$(_INCLUDES)}std_defs.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}mpc5554.h    	\
+	{$(_INCLUDES)}typedefs.h    	\
+	{$(_INCLUDES)}55xdma.h    	\
+	{$(_INCLUDES)}cfgesci.h    	\
+	{$(_INCLUDES)}55xesci.h    	\
+	{$(_INCLUDES)}cfgesci_def.h    	\
+	{$(_INCLUDES)}functabexe.h    	\
+	{$(_INCLUDES)}bcm_fwr.h    	\
+	{$(_INCLUDES)}bcm_fwr_swinf.h    	\
+	{$(_INCLUDES)}bcm_fwr_defs.h    	\
+	{$(_INCLUDES)}cbk_def.h    	\
+	{$(_INCLUDES)}kb_ret.h    	\
+	{$(_INCLUDES)}bcm_common.h    	\
+	{$(_INCLUDES)}swident.h    	\
+	{$(_INCLUDES)}bcm_fwr_hwinf.h    	\
+	{$(_INCLUDES)}bcm_fwr_rsm.h    	\
+	{$(_INCLUDES)}bcm_fwr_intf.h    	\
+	{$(_INCLUDES)}bcm_fwr_cfgbcmhal.h    	\
+	{$(_INCLUDES)}bcm_fwr_comp.h    	\
+	{$(_INCLUDES)}bcm_fwr_inv.h    	\
+	{$(_INCLUDES)}bcl_hal_s.h    	\
+	{$(_INCLUDES)}bcl_hal_io_s.h    	\
+	{$(_INCLUDES)}bcl_hal_defs_s.h    	\
+	{$(_INCLUDES)}bcl_hal_cpld_s.h    	\
+	{$(_INCLUDES)}bcl_hal_var_s.h    	\
+	{$(_INCLUDES)}bcl_hal_uart_s.h    	\
+	{$(_INCLUDES)}bcl_hal_rtc_s.h    	\
+	{$(_INCLUDES)}bcl_hal_sc_s.h    	\
+	{$(_INCLUDES)}bcl_hal_fc_s.h    	\
+	{$(_INCLUDES)}bcl_hal_init_s.h    	\
+	{$(_INCLUDES)}bcl_hal_adc_s.h    	\
+	{$(_INCLUDES)}bcl_hal_hwsd_s.h    	\
+	{$(_INCLUDES)}bcl_hal_vmt_s.h    	\
+	#---------------
+..\source\cfgflsh.c: 				\
+	{$(_INCLUDES)}55xflsh_i.h    	\
+	{$(_INCLUDES)}std_defs.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}mpc5554.h    	\
+	{$(_INCLUDES)}typedefs.h    	\
+	#---------------
+..\source\cfgxbar.c: 				\
+	{$(_INCLUDES)}55xxxbar_i.h    	\
+	{$(_INCLUDES)}std_defs.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}mpc5554.h    	\
+	{$(_INCLUDES)}typedefs.h    	\
+	#---------------
+..\source\cfg_ccc_rom_segtabfwr.c: 				\
+	{$(_INCLUDES)}cfg_ccc_rom_segtabfwr.h    	\
+	{$(_INCLUDES)}ccc_rom.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	#---------------
+..\source\cfg_swd.c: 				\
+	{$(_INCLUDES)}swd_comm_i.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	{$(_INCLUDES)}kb_ret.h    	\
+	{$(_INCLUDES)}sse_crc.h    	\
+	{$(_INCLUDES)}can_hal.h    	\
+	{$(_INCLUDES)}can_common.h    	\
+	{$(_INCLUDES)}swd_i.h    	\
+	{$(_INCLUDES)}swd_prog_i.h    	\
+	{$(_INCLUDES)}flsh_hal.h    	\
+	{$(_INCLUDES)}swd.h    	\
+	#---------------
+..\source\cfgpbridge.c: 				\
+	{$(_INCLUDES)}55xxpbridge_i.h    	\
+	{$(_INCLUDES)}std_defs.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	#---------------
+..\source\cfg_ccc_rom.c: 				\
+	{$(_INCLUDES)}ccc_rom_i.h    	\
+	{$(_INCLUDES)}ccc_rom.h    	\
+	{$(_INCLUDES)}kb_types.h    	\
+	#---------------

@@ -1,0 +1,58 @@
+#-------------- MAK-Projectrules CPU04_MWL.jrl -------------------------------------
+
+
+#-------------- Projectrules generating MAK-File ------------------------------
+{$(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\}.cpp.o:
+	@$(RGREP) $(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\$(@B).cpp $(@B).TP2
+
+{$(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\}.c.o:
+	@$(RGREP) $(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\$(@B).c $(@B).TP2
+
+{$(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\}.c.obj:
+	@$(RGREP) $(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\$(@B).c $(@B).TP2
+
+{$(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\}.c.obb:
+	@$(RGREP) $(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\$(@B).c $(@B).TP2
+
+{$(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\}.pas.obj:
+	@$(RGREP) $(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\$(@B).pas $(@B).TP2
+
+{$(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\}.asm.obj:
+	@$(RGREP) $(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\$(@B).asm $(@B).TP2
+
+{$(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\}.drv.obj:
+	@$(RGREP) $(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\$(@B).drv $(@B).TP2
+
+{$(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\}.s.o:
+	@$(RGREP) $(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\$(@B).s $(@B).TP2
+
+{$(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\}.asm.o:
+	@$(RGREP) $(CPU_EXE)\FWR_ESRAEVOL.INT\SOURCE\$(@B).asm $(@B).TP2
+
+#-------------- Projectrules generating MAK-File ------------------------------
+{..\SOURCE\}.cpp.o:
+	@$(RGREP) ..\SOURCE\$(@B).cpp $(@B).TP2
+
+{..\SOURCE\}.c.o:
+	@$(RGREP) ..\SOURCE\$(@B).c $(@B).TP2
+
+{..\SOURCE\}.c.obj:
+	@$(RGREP) ..\SOURCE\$(@B).c $(@B).TP2
+
+{..\SOURCE\}.c.obb:
+	@$(RGREP) ..\SOURCE\$(@B).c $(@B).TP2
+
+{..\SOURCE\}.pas.obj:
+	@$(RGREP) ..\SOURCE\$(@B).pas $(@B).TP2
+
+{..\SOURCE\}.asm.obj:
+	@$(RGREP) ..\SOURCE\$(@B).asm $(@B).TP2
+
+{..\SOURCE\}.drv.obj:
+	@$(RGREP) ..\SOURCE\$(@B).drv $(@B).TP2
+
+{..\SOURCE\}.s.o:
+	@$(RGREP) ..\SOURCE\$(@B).s $(@B).TP2
+
+{..\SOURCE\}.asm.o:
+	@$(RGREP) ..\SOURCE\$(@B).asm $(@B).TP2

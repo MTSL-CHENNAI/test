@@ -1,0 +1,30 @@
+#-------------- MAK-Projectrules LAD_CPU04_ECAL.jrl -------------------------------------
+
+
+#-------------- Projectrules generating MAK-File ------------------------------
+{..\SOURCE\}.cpp.o:
+	@$(RGREP) ..\SOURCE\$(@B).cpp $(@B).TP2
+
+{..\SOURCE\}.c.o:
+	@$(RGREP) ..\SOURCE\$(@B).c $(@B).TP2
+
+{..\SOURCE\}.c.obj:
+	@$(RGREP) ..\SOURCE\$(@B).c $(@B).TP2
+
+{..\SOURCE\}.c.obb:
+	@$(RGREP) ..\SOURCE\$(@B).c $(@B).TP2
+
+{..\SOURCE\}.pas.obj:
+	@$(RGREP) ..\SOURCE\$(@B).pas $(@B).TP2
+
+{..\SOURCE\}.asm.obj:
+	@$(RGREP) ..\SOURCE\$(@B).asm $(@B).TP2
+
+{..\SOURCE\}.drv.obj:
+	@$(RGREP) ..\SOURCE\$(@B).drv $(@B).TP2
+
+{..\SOURCE\}.s.o:
+	@$(RGREP) ..\SOURCE\$(@B).s $(@B).TP2
+
+{..\SOURCE\}.asm.o:
+	@$(RGREP) ..\SOURCE\$(@B).asm $(@B).TP2

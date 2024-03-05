@@ -1,0 +1,135 @@
+########################################################################################################################
+#
+#                                 target
+#
+########################################################################################################################
+#
+#                 Copyright (C) 2010 - 2015 by KNORR-BREMSE,
+#               Systeme fuer Schienenfahrzeuge GmbH, Muenchen
+#
+# Project: CBK
+# Date:    2021-09-20
+# Author:  N.Jadhav
+#
+########################################################################################################################
+#
+# LAD CPU04 specific Hardware Abstraction Layer
+#
+########################################################################################################################
+#
+# History:
+# Date        Author           Changes
+# 2019-03-29  A. Mauro         Initial Version
+# 2019-05-08  K. Gade          Added NVM related object file paths, mwl related include path.
+# 2019-05-30  A. Mauro         Added: cfg_bcl_mcal.o
+# 2019-07-05  R. Dongre        removed MPC/hal includes, added LINT configurations
+# 2019-07-12  V. Ingulkar      Inclusion of BSW3G ECAL(ecal01) lib, updated inlcude paths as per renamed folder
+# 2019-09-13  R. Dongre        Adapted path for GenCA_FWK
+# 2020-01-30  A. Mauro         Added -D__MM_PROCESSOR=kb_PPC for LINT check
+# 2020-04-01  A. Mauro         Removed ios_hal.o
+# 2021-01-12  A.Gatare         Added files cfg_swd_cmd_handlr.o,cfg_swd.o, cfg_cc_rom.o.Removed files cfg_bcm_fwr_swd.o,
+#                              cfg_bcm_fwr_tch.o,cfg_ccc_rom_romtabfwr.o.For adaption to GenCA 6.11.
+# 2021-02-25  S.Khadbade       Path for mcal02.int is added as 55xxcan_ext.h is added in mcal02.int folder
+# 2021-09-20  N.Jadhav         Adaptations for GenCA V07.00 porting, updated CA paths.
+# 2021-30-09  S. Belsare       Updated path for IBC FWK
+# 2022-03-24  S. Belsare       Updated FWK path
+# 2022-11-30  J. Lulli         Remove duplicate cfg_nvm_hal_poff in OBJS
+# 2023-10-10  C. Brancolini    Updated for Lint Plus 2.0
+########################################################################################################################
+
+PROZESSOR   = PPC
+
+TYP         = LIB_TYP
+
+NAME        = lad_cpu04_ecal
+
+COMPILER    = 5.9.3.0
+
+FORMAT      = ELF
+
+MACRO_C     = -DTEST_BOARD=1 -DHAVE_LED=1 -DSC_CDEBUG=1 -D__MM_PROCESSOR=kb_PPC
+
+STACKTEST   = ON
+XLINT       = 1
+
+LINTVERSION = Plus2.0
+GLOBAL_LINTRULE_ROOT = \\mucs0002\Bahn1\Esra_PD\System\SW\Tools\lint\config-new\lint_optg
+LINTRULE = \\mucs0002\Bahn1\Esra_PD\System\SW\Tools\lint\config-new\lint_opt\mpc55xx\lint_opt_mpc55xx\std_pclp.lnt
+
+# use local includes for development
+GENRL_COMM   = ..\..\..\..\GenMPC55xx\GenMPC55xxCCA\Genrl\common.int
+CA_COMM      = ..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\common.int
+CA_HAL       = ..\..\..\..\GenMPC55xx\GenMPC55xxCCA\GenCA\hal
+CA_FWK_HAL   = ..\..\..\..\GenMPC55xx\GenCA_FWK\code\hal
+
+MPC_COMM     = ..\..\..\..\GenMPC55xx\common.int
+MPC_CCA_COMM = ..\..\..\..\GenMPC55xx\GenMPC55xxCCA\common.int
+MPC_CCA_HAL  = ..\..\..\..\GenMPC55xx\GenMPC55xxCCA\hal
+MPC_CCA_SVL  = ..\..\..\..\GenMPC55xx\GenMPC55xxCCA\svl4g
+
+MPC_CPU04_HAL = ..\..\..\hal
+FWK          = ..\..\..\..\FWK
+COFWK       = ..\..\..\..\CoFwk
+
+
+CPU_EXE_HAL = ..\..\..\..\eLAD0x\hal
+CPU_EXE_MWL = ..\..\..\..\eLAD0x\mwl
+CPU04_MWL = ..\..\..\..\LAD_CPU04\mwl
+
+INCLUDES    = ..\include;                                    \
+              $(MPC_CPU04_HAL)\ecal01.int\include;           \
+#------------ define common includes                         \
+              $(MPC_CCA_COMM)\include;                       \
+              $(CA_COMM)\include;                            \
+              $(CA_HAL)\ecal01\include;                      \
+              $(CA_HAL)\ecal01.int\include;                  \
+              $(MPC_COMM)\include;                           \
+              $(GENRL_COMM)\include;                         \
+#------------ define firmware includes                       \
+              $(MPC_CCA_HAL)\mcal01\include;                 \
+              $(MPC_CCA_HAL)\mcal01.int\include;             \
+              $(MPC_CCA_HAL)\mcal02.int\include;             \
+              $(MPC_CCA_HAL)\mcal01.int\include\mpc5500;     \
+              $(CA_FWK_HAL)\ecal01\include;                  \
+              $(CA_FWK_HAL)\ecal01.int\include;              \
+              $(MPC_CCA_HAL)\ecal02\include;                 \
+              $(MPC_CCA_HAL)\ecal02.int\include;             \
+              $(MPC_CCA_HAL)\ecal01\include;                 \
+              $(MPC_CCA_HAL)\ecal01.int\include;             \
+              $(CPU_EXE_HAL)\ecal01.int\include;             \
+              $(CPU_EXE_MWL)\mwl01.int\include;              \
+              $(CPU04_MWL)\mwl01.int\include;                \
+#------------ define Exp01 specific includes                 \
+              $(FWK)\deployment\lad;                      \
+              $(COFWK)\Deployment;                          \
+
+OBJS= \
+              @bcl_hal_onn.o                                 \
+              @bcm_fwr_adp_bs.o                              \
+              @bcm_hal_adp_bs.o                              \
+              @cfg_bcl_mcal.o                                \
+              @cfg_bcm_fwr.o                                 \
+              @cfg_can_hal.o                                 \
+              @cfg_ccc_ram.o                                 \
+              @cfg_ccc_rom_segtabfwr.o                       \
+              @cfg_ccc_rom.o                                 \
+              @cfg_nvm_hal_poff.o                            \
+              @cfg_nvm_hal.o                                 \
+              @cfg_swd_cmd_handlr.o                          \
+              @cfg_swd.o                                     \
+              @cfg1wire_hw.o                                 \
+              @cfgcan.o                                      \
+              @cfgds2431.o                                   \
+              @cfgds28e01.o                                  \
+              @cfgebi.o                                      \
+              @cfgeqadc.o                                    \
+              @cfgesci.o                                     \
+              @cfgflsh.o                                     \
+              @cfgpbridge.o                                  \
+              @cfgsimcp.o                                    \
+              @cfgtpu.o                                      \
+              @cfgxbar.o                                     \
+              @identexefwr.o                                 \
+              @nvm_hal_adp.o
+
+## End #################################################################################################################
